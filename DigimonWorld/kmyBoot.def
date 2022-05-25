@@ -1,0 +1,4 @@
+vramsize	256
+mramsize	64
+cmdsize	40960
+vtxbufsize	32

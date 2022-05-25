@@ -1,0 +1,627 @@
+name bg
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 3.000000
+emitterSize 0.100000 0.000000 0.100000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 2.000000
+particleLifeRandom 1.500000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 2
+randomColor0 1.000000 1.000000 1.000000 1.000000
+randomColor1 1.000000 0.951702 0.677165 1.000000
+randomColor2 0.000000 0.000000 1.000000 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.500000
+maxSize 1.000000
+startAlpha 0.000000
+middleAlpha 0.000000
+endAlpha 0.000000
+startAlphaTime 0.100000
+endAlphaTime 0.300000
+startBrightness 0.000000
+middleBrightness 0.100000
+endBrightness 0.000000
+startBrightnessTime 0.100000
+endBrightnessTime 0.500000
+startScale 0.300000 0.300000 0.300000
+middleScale 0.600000 0.600000 0.600000
+endScale 0.900000 0.900000 0.900000
+startScaleTime 0.500000
+endScaleTime 0.500000
+angle 90.000000 360.000000 0.000000
+angleRandRange 0.000000 360.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 1.000000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.200000
+emitParam 30.000000
+texPatternH 2
+texPatternV 2
+texPatternStart 2
+texPatternEnd 2
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.050000 0.000000
+texture ef008_LightSpot01
+end
+name bg
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 2.000000
+emitterSize 0.100000 0.000000 0.100000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 1.000000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 3
+randomColor0 1.000000 1.000000 1.000000 1.000000
+randomColor1 1.000000 0.844938 0.677165 1.000000
+randomColor2 0.818898 0.893050 1.000000 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.300000
+maxSize 0.500000
+startAlpha 0.000000
+middleAlpha 0.500000
+endAlpha 0.000000
+startAlphaTime 0.100000
+endAlphaTime 0.300000
+startBrightness 0.000000
+middleBrightness 1.000000
+endBrightness 0.000000
+startBrightnessTime 0.500000
+endBrightnessTime 0.500000
+startScale 0.300000 0.300000 0.300000
+middleScale 0.600000 0.600000 0.600000
+endScale 0.900000 0.900000 0.900000
+startScaleTime 0.500000
+endScaleTime 0.500000
+angle 90.000000 360.000000 0.000000
+angleRandRange 0.000000 360.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 1.000000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.200000
+emitParam 30.000000
+texPatternH 2
+texPatternV 2
+texPatternStart 3
+texPatternEnd 3
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.050000 0.000000
+texture ef008_LightSpot01
+end
+name up
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 1.000000
+emitterSize 0.100000 0.000000 0.100000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard true
+mirrorType none
+followType unfollow
+particleLifeTime 2.000000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.500000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 1
+randomColor0 1.000000 0.899746 0.740157 1.000000
+randomColor1 0.661417 0.784054 1.000000 1.000000
+randomColor2 0.622047 0.333065 0.333082 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.300000
+maxSize 0.300000
+startAlpha 0.000000
+middleAlpha 0.000000
+endAlpha 0.000000
+startAlphaTime 0.100000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 0.500000
+endBrightness 0.000000
+startBrightnessTime 0.200000
+endBrightnessTime 0.200000
+startScale 0.500000 0.500000 0.500000
+middleScale 1.000000 1.000000 1.000000
+endScale 0.000000 0.000000 0.000000
+startScaleTime 0.300000
+endScaleTime 0.300000
+angle 0.000000 0.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 3.000000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 1.000000
+emitParam 30.000000
+texPatternH 2
+texPatternV 2
+texPatternStart 3
+texPatternEnd 3
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.300000 0.000000
+texture ef008_LightSpot01
+end
+name vartical
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 5.000000
+emitterSize 0.100000 0.000000 0.100000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard true
+mirrorType none
+followType unfollow
+particleLifeTime 1.000000
+particleLifeRandom 1.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 2
+randomColor0 1.000000 0.899746 0.740157 1.000000
+randomColor1 0.661417 0.784054 1.000000 1.000000
+randomColor2 0.622047 0.333065 0.333082 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.500000
+maxSize 1.500000
+startAlpha 0.000000
+middleAlpha 0.000000
+endAlpha 0.000000
+startAlphaTime 0.100000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 0.300000
+endBrightness 0.000000
+startBrightnessTime 0.100000
+endBrightnessTime 0.900000
+startScale 1.000000 0.000000 1.000000
+middleScale 0.200000 1.000000 0.100000
+endScale 0.000000 0.000000 0.000000
+startScaleTime 0.500000
+endScaleTime 0.500000
+angle 0.000000 0.000000 90.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 3.000000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 1.000000
+emitParam 30.000000
+texPatternH 2
+texPatternV 2
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.500000 0.000000
+texture ef008_LightSpot01
+end
+name main
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 10.000000
+emitterSize 0.100000 0.000000 0.100000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 1.200000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 2
+randomColor0 1.000000 0.614175 0.000000 1.000000
+randomColor1 0.661417 0.784054 1.000000 1.000000
+randomColor2 0.622047 0.333065 0.333082 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 1.500000
+maxSize 2.000000
+startAlpha 0.000000
+middleAlpha 0.300000
+endAlpha 0.000000
+startAlphaTime 0.100000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 1.000000
+endBrightness 0.000000
+startBrightnessTime 0.500000
+endBrightnessTime 0.500000
+startScale 0.000000 0.000000 0.000000
+middleScale 0.500000 0.500000 1.000000
+endScale 0.000000 0.000000 0.000000
+startScaleTime 0.500000
+endScaleTime 0.500000
+angle 0.000000 90.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 3.000000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 1.000000
+emitParam 30.000000
+texPatternH 2
+texPatternV 2
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.500000 0.000000
+texture ef008_LightSpot01
+end
+name main2
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 10.000000
+emitterSize 0.100000 0.000000 0.100000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 1.200000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 2
+randomColor0 1.000000 0.614175 0.000000 1.000000
+randomColor1 0.661417 0.784054 1.000000 1.000000
+randomColor2 0.622047 0.333065 0.333082 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 1.500000
+maxSize 2.000000
+startAlpha 0.000000
+middleAlpha 0.300000
+endAlpha 0.000000
+startAlphaTime 0.100000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 1.000000
+endBrightness 0.000000
+startBrightnessTime 0.500000
+endBrightnessTime 0.500000
+startScale 0.000000 0.000000 0.000000
+middleScale 0.500000 0.500000 1.000000
+endScale 0.000000 0.000000 0.000000
+startScaleTime 0.500000
+endScaleTime 0.500000
+angle 0.000000 0.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 3.000000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 1.000000
+emitParam 30.000000
+texPatternH 2
+texPatternV 2
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.500000 0.000000
+texture ef008_LightSpot01
+end
+name sub
+generate true
+emitterType sphere
+emitterLifeTime 0.000000
+emitterAmount 15.000000
+emitterSize 0.500000 0.000000 0.500000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 1.000000
+particleLifeRandom 1.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 1.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 2
+randomColor0 1.000000 0.899746 0.740157 1.000000
+randomColor1 0.661417 0.784054 1.000000 1.000000
+randomColor2 0.622047 0.333065 0.333082 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.100000
+maxSize 0.200000
+startAlpha 0.000000
+middleAlpha 0.000000
+endAlpha 0.000000
+startAlphaTime 0.100000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 1.000000
+endBrightness 0.000000
+startBrightnessTime 0.100000
+endBrightnessTime 0.100000
+startScale 0.000000 0.000000 0.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 0.000000 0.000000 0.000000
+startScaleTime 0.200000
+endScaleTime 0.200000
+angle 0.000000 0.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 1.000000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.200000
+emitParam 30.000000
+texPatternH 2
+texPatternV 2
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.100000 0.000000
+texture ef008_LightSpot01
+end
+name sub
+generate true
+emitterType sphere
+emitterLifeTime 0.000000
+emitterAmount 15.000000
+emitterSize 0.500000 0.000000 0.500000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 1.000000
+particleLifeRandom 1.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 1.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 2
+randomColor0 1.000000 0.899746 0.740157 1.000000
+randomColor1 0.661417 0.784054 1.000000 1.000000
+randomColor2 0.622047 0.333065 0.333082 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.100000
+maxSize 0.200000
+startAlpha 0.000000
+middleAlpha 0.000000
+endAlpha 0.000000
+startAlphaTime 0.100000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 1.000000
+endBrightness 0.000000
+startBrightnessTime 0.100000
+endBrightnessTime 0.100000
+startScale 0.000000 0.000000 0.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 0.000000 0.000000 0.000000
+startScaleTime 0.200000
+endScaleTime 0.200000
+angle 0.000000 90.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 1.000000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.200000
+emitParam 30.000000
+texPatternH 2
+texPatternV 2
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.100000 0.000000
+texture ef008_LightSpot01
+end
+name sphere2
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 10.000000
+emitterSize 1.000000 0.000000 0.100000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard true
+mirrorType none
+followType unfollow
+particleLifeTime 3.000000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 2
+randomColor0 1.000000 0.614175 0.000000 1.000000
+randomColor1 0.661417 0.784054 1.000000 1.000000
+randomColor2 0.622047 0.333065 0.333082 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 1.000000
+maxSize 1.500000
+startAlpha 0.000000
+middleAlpha 0.000000
+endAlpha 0.000000
+startAlphaTime 0.100000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 0.100000
+endBrightness 0.000000
+startBrightnessTime 0.100000
+endBrightnessTime 0.900000
+startScale 0.000000 0.000000 0.000000
+middleScale 0.500000 0.500000 0.300000
+endScale 1.000000 1.000000 1.000000
+startScaleTime 0.500000
+endScaleTime 0.500000
+angle 0.000000 0.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift true
+flucAmp 0.500000
+flucAlpha false
+flucScale false
+flucBrightness true
+flucFreq 0.300000
+emitParam 30.000000
+texPatternH 2
+texPatternV 2
+texPatternStart 1
+texPatternEnd 1
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.500000 0.000000
+texture ef008_LightSpot01
+end
+name sphere
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 20.000000
+emitterSize 1.000000 0.000000 0.100000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard true
+mirrorType none
+followType unfollow
+particleLifeTime 1.200000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 2
+randomColor0 1.000000 0.614175 0.000000 1.000000
+randomColor1 0.661417 0.784054 1.000000 1.000000
+randomColor2 0.622047 0.333065 0.333082 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.000000
+maxSize 1.500000
+startAlpha 0.000000
+middleAlpha 0.000000
+endAlpha 0.000000
+startAlphaTime 0.100000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 0.500000
+endBrightness 0.000000
+startBrightnessTime 0.100000
+endBrightnessTime 0.900000
+startScale 0.000000 0.000000 0.000000
+middleScale 0.500000 1.000000 1.000000
+endScale 0.300000 0.500000 0.300000
+startScaleTime 0.500000
+endScaleTime 0.500000
+angle 0.000000 0.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift true
+flucAmp 0.500000
+flucAlpha false
+flucScale false
+flucBrightness true
+flucFreq 0.300000
+emitParam 30.000000
+texPatternH 2
+texPatternV 2
+texPatternStart 1
+texPatternEnd 1
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.500000 0.000000
+texture ef008_LightSpot01
+end
+name main_sub
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 0.000000
+emitterSize 0.100000 0.000000 0.100000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 1.200000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 0
+randomColor0 1.000000 0.850394 0.000000 1.000000
+randomColor1 0.661417 0.784054 1.000000 1.000000
+randomColor2 0.622047 0.333065 0.333082 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.500000
+maxSize 2.000000
+startAlpha 0.000000
+middleAlpha 1.000000
+endAlpha 0.000000
+startAlphaTime 0.100000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 1.000000
+endBrightness 0.000000
+startBrightnessTime 0.500000
+endBrightnessTime 0.500000
+startScale 0.000000 0.000000 0.000000
+middleScale 0.500000 0.300000 1.000000
+endScale 0.000000 0.000000 0.000000
+startScaleTime 0.500000
+endScaleTime 0.500000
+angle 0.000000 0.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 3.000000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 1.000000
+emitParam 30.000000
+texPatternH 2
+texPatternV 2
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.500000 0.000000
+texture ef008_LightSpot01
+end

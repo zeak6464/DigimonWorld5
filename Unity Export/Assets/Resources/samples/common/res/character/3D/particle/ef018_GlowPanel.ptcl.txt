@@ -1,0 +1,285 @@
+name 01
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 0.500000
+emitterSize 0.000000 0.000000 0.000000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 2.000000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 0
+randomColor0 1.000000 1.000000 1.000000 1.000000
+randomColor1 1.000000 0.856780 0.669291 1.000000
+randomColor2 0.000000 0.000000 1.000000 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.500000
+maxSize 0.500000
+startAlpha 0.000000
+middleAlpha 0.000000
+endAlpha 0.000000
+startAlphaTime 0.500000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 0.500000
+endBrightness 0.000000
+startBrightnessTime 0.500000
+endBrightnessTime 0.500000
+startScale 1.000000 1.000000 1.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 1.000000 1.000000 1.000000
+startScaleTime 0.100000
+endScaleTime 0.400000
+angle 90.000000 0.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 0.300000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.300000
+emitParam 100.000000
+texPatternH 1
+texPatternV 1
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.050000 0.000000
+texture ef018_GlowPanel01
+end
+name 02
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 0.500000
+emitterSize 0.000000 0.000000 0.000000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 2.000000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 0
+randomColor0 1.000000 1.000000 1.000000 1.000000
+randomColor1 1.000000 0.856780 0.669291 1.000000
+randomColor2 0.000000 0.000000 1.000000 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.500000
+maxSize 0.500000
+startAlpha 0.000000
+middleAlpha 0.000000
+endAlpha 0.000000
+startAlphaTime 0.500000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 0.500000
+endBrightness 0.000000
+startBrightnessTime 0.500000
+endBrightnessTime 0.500000
+startScale 1.000000 1.000000 1.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 1.000000 1.000000 1.000000
+startScaleTime 0.100000
+endScaleTime 0.400000
+angle 0.000000 90.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 0.300000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.300000
+emitParam 100.000000
+texPatternH 1
+texPatternV 1
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.500000 0.510000 0.000000
+texture ef018_GlowPanel02
+end
+name 03
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 0.500000
+emitterSize 0.000000 0.000000 0.000000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 2.000000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 0
+randomColor0 1.000000 1.000000 1.000000 1.000000
+randomColor1 1.000000 0.856780 0.669291 1.000000
+randomColor2 0.000000 0.000000 1.000000 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.500000
+maxSize 0.500000
+startAlpha 0.000000
+middleAlpha 0.000000
+endAlpha 0.000000
+startAlphaTime 0.500000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 0.500000
+endBrightness 0.000000
+startBrightnessTime 0.500000
+endBrightnessTime 0.500000
+startScale 1.000000 1.000000 1.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 1.000000 1.000000 1.000000
+startScaleTime 0.100000
+endScaleTime 0.400000
+angle 0.000000 90.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 0.300000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.300000
+emitParam 100.000000
+texPatternH 1
+texPatternV 1
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset -0.500000 0.510000 0.000000
+texture ef018_GlowPanel02
+end
+name 04
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 0.500000
+emitterSize 0.000000 0.000000 0.000000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 2.000000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 0
+randomColor0 1.000000 1.000000 1.000000 1.000000
+randomColor1 1.000000 0.856780 0.669291 1.000000
+randomColor2 0.000000 0.000000 1.000000 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.500000
+maxSize 0.500000
+startAlpha 0.000000
+middleAlpha 0.000000
+endAlpha 0.000000
+startAlphaTime 0.500000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 0.500000
+endBrightness 0.000000
+startBrightnessTime 0.300000
+endBrightnessTime 0.700000
+startScale 1.000000 1.000000 1.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 1.000000 1.000000 1.000000
+startScaleTime 0.100000
+endScaleTime 0.400000
+angle 0.000000 0.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 0.300000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.300000
+emitParam 100.000000
+texPatternH 1
+texPatternV 1
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.510000 0.500000
+texture ef018_GlowPanel02
+end
+name 05
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 0.500000
+emitterSize 0.000000 0.000000 0.000000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 2.000000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 0
+randomColor0 1.000000 1.000000 1.000000 1.000000
+randomColor1 1.000000 0.856780 0.669291 1.000000
+randomColor2 0.000000 0.000000 1.000000 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.500000
+maxSize 0.500000
+startAlpha 0.000000
+middleAlpha 0.000000
+endAlpha 0.000000
+startAlphaTime 0.500000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 0.500000
+endBrightness 0.000000
+startBrightnessTime 0.300000
+endBrightnessTime 0.700000
+startScale 1.000000 1.000000 1.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 1.000000 1.000000 1.000000
+startScaleTime 0.100000
+endScaleTime 0.400000
+angle 0.000000 0.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 0.300000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.300000
+emitParam 100.000000
+texPatternH 1
+texPatternV 1
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.510000 -0.500000
+texture ef018_GlowPanel02
+end

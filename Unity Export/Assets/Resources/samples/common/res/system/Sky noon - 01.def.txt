@@ -1,0 +1,2 @@
+mtl Material::sky_mat
+shader legacy_tex

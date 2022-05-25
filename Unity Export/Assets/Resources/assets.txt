@@ -1,0 +1,949 @@
+﻿F	dummy.fbx	
+F	font.ttf	
+F	MapMesh.mat	
+F	MatForAlpha.mat	
+F	MatForPremultiplied.mat	
+F	Motion Controller.controller	
+F	Quad Mesh.asset	
+F	updown.png	
+F	VRCtrlParts.png	
+F	VRCtrlPartsB.png	
+F	assets	
+F	Effect.sgr	
+F	GameSettings.sgr	
+F	Hero.sgr	
+F	Item.sgr	
+D	map
+F	Monster.sgr	
+D	res
+F	ResourceItem.sgr	
+D	samples
+F	Skill.sgr	
+F	map/Map_012.sgr	map/
+F	map/Map_014.sgr	map/
+D	res/character
+D	res/character/3D
+D	res/character/3D/Base
+D	res/character/3D/DW1Hero
+D	res/character/3D/Growlmon
+D	res/character/3D/Guilmon
+D	res/character/3D/WarGrowlmon
+F	res/character/3D/Base/Base.fbx	res/character/3D/Base/
+D	res/character/3D/Base/Materials
+D	res/character/3D/Base/textures
+F	res/character/3D/Base/Materials/Base-Material #53.mat	res/character/3D/Base/Materials/
+F	res/character/3D/Base/Materials/Base-Material #54.mat	res/character/3D/Base/Materials/
+F	res/character/3D/Base/Materials/Base-Material #65.mat	res/character/3D/Base/Materials/
+F	res/character/3D/Base/Materials/Base-Material #76.mat	res/character/3D/Base/Materials/
+F	res/character/3D/Base/Materials/Base-Material #87.mat	res/character/3D/Base/Materials/
+F	res/character/3D/Base/textures/pm0383_51_BodyA1.png	res/character/3D/Base/textures/
+F	res/character/3D/Base/textures/pm0383_51_BodyBInc.png	res/character/3D/Base/textures/
+F	res/character/3D/Base/textures/pm0383_51_BodyBMask_Alpha.png	res/character/3D/Base/textures/
+F	res/character/3D/Base/textures/pm0383_51_Eye1.png	res/character/3D/Base/textures/
+F	res/character/3D/DW1Hero/DW1Hero.fbx	res/character/3D/DW1Hero/
+D	res/character/3D/DW1Hero/Materials
+D	res/character/3D/DW1Hero/motion
+D	res/character/3D/DW1Hero/textures
+F	res/character/3D/DW1Hero/Materials/DW1Hero-Material.001.mat	res/character/3D/DW1Hero/Materials/
+D	res/character/3D/DW1Hero/motion/Materials
+F	res/character/3D/DW1Hero/motion/wait.fbx	res/character/3D/DW1Hero/motion/
+F	res/character/3D/DW1Hero/motion/walk.fbx	res/character/3D/DW1Hero/motion/
+F	res/character/3D/DW1Hero/motion/Materials/wait-Material.001.mat	res/character/3D/DW1Hero/motion/Materials/
+F	res/character/3D/DW1Hero/motion/Materials/walk-Material.001.mat	res/character/3D/DW1Hero/motion/Materials/
+F	res/character/3D/DW1Hero/textures/Hiro-4x-AnimeSharp.png	res/character/3D/DW1Hero/textures/
+F	res/character/3D/Growlmon/Growlmon.fbx	res/character/3D/Growlmon/
+D	res/character/3D/Growlmon/Materials
+D	res/character/3D/Growlmon/textures
+F	res/character/3D/Growlmon/Materials/Growlmon-chr078a01.mat	res/character/3D/Growlmon/Materials/
+F	res/character/3D/Growlmon/textures/chr078a1.png	res/character/3D/Growlmon/textures/
+F	res/character/3D/Guilmon/Guilmon.fbx	res/character/3D/Guilmon/
+D	res/character/3D/Guilmon/Materials
+D	res/character/3D/Guilmon/motion
+D	res/character/3D/Guilmon/textures
+F	res/character/3D/Guilmon/Materials/Guilmon-chr090a01.mat	res/character/3D/Guilmon/Materials/
+D	res/character/3D/Guilmon/motion/Materials
+F	res/character/3D/Guilmon/motion/move.fbx	res/character/3D/Guilmon/motion/
+F	res/character/3D/Guilmon/motion/Materials/move-chr090a01.mat	res/character/3D/Guilmon/motion/Materials/
+F	res/character/3D/Guilmon/textures/chr090a01.png	res/character/3D/Guilmon/textures/
+D	res/character/3D/WarGrowlmon/Materials
+D	res/character/3D/WarGrowlmon/motion
+D	res/character/3D/WarGrowlmon/textures
+F	res/character/3D/WarGrowlmon/WarGrowlmon.fbx	res/character/3D/WarGrowlmon/
+F	res/character/3D/WarGrowlmon/Materials/WarGrowlmon-chr134a01.mat	res/character/3D/WarGrowlmon/Materials/
+F	res/character/3D/WarGrowlmon/motion/atk.fbx	res/character/3D/WarGrowlmon/motion/
+F	res/character/3D/WarGrowlmon/motion/idle.fbx	res/character/3D/WarGrowlmon/motion/
+D	res/character/3D/WarGrowlmon/motion/Materials
+F	res/character/3D/WarGrowlmon/motion/move.fbx	res/character/3D/WarGrowlmon/motion/
+F	res/character/3D/WarGrowlmon/motion/Materials/atk-chr134a01.mat	res/character/3D/WarGrowlmon/motion/Materials/
+F	res/character/3D/WarGrowlmon/motion/Materials/idle-chr134a01.mat	res/character/3D/WarGrowlmon/motion/Materials/
+F	res/character/3D/WarGrowlmon/motion/Materials/move-chr134a01.mat	res/character/3D/WarGrowlmon/motion/Materials/
+F	res/character/3D/WarGrowlmon/textures/chr134a01.png	res/character/3D/WarGrowlmon/textures/
+D	samples/common
+D	samples/common/res
+F	samples/common/ResourceItem.sgr	samples/common/
+D	samples/common/shd
+D	samples/common/res/battle
+D	samples/common/res/battle_bg
+D	samples/common/res/bgm
+D	samples/common/res/bgs
+D	samples/common/res/character
+D	samples/common/res/effect
+D	samples/common/res/face
+D	samples/common/res/icon
+D	samples/common/res/image
+D	samples/common/res/item
+D	samples/common/res/map
+D	samples/common/res/mapobject
+D	samples/common/res/map_bg
+D	samples/common/res/monster
+D	samples/common/res/se
+D	samples/common/res/system
+D	samples/common/res/window
+F	samples/common/res/battle/battle_command.png	samples/common/res/battle/
+F	samples/common/res/battle/battle_message.png	samples/common/res/battle/
+F	samples/common/res/battle/battle_needle.png	samples/common/res/battle/
+F	samples/common/res/battle/battle_number.png	samples/common/res/battle/
+F	samples/common/res/battle/battle_selected.png	samples/common/res/battle/
+F	samples/common/res/battle/battle_skilllist.png	samples/common/res/battle/
+F	samples/common/res/battle/battle_status_bg.png	samples/common/res/battle/
+F	samples/common/res/battle/battle_status_bg_effect.png	samples/common/res/battle/
+F	samples/common/res/battle/battle_unselected.png	samples/common/res/battle/
+F	samples/common/res/battle/exp_bar.png	samples/common/res/battle/
+F	samples/common/res/battle/exp_bar_max.png	samples/common/res/battle/
+F	samples/common/res/battle/exp_panel.png	samples/common/res/battle/
+F	samples/common/res/battle/lv_panel.png	samples/common/res/battle/
+F	samples/common/res/battle/result.png	samples/common/res/battle/
+F	samples/common/res/battle/skill_panel.png	samples/common/res/battle/
+F	samples/common/res/battle/status_bar.png	samples/common/res/battle/
+F	samples/common/res/battle/status_bar_panel.png	samples/common/res/battle/
+F	samples/common/res/battle_bg/Labyrinth.png	samples/common/res/battle_bg/
+F	samples/common/res/bgm/BGM_battle1.ogg	samples/common/res/bgm/	349499	5515486
+F	samples/common/res/bgm/BGM_battle2.ogg	samples/common/res/bgm/	238200	5295000
+F	samples/common/res/bgm/BGM_lastboss.ogg	samples/common/res/bgm/	243545	3551046
+F	samples/common/res/bgm/BGM_sky.ogg	samples/common/res/bgm/	255000	4161000
+F	samples/common/res/bgm/ME_comical.ogg	samples/common/res/bgm/
+F	samples/common/res/bgm/ME_fanfare1.ogg	samples/common/res/bgm/
+F	samples/common/res/bgm/ME_fanfare2.ogg	samples/common/res/bgm/
+F	samples/common/res/bgm/ME_gameover.ogg	samples/common/res/bgm/
+F	samples/common/res/bgm/ME_item_get.ogg	samples/common/res/bgm/
+F	samples/common/res/bgm/ME_lodging.ogg	samples/common/res/bgm/
+F	samples/common/res/bgm/ME_shock.ogg	samples/common/res/bgm/
+D	samples/common/res/character/2D
+D	samples/common/res/character/3D
+D	samples/common/res/character/parts
+D	samples/common/res/character/3D/animal_typeA
+D	samples/common/res/character/3D/bluedragon
+D	samples/common/res/character/3D/greendragon
+D	samples/common/res/character/3D/horror
+D	samples/common/res/character/3D/human_typeA
+D	samples/common/res/character/3D/human_typeA2
+D	samples/common/res/character/3D/human_typeA3
+D	samples/common/res/character/3D/human_typeA4
+D	samples/common/res/character/3D/human_typeB
+D	samples/common/res/character/3D/human_typeC
+D	samples/common/res/character/3D/KOcoffin
+D	samples/common/res/character/3D/mimic-cat-black
+D	samples/common/res/character/3D/mimic-cat-brown
+D	samples/common/res/character/3D/mimic-cat-buchi
+D	samples/common/res/character/3D/mimic-cat-mike
+D	samples/common/res/character/3D/mimic-cat-white
+D	samples/common/res/character/3D/monster_typeA
+D	samples/common/res/character/3D/particle
+D	samples/common/res/character/3D/reddragon
+D	samples/common/res/character/3D/sample
+F	samples/common/res/character/3D/animal_typeA/c_057a.def	samples/common/res/character/3D/animal_typeA/
+F	samples/common/res/character/3D/animal_typeA/c_057a.fbx	samples/common/res/character/3D/animal_typeA/
+D	samples/common/res/character/3D/animal_typeA/Materials
+D	samples/common/res/character/3D/animal_typeA/textures
+F	samples/common/res/character/3D/animal_typeA/Materials/c_057a-c_057a_mat.mat	samples/common/res/character/3D/animal_typeA/Materials/
+F	samples/common/res/character/3D/animal_typeA/textures/c_057a.png	samples/common/res/character/3D/animal_typeA/textures/
+F	samples/common/res/character/3D/animal_typeA/textures/c_057a_ambient.png	samples/common/res/character/3D/animal_typeA/textures/
+D	samples/common/res/character/3D/bluedragon/textures
+D	samples/common/res/character/3D/greendragon/textures
+D	samples/common/res/character/3D/horror/textures
+F	samples/common/res/character/3D/human_typeA/c_001a.fbx	samples/common/res/character/3D/human_typeA/
+F	samples/common/res/character/3D/human_typeA/c_002a.fbx	samples/common/res/character/3D/human_typeA/
+F	samples/common/res/character/3D/human_typeA/c_004a.fbx	samples/common/res/character/3D/human_typeA/
+F	samples/common/res/character/3D/human_typeA/c_005a.fbx	samples/common/res/character/3D/human_typeA/
+F	samples/common/res/character/3D/human_typeA/c_011a.fbx	samples/common/res/character/3D/human_typeA/
+F	samples/common/res/character/3D/human_typeA/c_012a.fbx	samples/common/res/character/3D/human_typeA/
+F	samples/common/res/character/3D/human_typeA/c_021ab.fbx	samples/common/res/character/3D/human_typeA/
+D	samples/common/res/character/3D/human_typeA/Materials
+D	samples/common/res/character/3D/human_typeA/motion
+D	samples/common/res/character/3D/human_typeA/textures
+F	samples/common/res/character/3D/human_typeA/Materials/c_001a-c_001a_mat.mat	samples/common/res/character/3D/human_typeA/Materials/
+F	samples/common/res/character/3D/human_typeA/Materials/c_002a-c_002a_mat.mat	samples/common/res/character/3D/human_typeA/Materials/
+F	samples/common/res/character/3D/human_typeA/Materials/c_004a-c_004a_mat.mat	samples/common/res/character/3D/human_typeA/Materials/
+F	samples/common/res/character/3D/human_typeA/Materials/c_005a-c_005a_mat.mat	samples/common/res/character/3D/human_typeA/Materials/
+F	samples/common/res/character/3D/human_typeA/Materials/c_011a-c_011a_mat.mat	samples/common/res/character/3D/human_typeA/Materials/
+F	samples/common/res/character/3D/human_typeA/Materials/c_012a-c_012a_mat.mat	samples/common/res/character/3D/human_typeA/Materials/
+F	samples/common/res/character/3D/human_typeA/Materials/c_021ab-c_021ab_mat.mat	samples/common/res/character/3D/human_typeA/Materials/
+F	samples/common/res/character/3D/human_typeA/motion/mot001_walk.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot002_wait.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot003_run.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot004_happy.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot005_o_disappointed.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot006_keepdown.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot007_jump.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot008_keepdown2.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot009_sitdown.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot010_chair.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot011_bed.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot012_o_attack.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot013_charge.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot014_guard.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot015_o_skill.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot016_o_item.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot017_o_damage.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot018_KO.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot019_win.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot020_escape.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot021_wait2.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot022_o_jumpup.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot023_o_landing.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot024_float.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot025_float2.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot026_fly.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot027_guard2.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot028_petrify.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot029_numb.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot030_o_damage2.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot031_o_openbox.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot032_o_dooropen.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot033_o_doorclose.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot034_o_damage3.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot035_climbup.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot036_climbdown.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/motion/mot037_swim.fbx	samples/common/res/character/3D/human_typeA/motion/
+F	samples/common/res/character/3D/human_typeA/textures/c_001a.png	samples/common/res/character/3D/human_typeA/textures/
+F	samples/common/res/character/3D/human_typeA/textures/c_001a_ambient.png	samples/common/res/character/3D/human_typeA/textures/
+F	samples/common/res/character/3D/human_typeA/textures/c_002a.png	samples/common/res/character/3D/human_typeA/textures/
+F	samples/common/res/character/3D/human_typeA/textures/c_002a_ambient.png	samples/common/res/character/3D/human_typeA/textures/
+F	samples/common/res/character/3D/human_typeA/textures/c_004a.png	samples/common/res/character/3D/human_typeA/textures/
+F	samples/common/res/character/3D/human_typeA/textures/c_004a_ambient.png	samples/common/res/character/3D/human_typeA/textures/
+F	samples/common/res/character/3D/human_typeA/textures/c_005a.png	samples/common/res/character/3D/human_typeA/textures/
+F	samples/common/res/character/3D/human_typeA/textures/c_005a_ambient.png	samples/common/res/character/3D/human_typeA/textures/
+F	samples/common/res/character/3D/human_typeA/textures/c_011a.png	samples/common/res/character/3D/human_typeA/textures/
+F	samples/common/res/character/3D/human_typeA/textures/c_011a_ambient.png	samples/common/res/character/3D/human_typeA/textures/
+F	samples/common/res/character/3D/human_typeA/textures/c_012a.png	samples/common/res/character/3D/human_typeA/textures/
+F	samples/common/res/character/3D/human_typeA/textures/c_012a_ambient.png	samples/common/res/character/3D/human_typeA/textures/
+F	samples/common/res/character/3D/human_typeA/textures/c_021ab.png	samples/common/res/character/3D/human_typeA/textures/
+F	samples/common/res/character/3D/human_typeA/textures/c_021ab_ambient.png	samples/common/res/character/3D/human_typeA/textures/
+D	samples/common/res/character/3D/human_typeA2/motion
+D	samples/common/res/character/3D/human_typeA2/textures
+D	samples/common/res/character/3D/human_typeA3/motion
+D	samples/common/res/character/3D/human_typeA3/textures
+D	samples/common/res/character/3D/human_typeA4/motion
+D	samples/common/res/character/3D/human_typeA4/textures
+D	samples/common/res/character/3D/human_typeB/motion
+D	samples/common/res/character/3D/human_typeB/textures
+D	samples/common/res/character/3D/human_typeC/motion
+D	samples/common/res/character/3D/human_typeC/textures
+D	samples/common/res/character/3D/KOcoffin/textures
+D	samples/common/res/character/3D/mimic-cat-black/textures
+D	samples/common/res/character/3D/mimic-cat-brown/textures
+D	samples/common/res/character/3D/mimic-cat-buchi/textures
+D	samples/common/res/character/3D/mimic-cat-mike/textures
+D	samples/common/res/character/3D/mimic-cat-white/textures
+F	samples/common/res/character/3D/monster_typeA/c_050a.def	samples/common/res/character/3D/monster_typeA/
+F	samples/common/res/character/3D/monster_typeA/c_050a.fbx	samples/common/res/character/3D/monster_typeA/
+D	samples/common/res/character/3D/monster_typeA/Materials
+D	samples/common/res/character/3D/monster_typeA/textures
+F	samples/common/res/character/3D/monster_typeA/Materials/c_050a-c_050a_mat.mat	samples/common/res/character/3D/monster_typeA/Materials/
+F	samples/common/res/character/3D/monster_typeA/textures/c_050a.png	samples/common/res/character/3D/monster_typeA/textures/
+F	samples/common/res/character/3D/monster_typeA/textures/c_050a_ambient.png	samples/common/res/character/3D/monster_typeA/textures/
+F	samples/common/res/character/3D/particle/ef001_Rain.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef002_Snow.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef003_Fire.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef004_Smoke.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef005_Glow_A.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef006_Spark.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef007_PoisonGas.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef008_LightSpot.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef009_Glow_B.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef010_Storm.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef011_Thunder.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef012_Paper.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef013_FireWork.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef014_Mist.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef015_ColdWind.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef016_DarkFire.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef017_Thunder_Single.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef018_GlowPanel.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef019_LightWall.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef020_LightWall_rotate.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef021_Glow_C.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef022_SmallFire.ptcl	samples/common/res/character/3D/particle/
+F	samples/common/res/character/3D/particle/ef023_Glow_D.ptcl	samples/common/res/character/3D/particle/
+D	samples/common/res/character/3D/particle/textures
+F	samples/common/res/character/3D/particle/textures/ef001_Rain.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef002_Snow.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef003_Fire_A01.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef004_Smoke.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef005_Glow_A.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef006_Spark01.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef006_Spark02.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef007_PoisonGas.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef008_LightSpot01.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef009_Glow_B.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef010_Storm.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef011_Thunder01.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef011_Thunder02.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef012_Paper.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef013_FireWork.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef014_Mist.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef015_ColdWind.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef016_DarkFire.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef017_Thunder_Single01.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef017_Thunder_Single02.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef018_GlowPanel01.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef018_GlowPanel02.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef019_LightWall.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef021_Glow_C.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef022_SmallFire.png	samples/common/res/character/3D/particle/textures/
+F	samples/common/res/character/3D/particle/textures/ef023_Glow_D.png	samples/common/res/character/3D/particle/textures/
+D	samples/common/res/character/3D/reddragon/textures
+D	samples/common/res/character/3D/sample/textures
+D	samples/common/res/character/parts/human_typeA
+D	samples/common/res/character/parts/human_typeA/motion
+D	samples/common/res/character/parts/human_typeA/textures
+F	samples/common/res/effect/01_Weak_Hit.png	samples/common/res/effect/
+F	samples/common/res/effect/04_Fire_Hit.png	samples/common/res/effect/
+F	samples/common/res/effect/08_Weak_Slash.png	samples/common/res/effect/
+F	samples/common/res/effect/09_Medium_Slash.png	samples/common/res/effect/
+F	samples/common/res/effect/10_Strong_Slash.png	samples/common/res/effect/
+F	samples/common/res/effect/12_Ice_Slash.png	samples/common/res/effect/
+F	samples/common/res/effect/13_Bolt_Slash.png	samples/common/res/effect/
+F	samples/common/res/effect/16_Light_Strike.png	samples/common/res/effect/
+F	samples/common/res/effect/17_Hard_Strike.png	samples/common/res/effect/
+F	samples/common/res/effect/18_Claws.png	samples/common/res/effect/
+F	samples/common/res/effect/19_Fangs.png	samples/common/res/effect/
+F	samples/common/res/effect/20_Spirit_Blast_1.png	samples/common/res/effect/
+F	samples/common/res/effect/22_Fire_1.png	samples/common/res/effect/
+F	samples/common/res/effect/24_Fire_3_1.png	samples/common/res/effect/
+F	samples/common/res/effect/24_Fire_3_2.png	samples/common/res/effect/
+F	samples/common/res/effect/26_Ice.png	samples/common/res/effect/
+F	samples/common/res/effect/27_Ice_2.png	samples/common/res/effect/
+F	samples/common/res/effect/29_Ice_All.png	samples/common/res/effect/
+F	samples/common/res/effect/31_Bolt_2.png	samples/common/res/effect/
+F	samples/common/res/effect/37_Poison.png	samples/common/res/effect/
+F	samples/common/res/effect/39_Wind.png	samples/common/res/effect/
+F	samples/common/res/effect/45_Light.png	samples/common/res/effect/
+F	samples/common/res/effect/47_Dark.png	samples/common/res/effect/
+F	samples/common/res/effect/49_Recover_1.png	samples/common/res/effect/
+F	samples/common/res/effect/50_Recover_2.png	samples/common/res/effect/
+F	samples/common/res/effect/51_Recover_3.png	samples/common/res/effect/
+F	samples/common/res/effect/52_Status_Up_1.png	samples/common/res/effect/
+F	samples/common/res/effect/52_Status_Up_2.png	samples/common/res/effect/
+F	samples/common/res/effect/56_Absorb.png	samples/common/res/effect/
+F	samples/common/res/effect/58_Paralyze.png	samples/common/res/effect/
+F	samples/common/res/effect/60_Death.png	samples/common/res/effect/
+F	samples/common/res/effect/emotion.png	samples/common/res/effect/
+D	samples/common/res/face/Buchi
+D	samples/common/res/face/Chr001
+D	samples/common/res/face/Chr002
+D	samples/common/res/face/Chr003
+D	samples/common/res/face/Chr004
+D	samples/common/res/face/Chr005
+D	samples/common/res/face/Chr006
+D	samples/common/res/face/Chr007
+D	samples/common/res/face/Chr008
+D	samples/common/res/face/Chr009
+D	samples/common/res/face/Chr010
+D	samples/common/res/face/Chr011
+D	samples/common/res/face/Chr012
+D	samples/common/res/face/Chr014
+D	samples/common/res/face/Chr015
+D	samples/common/res/face/Chr016
+D	samples/common/res/face/Chr017
+D	samples/common/res/face/Chr018
+D	samples/common/res/face/Chr019
+D	samples/common/res/face/Chr020
+D	samples/common/res/face/Chr021
+D	samples/common/res/face/Chr021A
+D	samples/common/res/face/Chr022
+D	samples/common/res/face/Chr022A
+D	samples/common/res/face/Chr023
+D	samples/common/res/face/Chr023A
+D	samples/common/res/face/Chr023B
+D	samples/common/res/face/Chr023C
+D	samples/common/res/face/Chr024
+D	samples/common/res/face/Chr025
+D	samples/common/res/face/Chr025A
+D	samples/common/res/face/Chr026
+D	samples/common/res/face/Chr026A
+D	samples/common/res/face/Chr027
+D	samples/common/res/face/Chr027A
+D	samples/common/res/face/Chr027B
+D	samples/common/res/face/Chr027C
+D	samples/common/res/face/Chr028
+D	samples/common/res/face/Chr029
+D	samples/common/res/face/Chr030
+D	samples/common/res/face/Chr030A
+D	samples/common/res/face/Chr031
+D	samples/common/res/face/Chr031A
+D	samples/common/res/face/Chr032
+D	samples/common/res/face/Chr032A
+D	samples/common/res/face/Chr032B
+D	samples/common/res/face/Chr032C
+D	samples/common/res/face/Chr033
+D	samples/common/res/face/Chr034
+D	samples/common/res/face/Chr035
+D	samples/common/res/face/Chr035A
+D	samples/common/res/face/Chr036
+D	samples/common/res/face/E001
+D	samples/common/res/face/E002
+D	samples/common/res/face/E003
+D	samples/common/res/face/E004
+D	samples/common/res/face/E005
+D	samples/common/res/face/E006
+D	samples/common/res/face/E007
+D	samples/common/res/face/E008
+D	samples/common/res/face/E009
+D	samples/common/res/face/E010
+D	samples/common/res/face/E011
+D	samples/common/res/face/E012
+D	samples/common/res/face/E013
+D	samples/common/res/face/E014
+D	samples/common/res/face/E015
+D	samples/common/res/face/E016
+D	samples/common/res/face/E017
+D	samples/common/res/face/E018
+D	samples/common/res/face/E019
+D	samples/common/res/face/E019A
+D	samples/common/res/face/E019B
+D	samples/common/res/face/E019C
+D	samples/common/res/face/E020
+D	samples/common/res/face/E020A
+D	samples/common/res/face/E021
+D	samples/common/res/face/E022
+D	samples/common/res/face/E022A
+D	samples/common/res/face/E023
+D	samples/common/res/face/E024
+D	samples/common/res/face/E024A
+D	samples/common/res/face/E025
+D	samples/common/res/face/E026
+D	samples/common/res/face/E027
+D	samples/common/res/face/E027A
+D	samples/common/res/face/E027B
+D	samples/common/res/face/E027C
+D	samples/common/res/face/E027D
+D	samples/common/res/face/E027E
+D	samples/common/res/face/E028
+D	samples/common/res/face/E028A
+D	samples/common/res/face/E028B
+D	samples/common/res/face/E028C
+D	samples/common/res/face/E029
+D	samples/common/res/face/E029A
+D	samples/common/res/face/E029B
+D	samples/common/res/face/E030
+D	samples/common/res/face/E030A
+D	samples/common/res/face/E031A
+D	samples/common/res/face/E031B
+D	samples/common/res/face/E031C
+D	samples/common/res/face/E031D
+D	samples/common/res/face/E031E
+D	samples/common/res/face/E032
+D	samples/common/res/face/E032A
+D	samples/common/res/face/E032B
+D	samples/common/res/face/E032C
+D	samples/common/res/face/E032D
+D	samples/common/res/face/E032E
+D	samples/common/res/face/E032F
+D	samples/common/res/face/E033
+D	samples/common/res/face/E034
+D	samples/common/res/face/E034A
+D	samples/common/res/face/E035
+D	samples/common/res/face/E035A
+D	samples/common/res/face/E035B
+D	samples/common/res/face/E035C
+D	samples/common/res/face/E035D
+D	samples/common/res/face/E035E
+D	samples/common/res/face/E035F
+D	samples/common/res/face/E035G
+D	samples/common/res/face/E036
+D	samples/common/res/face/E037
+D	samples/common/res/face/E037A
+D	samples/common/res/face/E037B
+D	samples/common/res/face/E037C
+D	samples/common/res/face/E037D
+D	samples/common/res/face/E037E
+D	samples/common/res/face/E037F
+D	samples/common/res/face/E037G
+D	samples/common/res/face/E038
+D	samples/common/res/face/E038A
+D	samples/common/res/face/E038B
+D	samples/common/res/face/E038C
+D	samples/common/res/face/E039
+D	samples/common/res/face/E039A
+D	samples/common/res/face/E039B
+D	samples/common/res/face/E039C
+D	samples/common/res/face/E039D
+D	samples/common/res/face/E039E
+D	samples/common/res/face/E039F
+D	samples/common/res/face/E039G
+D	samples/common/res/face/E039H
+D	samples/common/res/face/E039I
+D	samples/common/res/face/E039J
+D	samples/common/res/face/E039K
+D	samples/common/res/face/E039L
+D	samples/common/res/face/E039M
+D	samples/common/res/face/E039N
+D	samples/common/res/face/E039O
+D	samples/common/res/face/E039P
+D	samples/common/res/face/E039Q
+D	samples/common/res/face/E039R
+D	samples/common/res/face/E039S
+D	samples/common/res/face/E040
+D	samples/common/res/face/E040A
+D	samples/common/res/face/E040B
+D	samples/common/res/face/E040C
+D	samples/common/res/face/E040D
+D	samples/common/res/face/E040E
+D	samples/common/res/face/E041
+D	samples/common/res/face/E041A
+D	samples/common/res/face/E041B
+D	samples/common/res/face/E041C
+D	samples/common/res/face/E042
+D	samples/common/res/face/E042A
+D	samples/common/res/face/E042B
+D	samples/common/res/face/E042C
+D	samples/common/res/face/E042D
+D	samples/common/res/face/E042E
+D	samples/common/res/face/E042F
+D	samples/common/res/face/E042G
+D	samples/common/res/face/E042H
+D	samples/common/res/face/E043
+D	samples/common/res/face/E043A
+D	samples/common/res/face/E043B
+D	samples/common/res/face/E043C
+D	samples/common/res/face/E043D
+D	samples/common/res/face/E043E
+D	samples/common/res/face/E044
+D	samples/common/res/face/E044A
+D	samples/common/res/face/E044B
+D	samples/common/res/face/E044C
+D	samples/common/res/face/E044D
+D	samples/common/res/face/E044E
+D	samples/common/res/face/E044F
+D	samples/common/res/face/E044G
+D	samples/common/res/face/E044H
+D	samples/common/res/face/E044I
+D	samples/common/res/face/E044J
+D	samples/common/res/face/E044K
+D	samples/common/res/face/E044L
+D	samples/common/res/face/E044M
+D	samples/common/res/face/E044N
+D	samples/common/res/face/E044O
+D	samples/common/res/face/E044P
+D	samples/common/res/face/E044Q
+D	samples/common/res/face/E044R
+D	samples/common/res/face/E044S
+D	samples/common/res/face/E044T
+D	samples/common/res/face/E045
+D	samples/common/res/face/E045A
+D	samples/common/res/face/E045B
+D	samples/common/res/face/E045C
+D	samples/common/res/face/E045D
+D	samples/common/res/face/E045E
+D	samples/common/res/face/E045F
+D	samples/common/res/face/E045G
+D	samples/common/res/face/E046
+D	samples/common/res/face/E046A
+D	samples/common/res/face/E046B
+D	samples/common/res/face/E046C
+D	samples/common/res/face/Glay
+D	samples/common/res/face/Kuro
+D	samples/common/res/face/Kuroko
+D	samples/common/res/face/kuroko_silhouette
+D	samples/common/res/face/Shiro
+D	samples/common/res/face/silhouette
+D	samples/common/res/face/Tora
+F	samples/common/res/face/Chr001/Chr001face_anger.png	samples/common/res/face/Chr001/
+F	samples/common/res/face/Chr001/Chr001face_normal.png	samples/common/res/face/Chr001/
+F	samples/common/res/face/Chr001/Chr001face_smile.png	samples/common/res/face/Chr001/
+F	samples/common/res/face/Chr001/Chr001face_sorrow.png	samples/common/res/face/Chr001/
+F	samples/common/res/face/Chr002/Chr002face_anger.png	samples/common/res/face/Chr002/
+F	samples/common/res/face/Chr002/Chr002face_normal.png	samples/common/res/face/Chr002/
+F	samples/common/res/face/Chr002/Chr002face_smile.png	samples/common/res/face/Chr002/
+F	samples/common/res/face/Chr002/Chr002face_sorrow.png	samples/common/res/face/Chr002/
+F	samples/common/res/face/Chr003/Chr003face_anger.png	samples/common/res/face/Chr003/
+F	samples/common/res/face/Chr003/Chr003face_normal.png	samples/common/res/face/Chr003/
+F	samples/common/res/face/Chr003/Chr003face_smile.png	samples/common/res/face/Chr003/
+F	samples/common/res/face/Chr003/Chr003face_sorrow.png	samples/common/res/face/Chr003/
+F	samples/common/res/face/Chr004/Chr004face_anger.png	samples/common/res/face/Chr004/
+F	samples/common/res/face/Chr004/Chr004face_normal.png	samples/common/res/face/Chr004/
+F	samples/common/res/face/Chr004/Chr004face_smile.png	samples/common/res/face/Chr004/
+F	samples/common/res/face/Chr004/Chr004face_sorrow.png	samples/common/res/face/Chr004/
+F	samples/common/res/face/Chr005/Chr005face_anger.png	samples/common/res/face/Chr005/
+F	samples/common/res/face/Chr005/Chr005face_normal.png	samples/common/res/face/Chr005/
+F	samples/common/res/face/Chr005/Chr005face_smile.png	samples/common/res/face/Chr005/
+F	samples/common/res/face/Chr005/Chr005face_sorrow.png	samples/common/res/face/Chr005/
+F	samples/common/res/face/Chr010/Chr010face_anger.png	samples/common/res/face/Chr010/
+F	samples/common/res/face/Chr010/Chr010face_normal.png	samples/common/res/face/Chr010/
+F	samples/common/res/face/Chr010/Chr010face_smile.png	samples/common/res/face/Chr010/
+F	samples/common/res/face/Chr010/Chr010face_sorrow.png	samples/common/res/face/Chr010/
+F	samples/common/res/face/Chr011/Chr011face_anger.png	samples/common/res/face/Chr011/
+F	samples/common/res/face/Chr011/Chr011face_normal.png	samples/common/res/face/Chr011/
+F	samples/common/res/face/Chr011/Chr011face_smile.png	samples/common/res/face/Chr011/
+F	samples/common/res/face/Chr011/Chr011face_sorrow.png	samples/common/res/face/Chr011/
+F	samples/common/res/face/Chr012/Chr012face_anger.png	samples/common/res/face/Chr012/
+F	samples/common/res/face/Chr012/Chr012face_normal.png	samples/common/res/face/Chr012/
+F	samples/common/res/face/Chr012/Chr012face_smile.png	samples/common/res/face/Chr012/
+F	samples/common/res/face/Chr012/Chr012face_sorrow.png	samples/common/res/face/Chr012/
+F	samples/common/res/face/Chr015/Chr015face_anger.png	samples/common/res/face/Chr015/
+F	samples/common/res/face/Chr015/Chr015face_smile.png	samples/common/res/face/Chr015/
+F	samples/common/res/face/Chr015/Chr015face__normal.png	samples/common/res/face/Chr015/
+F	samples/common/res/face/Chr015/Chr015face__sorrow.png	samples/common/res/face/Chr015/
+F	samples/common/res/face/Chr016/Chr016face_anger.png	samples/common/res/face/Chr016/
+F	samples/common/res/face/Chr016/Chr016face_normal.png	samples/common/res/face/Chr016/
+F	samples/common/res/face/Chr016/Chr016face_smile.png	samples/common/res/face/Chr016/
+F	samples/common/res/face/Chr016/Chr016face_sorrow.png	samples/common/res/face/Chr016/
+F	samples/common/res/face/Chr019/Chr019face_anger.png	samples/common/res/face/Chr019/
+F	samples/common/res/face/Chr019/Chr019face_normal.png	samples/common/res/face/Chr019/
+F	samples/common/res/face/Chr019/Chr019face_smile.png	samples/common/res/face/Chr019/
+F	samples/common/res/face/Chr019/Chr019face_sorrow.png	samples/common/res/face/Chr019/
+F	samples/common/res/face/Chr020/Chr020face_anger.png	samples/common/res/face/Chr020/
+F	samples/common/res/face/Chr020/Chr020face_normal.png	samples/common/res/face/Chr020/
+F	samples/common/res/face/Chr020/Chr020face_smile.png	samples/common/res/face/Chr020/
+F	samples/common/res/face/Chr020/Chr020face_sorrow.png	samples/common/res/face/Chr020/
+F	samples/common/res/face/Chr021/Chr021face_anger.png	samples/common/res/face/Chr021/
+F	samples/common/res/face/Chr021/Chr021face_normal.png	samples/common/res/face/Chr021/
+F	samples/common/res/face/Chr021/Chr021face_smile.png	samples/common/res/face/Chr021/
+F	samples/common/res/face/Chr021/Chr021face_sorrow.png	samples/common/res/face/Chr021/
+F	samples/common/res/face/Chr022/Chr022face_anger.png	samples/common/res/face/Chr022/
+F	samples/common/res/face/Chr022/Chr022face_normal.png	samples/common/res/face/Chr022/
+F	samples/common/res/face/Chr022/Chr022face_smile.png	samples/common/res/face/Chr022/
+F	samples/common/res/face/Chr022/Chr022face_sorrow.png	samples/common/res/face/Chr022/
+F	samples/common/res/face/Chr028/Chr028face_anger.png	samples/common/res/face/Chr028/
+F	samples/common/res/face/Chr028/Chr028face_normal.png	samples/common/res/face/Chr028/
+F	samples/common/res/face/Chr028/Chr028face_smile.png	samples/common/res/face/Chr028/
+F	samples/common/res/face/Chr028/Chr028face_sorrow.png	samples/common/res/face/Chr028/
+F	samples/common/res/icon/icon_armors.png	samples/common/res/icon/
+F	samples/common/res/icon/icon_items.png	samples/common/res/icon/
+F	samples/common/res/icon/icon_system.png	samples/common/res/icon/
+F	samples/common/res/icon/icon_weapons.png	samples/common/res/icon/
+F	samples/common/res/image/d_mask.png	samples/common/res/image/
+F	samples/common/res/image/logo.png	samples/common/res/image/
+F	samples/common/res/image/title_book.png	samples/common/res/image/
+F	samples/common/res/image/title_logo.png	samples/common/res/image/
+F	samples/common/res/item/axe003.def	samples/common/res/item/
+F	samples/common/res/item/axe003.fbx	samples/common/res/item/
+F	samples/common/res/item/axe006.def	samples/common/res/item/
+F	samples/common/res/item/axe006.fbx	samples/common/res/item/
+F	samples/common/res/item/claw004.def	samples/common/res/item/
+F	samples/common/res/item/claw004.fbx	samples/common/res/item/
+F	samples/common/res/item/claw010.def	samples/common/res/item/
+F	samples/common/res/item/claw010.fbx	samples/common/res/item/
+F	samples/common/res/item/club003.def	samples/common/res/item/
+F	samples/common/res/item/club003.fbx	samples/common/res/item/
+F	samples/common/res/item/knife001.def	samples/common/res/item/
+F	samples/common/res/item/knife001.fbx	samples/common/res/item/
+F	samples/common/res/item/knife009.def	samples/common/res/item/
+F	samples/common/res/item/knife009.fbx	samples/common/res/item/
+D	samples/common/res/item/Materials
+F	samples/common/res/item/shield002.def	samples/common/res/item/
+F	samples/common/res/item/shield002.fbx	samples/common/res/item/
+F	samples/common/res/item/shield003.def	samples/common/res/item/
+F	samples/common/res/item/shield003.fbx	samples/common/res/item/
+F	samples/common/res/item/shield008.def	samples/common/res/item/
+F	samples/common/res/item/shield008.fbx	samples/common/res/item/
+F	samples/common/res/item/staff006.def	samples/common/res/item/
+F	samples/common/res/item/staff006.fbx	samples/common/res/item/
+F	samples/common/res/item/sword001.def	samples/common/res/item/
+F	samples/common/res/item/sword001.fbx	samples/common/res/item/
+F	samples/common/res/item/sword005.def	samples/common/res/item/
+F	samples/common/res/item/sword005.fbx	samples/common/res/item/
+D	samples/common/res/item/textures
+F	samples/common/res/item/Materials/axe003-axe003_mat.mat	samples/common/res/item/Materials/
+F	samples/common/res/item/Materials/axe006-axe006_mat.mat	samples/common/res/item/Materials/
+F	samples/common/res/item/Materials/claw004-claw004_mat.mat	samples/common/res/item/Materials/
+F	samples/common/res/item/Materials/claw010-claw010_mat.mat	samples/common/res/item/Materials/
+F	samples/common/res/item/Materials/club003-club003_mat.mat	samples/common/res/item/Materials/
+F	samples/common/res/item/Materials/knife001-knife001_mat.mat	samples/common/res/item/Materials/
+F	samples/common/res/item/Materials/knife009-knife009_mat.mat	samples/common/res/item/Materials/
+F	samples/common/res/item/Materials/shield002-shield002_mat.mat	samples/common/res/item/Materials/
+F	samples/common/res/item/Materials/shield003-shield003_mat.mat	samples/common/res/item/Materials/
+F	samples/common/res/item/Materials/shield008-shield008_mat.mat	samples/common/res/item/Materials/
+F	samples/common/res/item/Materials/staff006-staff006_mat.mat	samples/common/res/item/Materials/
+F	samples/common/res/item/Materials/sword001-w_001_mat.mat	samples/common/res/item/Materials/
+F	samples/common/res/item/Materials/sword005-sword005_mat.mat	samples/common/res/item/Materials/
+F	samples/common/res/item/textures/axe003.png	samples/common/res/item/textures/
+F	samples/common/res/item/textures/axe006.png	samples/common/res/item/textures/
+F	samples/common/res/item/textures/claw004.png	samples/common/res/item/textures/
+F	samples/common/res/item/textures/claw010.png	samples/common/res/item/textures/
+F	samples/common/res/item/textures/club003.png	samples/common/res/item/textures/
+F	samples/common/res/item/textures/knife001.png	samples/common/res/item/textures/
+F	samples/common/res/item/textures/knife009.png	samples/common/res/item/textures/
+F	samples/common/res/item/textures/shield002.png	samples/common/res/item/textures/
+F	samples/common/res/item/textures/shield003.png	samples/common/res/item/textures/
+F	samples/common/res/item/textures/shield008.png	samples/common/res/item/textures/
+F	samples/common/res/item/textures/staff006.png	samples/common/res/item/textures/
+F	samples/common/res/item/textures/sword001.png	samples/common/res/item/textures/
+F	samples/common/res/item/textures/sword005.png	samples/common/res/item/textures/
+D	samples/common/res/map/sample_set
+D	samples/common/res/map/sample_set/man_made
+D	samples/common/res/map/sample_set/natural
+D	samples/common/res/map/sample_set/stairs_slopes
+F	samples/common/res/map/sample_set/natural/001_Grass.png	samples/common/res/map/sample_set/natural/
+F	samples/common/res/map/sample_set/natural/008_Dirt.png	samples/common/res/map/sample_set/natural/
+F	samples/common/res/map/sample_set/natural/010_Sea.png	samples/common/res/map/sample_set/natural/
+F	samples/common/res/map/sample_set/natural/013_lava.png	samples/common/res/map/sample_set/natural/
+D	samples/common/res/mapobject/Buildings
+D	samples/common/res/mapobject/Decoration
+D	samples/common/res/mapobject/Horror
+D	samples/common/res/mapobject/Indoor
+D	samples/common/res/mapobject/Outdoor
+D	samples/common/res/mapobject/textures
+D	samples/common/res/mapobject/Traps
+F	samples/common/res/mapobject/Buildings/Castle Door.def	samples/common/res/mapobject/Buildings/
+F	samples/common/res/mapobject/Buildings/Castle Door.fbx	samples/common/res/mapobject/Buildings/
+F	samples/common/res/mapobject/Buildings/Church Door.def	samples/common/res/mapobject/Buildings/
+F	samples/common/res/mapobject/Buildings/Church Door.fbx	samples/common/res/mapobject/Buildings/
+D	samples/common/res/mapobject/Buildings/Materials
+F	samples/common/res/mapobject/Buildings/Private Dwelling Door 1.def	samples/common/res/mapobject/Buildings/
+F	samples/common/res/mapobject/Buildings/Private Dwelling Door 1.fbx	samples/common/res/mapobject/Buildings/
+F	samples/common/res/mapobject/Buildings/Private Dwelling Door 2.def	samples/common/res/mapobject/Buildings/
+F	samples/common/res/mapobject/Buildings/Private Dwelling Door 2.fbx	samples/common/res/mapobject/Buildings/
+F	samples/common/res/mapobject/Buildings/Materials/Castle Door-Bd_003_castle_mat.mat	samples/common/res/mapobject/Buildings/Materials/
+F	samples/common/res/mapobject/Buildings/Materials/Church Door-church_mat.mat	samples/common/res/mapobject/Buildings/Materials/
+F	samples/common/res/mapobject/Buildings/Materials/Private Dwelling Door 1-door_mat.mat	samples/common/res/mapobject/Buildings/Materials/
+F	samples/common/res/mapobject/Buildings/Materials/Private Dwelling Door 2-door_mat.mat	samples/common/res/mapobject/Buildings/Materials/
+D	samples/common/res/mapobject/Decoration/Materials
+F	samples/common/res/mapobject/Decoration/Pointlight L - Incandescent Color.def	samples/common/res/mapobject/Decoration/
+F	samples/common/res/mapobject/Decoration/Pointlight L - Incandescent Color.fbx	samples/common/res/mapobject/Decoration/
+F	samples/common/res/mapobject/Decoration/Pointlight M - Incandescent Color.def	samples/common/res/mapobject/Decoration/
+F	samples/common/res/mapobject/Decoration/Pointlight M - Incandescent Color.fbx	samples/common/res/mapobject/Decoration/
+F	samples/common/res/mapobject/Decoration/Pointlight S - Incandescent Color.def	samples/common/res/mapobject/Decoration/
+F	samples/common/res/mapobject/Decoration/Pointlight S - Incandescent Color.fbx	samples/common/res/mapobject/Decoration/
+F	samples/common/res/mapobject/Decoration/Materials/Pointlight L - Incandescent Color-add_mat.mat	samples/common/res/mapobject/Decoration/Materials/
+F	samples/common/res/mapobject/Decoration/Materials/Pointlight M - Incandescent Color-add_mat.mat	samples/common/res/mapobject/Decoration/Materials/
+F	samples/common/res/mapobject/Decoration/Materials/Pointlight S - Incandescent Color-add_mat.mat	samples/common/res/mapobject/Decoration/Materials/
+D	samples/common/res/mapobject/Horror/textures
+F	samples/common/res/mapobject/Indoor/Bureau.def	samples/common/res/mapobject/Indoor/
+F	samples/common/res/mapobject/Indoor/Bureau.fbx	samples/common/res/mapobject/Indoor/
+F	samples/common/res/mapobject/Indoor/Coffin- transversely.def	samples/common/res/mapobject/Indoor/
+F	samples/common/res/mapobject/Indoor/Coffin- transversely.fbx	samples/common/res/mapobject/Indoor/
+F	samples/common/res/mapobject/Indoor/Door wood 01.def	samples/common/res/mapobject/Indoor/
+F	samples/common/res/mapobject/Indoor/Door wood 01.fbx	samples/common/res/mapobject/Indoor/
+F	samples/common/res/mapobject/Indoor/Floor Sswitch Blue.def	samples/common/res/mapobject/Indoor/
+F	samples/common/res/mapobject/Indoor/Floor Sswitch Blue.fbx	samples/common/res/mapobject/Indoor/
+F	samples/common/res/mapobject/Indoor/Floor Sswitch Green.def	samples/common/res/mapobject/Indoor/
+F	samples/common/res/mapobject/Indoor/Floor Sswitch Green.fbx	samples/common/res/mapobject/Indoor/
+F	samples/common/res/mapobject/Indoor/Floor Sswitch Yellow.def	samples/common/res/mapobject/Indoor/
+F	samples/common/res/mapobject/Indoor/Floor Sswitch Yellow.fbx	samples/common/res/mapobject/Indoor/
+D	samples/common/res/mapobject/Indoor/Materials
+F	samples/common/res/mapobject/Indoor/TreasureChest 01.def	samples/common/res/mapobject/Indoor/
+F	samples/common/res/mapobject/Indoor/TreasureChest 01.fbx	samples/common/res/mapobject/Indoor/
+F	samples/common/res/mapobject/Indoor/Materials/Bureau-It_032_mat.mat	samples/common/res/mapobject/Indoor/Materials/
+F	samples/common/res/mapobject/Indoor/Materials/Coffin- transversely-It_051_Coffin_mat.mat	samples/common/res/mapobject/Indoor/Materials/
+F	samples/common/res/mapobject/Indoor/Materials/Door wood 01-It_069_door01.mat	samples/common/res/mapobject/Indoor/Materials/
+F	samples/common/res/mapobject/Indoor/Materials/Floor Sswitch Blue-floorSwitch_blue_mat.mat	samples/common/res/mapobject/Indoor/Materials/
+F	samples/common/res/mapobject/Indoor/Materials/Floor Sswitch Green-floorSwitch_green_mat.mat	samples/common/res/mapobject/Indoor/Materials/
+F	samples/common/res/mapobject/Indoor/Materials/Floor Sswitch Yellow-floorSwitch_yellow_mat.mat	samples/common/res/mapobject/Indoor/Materials/
+F	samples/common/res/mapobject/Indoor/Materials/TreasureChest 01-TreasureChest_mat.mat	samples/common/res/mapobject/Indoor/Materials/
+D	samples/common/res/mapobject/Outdoor/Materials
+F	samples/common/res/mapobject/Outdoor/Rock.fbx	samples/common/res/mapobject/Outdoor/
+F	samples/common/res/mapobject/Outdoor/Materials/Rock-rock_mat.mat	samples/common/res/mapobject/Outdoor/Materials/
+F	samples/common/res/mapobject/textures/Bd_003_castle.png	samples/common/res/mapobject/textures/
+F	samples/common/res/mapobject/textures/Bd_020_church.png	samples/common/res/mapobject/textures/
+F	samples/common/res/mapobject/textures/It_018_Rock.png	samples/common/res/mapobject/textures/
+F	samples/common/res/mapobject/textures/It_032_bureau.png	samples/common/res/mapobject/textures/
+F	samples/common/res/mapobject/textures/It_051_Coffin.png	samples/common/res/mapobject/textures/
+F	samples/common/res/mapobject/textures/It_069_door01.png	samples/common/res/mapobject/textures/
+F	samples/common/res/mapobject/textures/It_073_TreasureChest01.png	samples/common/res/mapobject/textures/
+F	samples/common/res/mapobject/textures/It_075_FloorSwitch_blue.png	samples/common/res/mapobject/textures/
+F	samples/common/res/mapobject/textures/It_076_FloorSwitch_Green.png	samples/common/res/mapobject/textures/
+F	samples/common/res/mapobject/textures/It_077_FloorSwitch_yellow.png	samples/common/res/mapobject/textures/
+F	samples/common/res/mapobject/textures/It_201_door_001.png	samples/common/res/mapobject/textures/
+F	samples/common/res/mapobject/textures/Lit_001_pointlight.png	samples/common/res/mapobject/textures/
+D	samples/common/res/mapobject/Traps/textures
+D	samples/common/res/map_bg/Materials
+F	samples/common/res/map_bg/Sky noon.def	samples/common/res/map_bg/
+F	samples/common/res/map_bg/Sky noon.fbx	samples/common/res/map_bg/
+D	samples/common/res/map_bg/textures
+F	samples/common/res/map_bg/Materials/Sky noon-sky_mat.mat	samples/common/res/map_bg/Materials/
+F	samples/common/res/map_bg/Materials/Sky noon-sun_mat.mat	samples/common/res/map_bg/Materials/
+F	samples/common/res/map_bg/textures/env_sky_001_noon.png	samples/common/res/map_bg/textures/
+F	samples/common/res/map_bg/textures/env_sun_001_noon.png	samples/common/res/map_bg/textures/
+F	samples/common/res/monster/E001.png	samples/common/res/monster/
+F	samples/common/res/monster/E003.png	samples/common/res/monster/
+F	samples/common/res/monster/E004.png	samples/common/res/monster/
+F	samples/common/res/monster/E017.png	samples/common/res/monster/
+F	samples/common/res/monster/E020_A.png	samples/common/res/monster/
+F	samples/common/res/monster/E024_A.png	samples/common/res/monster/
+F	samples/common/res/monster/E025.png	samples/common/res/monster/
+F	samples/common/res/monster/E027_A.png	samples/common/res/monster/
+F	samples/common/res/monster/E029_A.png	samples/common/res/monster/
+F	samples/common/res/monster/E031_A.png	samples/common/res/monster/
+F	samples/common/res/monster/E032_E.png	samples/common/res/monster/
+F	samples/common/res/monster/E033.png	samples/common/res/monster/
+F	samples/common/res/monster/E034.png	samples/common/res/monster/
+F	samples/common/res/monster/E036.png	samples/common/res/monster/
+F	samples/common/res/monster/E037_D.png	samples/common/res/monster/
+F	samples/common/res/monster/E041.png	samples/common/res/monster/
+F	samples/common/res/se/Absorb.ogg	samples/common/res/se/
+F	samples/common/res/se/Bolt.ogg	samples/common/res/se/
+F	samples/common/res/se/Bolt_2.ogg	samples/common/res/se/
+F	samples/common/res/se/Bolt_3_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Bolt_All_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Bolt_Hit.ogg	samples/common/res/se/
+F	samples/common/res/se/Bolt_Slash.ogg	samples/common/res/se/
+F	samples/common/res/se/Breakbarrel.ogg	samples/common/res/se/
+F	samples/common/res/se/Cancel.ogg	samples/common/res/se/
+F	samples/common/res/se/Chest.ogg	samples/common/res/se/
+F	samples/common/res/se/Chest_3.ogg	samples/common/res/se/
+F	samples/common/res/se/Chicken.ogg	samples/common/res/se/
+F	samples/common/res/se/Claws.ogg	samples/common/res/se/
+F	samples/common/res/se/Confuse_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Continuous_Hit_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Continuous_Slash_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Cursor.ogg	samples/common/res/se/
+F	samples/common/res/se/Dark.ogg	samples/common/res/se/
+F	samples/common/res/se/Dark_All_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Death_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Decide.ogg	samples/common/res/se/
+F	samples/common/res/se/Decide_2.ogg	samples/common/res/se/
+F	samples/common/res/se/Decide_3.ogg	samples/common/res/se/
+F	samples/common/res/se/Defense_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Delete.ogg	samples/common/res/se/
+F	samples/common/res/se/Door.ogg	samples/common/res/se/
+F	samples/common/res/se/Door_4.ogg	samples/common/res/se/
+F	samples/common/res/se/Door_5.ogg	samples/common/res/se/
+F	samples/common/res/se/Earth.ogg	samples/common/res/se/
+F	samples/common/res/se/Earth_All_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Explosion.ogg	samples/common/res/se/
+F	samples/common/res/se/Explosion_All_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Fangs_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Fire_1_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Fire_2_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Fire_3_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Fire_All_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Fire_Hit.ogg	samples/common/res/se/
+F	samples/common/res/se/Fire_Slash.ogg	samples/common/res/se/
+F	samples/common/res/se/Good.ogg	samples/common/res/se/
+F	samples/common/res/se/Hard_Strike.ogg	samples/common/res/se/
+F	samples/common/res/se/Ice.ogg	samples/common/res/se/
+F	samples/common/res/se/Ice_2.ogg	samples/common/res/se/
+F	samples/common/res/se/Ice_3_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Ice_All_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Ice_Hit.ogg	samples/common/res/se/
+F	samples/common/res/se/Ice_Slash.ogg	samples/common/res/se/
+F	samples/common/res/se/Impact.ogg	samples/common/res/se/
+F	samples/common/res/se/Input.ogg	samples/common/res/se/
+F	samples/common/res/se/Item.ogg	samples/common/res/se/
+F	samples/common/res/se/Light.ogg	samples/common/res/se/
+F	samples/common/res/se/Light_All_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Light_Strike.ogg	samples/common/res/se/
+F	samples/common/res/se/Medium_Hit_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Medium_Slash.ogg	samples/common/res/se/
+F	samples/common/res/se/Meteo_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Move.ogg	samples/common/res/se/
+F	samples/common/res/se/Move_2.ogg	samples/common/res/se/
+F	samples/common/res/se/Paralyze.ogg	samples/common/res/se/
+F	samples/common/res/se/Poison.ogg	samples/common/res/se/
+F	samples/common/res/se/Poison_All_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Recover_1.ogg	samples/common/res/se/
+F	samples/common/res/se/Recover_2.ogg	samples/common/res/se/
+F	samples/common/res/se/Recover_3_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Silence_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Slash_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Sleep_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Spirit_Blast_2.ogg	samples/common/res/se/
+F	samples/common/res/se/Spirit_Blast_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Status_Down.ogg	samples/common/res/se/
+F	samples/common/res/se/Status_Up.ogg	samples/common/res/se/
+F	samples/common/res/se/Strong_Hit_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Strong_Slash.ogg	samples/common/res/se/
+F	samples/common/res/se/Walk_2.ogg	samples/common/res/se/
+F	samples/common/res/se/Water._3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Water_All_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Weak_Hit_3D.ogg	samples/common/res/se/
+F	samples/common/res/se/Weak_Slash.ogg	samples/common/res/se/
+F	samples/common/res/se/Wind.ogg	samples/common/res/se/
+F	samples/common/res/se/Wind_All_3D.ogg	samples/common/res/se/
+F	samples/common/res/system/arrow.png	samples/common/res/system/
+F	samples/common/res/system/arrow_selected.png	samples/common/res/system/
+F	samples/common/res/system/back.png	samples/common/res/system/
+F	samples/common/res/system/button_guide.png	samples/common/res/system/
+F	samples/common/res/system/change.png	samples/common/res/system/
+F	samples/common/res/system/circle_shadow.png	samples/common/res/system/
+F	samples/common/res/system/Cloud noon - 01.def	samples/common/res/system/
+F	samples/common/res/system/Cloud noon - 01.fbx	samples/common/res/system/
+F	samples/common/res/system/delete.png	samples/common/res/system/
+F	samples/common/res/system/empty.fbx	samples/common/res/system/
+F	samples/common/res/system/end.png	samples/common/res/system/
+F	samples/common/res/system/equip_icons.png	samples/common/res/system/
+F	samples/common/res/system/gameover.png	samples/common/res/system/
+D	samples/common/res/system/Materials
+F	samples/common/res/system/message_wait.png	samples/common/res/system/
+F	samples/common/res/system/Moon Night - 01.def	samples/common/res/system/
+F	samples/common/res/system/Moon Night - 01.fbx	samples/common/res/system/
+F	samples/common/res/system/page_icons.png	samples/common/res/system/
+F	samples/common/res/system/Sky Cloudiness - 01.def	samples/common/res/system/
+F	samples/common/res/system/Sky Cloudiness - 01.fbx	samples/common/res/system/
+F	samples/common/res/system/Sky DemonsWorld - 01.def	samples/common/res/system/
+F	samples/common/res/system/Sky DemonsWorld - 01.fbx	samples/common/res/system/
+F	samples/common/res/system/Sky Night - 01.def	samples/common/res/system/
+F	samples/common/res/system/Sky Night - 01.fbx	samples/common/res/system/
+F	samples/common/res/system/Sky Night - 02.def	samples/common/res/system/
+F	samples/common/res/system/Sky Night - 02.fbx	samples/common/res/system/
+F	samples/common/res/system/Sky noon - 01.def	samples/common/res/system/
+F	samples/common/res/system/Sky noon - 01.fbx	samples/common/res/system/
+F	samples/common/res/system/Sky Sunset - 01.def	samples/common/res/system/
+F	samples/common/res/system/Sky Sunset - 01.fbx	samples/common/res/system/
+F	samples/common/res/system/space.png	samples/common/res/system/
+F	samples/common/res/system/Sun noon - 01.def	samples/common/res/system/
+F	samples/common/res/system/Sun noon - 01.fbx	samples/common/res/system/
+F	samples/common/res/system/Sun sunset - 01.def	samples/common/res/system/
+F	samples/common/res/system/Sun sunset - 01.fbx	samples/common/res/system/
+D	samples/common/res/system/textures
+F	samples/common/res/system/type0.png	samples/common/res/system/
+F	samples/common/res/system/type1.png	samples/common/res/system/
+F	samples/common/res/system/type2.png	samples/common/res/system/
+F	samples/common/res/system/type3.png	samples/common/res/system/
+F	samples/common/res/system/Materials/Cloud noon - 01-cloud_mat.mat	samples/common/res/system/Materials/
+F	samples/common/res/system/Materials/empty-empty_mat.mat	samples/common/res/system/Materials/
+F	samples/common/res/system/Materials/Moon Night - 01-moon_mat.mat	samples/common/res/system/Materials/
+F	samples/common/res/system/Materials/Sky Cloudiness - 01-sky_mat.mat	samples/common/res/system/Materials/
+F	samples/common/res/system/Materials/Sky DemonsWorld - 01-sky_mat.mat	samples/common/res/system/Materials/
+F	samples/common/res/system/Materials/Sky Night - 01-sky_mat.mat	samples/common/res/system/Materials/
+F	samples/common/res/system/Materials/Sky Night - 02-sky_mat.mat	samples/common/res/system/Materials/
+F	samples/common/res/system/Materials/Sky noon - 01-sky_mat.mat	samples/common/res/system/Materials/
+F	samples/common/res/system/Materials/Sky Sunset - 01-sky_mat.mat	samples/common/res/system/Materials/
+F	samples/common/res/system/Materials/Sun noon - 01-sun_mat.mat	samples/common/res/system/Materials/
+F	samples/common/res/system/Materials/Sun sunset - 01-sun_mat.mat	samples/common/res/system/Materials/
+F	samples/common/res/system/textures/empty.png	samples/common/res/system/textures/
+F	samples/common/res/system/textures/env_cloud_001_noon.png	samples/common/res/system/textures/
+F	samples/common/res/system/textures/env_moon_001.png	samples/common/res/system/textures/
+F	samples/common/res/system/textures/env_sky_001_noon.png	samples/common/res/system/textures/
+F	samples/common/res/system/textures/env_sky_002_sunset.png	samples/common/res/system/textures/
+F	samples/common/res/system/textures/env_sky_003_night.png	samples/common/res/system/textures/
+F	samples/common/res/system/textures/env_sky_004_Cloudiness.png	samples/common/res/system/textures/
+F	samples/common/res/system/textures/env_sky_005_DemonsWorld.png	samples/common/res/system/textures/
+F	samples/common/res/system/textures/env_sky_006_night_Cloudiness.png	samples/common/res/system/textures/
+F	samples/common/res/system/textures/env_sun_001_noon.png	samples/common/res/system/textures/
+F	samples/common/res/system/textures/env_sun_002_sunset.png	samples/common/res/system/textures/
+F	samples/common/res/window/battle_commands_3d.png	samples/common/res/window/
+F	samples/common/res/window/battle_commands_3d_smp1.png	samples/common/res/window/
+F	samples/common/res/window/battle_commands_3d_smp2.png	samples/common/res/window/
+F	samples/common/res/window/battle_commands_3d_smp3.png	samples/common/res/window/
+F	samples/common/res/window/battle_status_3d.png	samples/common/res/window/
+F	samples/common/res/window/battle_status_3d_smp1.png	samples/common/res/window/
+F	samples/common/res/window/battle_status_3d_smp2.png	samples/common/res/window/
+F	samples/common/res/window/battle_status_3d_smp3.png	samples/common/res/window/
+F	samples/common/res/window/default.png	samples/common/res/window/
+F	samples/common/res/window/default_selectable.png	samples/common/res/window/
+F	samples/common/res/window/default_selected.png	samples/common/res/window/
+F	samples/common/res/window/message.png	samples/common/res/window/
+F	samples/common/res/window/orb_window.png	samples/common/res/window/
+F	samples/common/res/window/orb_window_black.png	samples/common/res/window/
+F	samples/common/res/window/orb_window_white.png	samples/common/res/window/
+F	samples/common/res/window/pattern_window.png	samples/common/res/window/
+F	samples/common/res/window/pattern_window_gold.png	samples/common/res/window/
+F	samples/common/res/window/pattern_window_silver.png	samples/common/res/window/
+F	samples/common/res/window/scroll_window.png	samples/common/res/window/
+F	samples/common/res/window/scroll_window_2.png	samples/common/res/window/
+F	samples/common/res/window/title_cursor.png	samples/common/res/window/
+F	samples/common/res/window/window_black.png	samples/common/res/window/
+F	samples/common/res/window/window_white.png	samples/common/res/window/

@@ -1,0 +1,4 @@
+mtl Material::sun_mat
+blend add
+shader legacy_tex
+depthwrite false

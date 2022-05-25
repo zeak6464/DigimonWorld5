@@ -1,0 +1,290 @@
+name bg
+generate true
+emitterType sphere
+emitterLifeTime 0.000000
+emitterAmount 5.000000
+emitInterval 0.000000
+emitterSize 0.100000 0.000000 0.100000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 1.000000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 2
+randomColor0 0.259843 0.000000 0.000000 1.000000
+randomColor1 0.118110 0.044640 0.000000 1.000000
+randomColor2 0.000000 0.000000 1.000000 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.300000
+maxSize 0.300000
+startAlpha 0.000000
+middleAlpha 0.500000
+endAlpha 0.000000
+startAlphaTime 0.500000
+endAlphaTime 0.300000
+startBrightness 0.000000
+middleBrightness 0.300000
+endBrightness 0.000000
+startBrightnessTime 0.500000
+endBrightnessTime 0.500000
+startScale 0.500000 0.500000 1.000000
+middleScale 0.600000 0.600000 1.000000
+endScale 0.700000 0.700000 1.000000
+startScaleTime 0.500000
+endScaleTime 0.500000
+angle 90.000000 20.000000 0.000000
+angleRandRange 0.000000 20.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 1.000000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.200000
+emitParam 30.000000
+texPatternH 2
+texPatternV 1
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.050000 0.000000
+texture ef022_SmallFire
+end
+name smoke_long
+generate true
+emitterType sphere
+emitterLifeTime 0.000000
+emitterAmount 10.000000
+emitInterval 0.000000
+emitterSize 0.100000 0.000000 0.100000
+gravity 0.002000 0.000000 0.000000
+airDrag 0.000000
+billboard true
+mirrorType none
+followType unfollow
+particleLifeTime 2.500000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 1.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 2
+randomColor0 1.000000 1.000000 1.000000 1.000000
+randomColor1 0.354331 0.354331 0.354331 1.000000
+randomColor2 0.000000 0.000000 1.000000 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.500000
+maxSize 1.000000
+startAlpha 0.000000
+middleAlpha 0.200000
+endAlpha 0.000000
+startAlphaTime 0.100000
+endAlphaTime 0.300000
+startBrightness 0.000000
+middleBrightness 0.100000
+endBrightness 0.000000
+startBrightnessTime 0.100000
+endBrightnessTime 0.500000
+startScale 0.200000 0.200000 0.200000
+middleScale 0.400000 0.400000 0.400000
+endScale 1.000000 1.000000 1.000000
+startScaleTime 0.700000
+endScaleTime 0.700000
+angle 0.000000 0.000000 0.000000
+angleRandRange 0.000000 0.000000 360.000000
+angluarVelocity 0.000000 0.000000 20.000000
+isFlucPhaseShift true
+flucAmp 0.400000
+flucAlpha false
+flucScale true
+flucBrightness false
+flucFreq 5.000000
+emitParam 30.000000
+texPatternH 2
+texPatternV 1
+texPatternStart 1
+texPatternEnd 1
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.500000 0.000000
+texture ef022_SmallFire
+end
+name 01
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 40.000000
+emitInterval 0.000000
+emitterSize 0.050000 0.000000 0.050000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard true
+mirrorType none
+followType unfollow
+particleLifeTime 1.000000
+particleLifeRandom 0.500000
+baseSpeed 0.100000
+linearVelocity 0.000000 0.400000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 3
+randomColor0 1.000000 1.000000 1.000000 1.000000
+randomColor1 1.000000 0.870234 0.818898 1.000000
+randomColor2 0.622047 0.333065 0.333082 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.200000
+maxSize 0.300000
+startAlpha 0.000000
+middleAlpha 0.100000
+endAlpha 0.500000
+startAlphaTime 0.100000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 0.300000
+endBrightness 0.000000
+startBrightnessTime 0.100000
+endBrightnessTime 0.500000
+startScale 1.000000 1.000000 1.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 0.000000 0.000000 0.000000
+startScaleTime 0.200000
+endScaleTime 0.200000
+angle 0.000000 0.000000 30.000000
+angleRandRange 0.000000 0.000000 360.000000
+angluarVelocity 0.000000 0.000000 100.000000
+isFlucPhaseShift true
+flucAmp 2.586000
+flucAlpha true
+flucScale false
+flucBrightness true
+flucFreq 3.000000
+emitParam 30.000000
+texPatternH 2
+texPatternV 1
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.200000 0.000000
+texture ef022_SmallFire
+end
+name 02
+generate true
+emitterType sphere
+emitterLifeTime 0.000000
+emitterAmount 10.000000
+emitInterval 0.000000
+emitterSize 0.500000 0.000000 0.500000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard true
+mirrorType none
+followType unfollow
+particleLifeTime 0.400000
+particleLifeRandom 1.000000
+baseSpeed 0.100000
+linearVelocity 0.000000 1.000000 0.000000
+linearVelocityRandom 1.000000
+randomColorCount 2
+randomColor0 1.000000 1.000000 1.000000 1.000000
+randomColor1 1.000000 0.546593 0.440945 1.000000
+randomColor2 0.000000 0.000000 1.000000 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.010000
+maxSize 0.030000
+startAlpha 0.000000
+middleAlpha 0.000000
+endAlpha 0.000000
+startAlphaTime 0.000000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 0.300000
+endBrightness 0.000000
+startBrightnessTime 0.000000
+endBrightnessTime 0.500000
+startScale 0.500000 0.500000 0.500000
+middleScale 1.000000 1.000000 1.000000
+endScale 0.500000 0.500000 0.500000
+startScaleTime 0.100000
+endScaleTime 0.400000
+angle 0.000000 0.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 100.000000
+isFlucPhaseShift true
+flucAmp 2.586000
+flucAlpha true
+flucScale false
+flucBrightness true
+flucFreq 3.000000
+emitParam 30.000000
+texPatternH 2
+texPatternV 1
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.300000 0.000000
+texture ef022_SmallFire
+end
+name sphere
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 3.000000
+emitInterval 0.000000
+emitterSize 0.050000 0.000000 0.050000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard true
+mirrorType none
+followType unfollow
+particleLifeTime 2.000000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 1
+randomColor0 1.000000 0.425197 0.000000 1.000000
+randomColor1 1.000000 0.870234 0.818898 1.000000
+randomColor2 0.622047 0.333065 0.333082 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 1.000000
+maxSize 1.000000
+startAlpha 0.000000
+middleAlpha 0.000000
+endAlpha 0.000000
+startAlphaTime 0.500000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 0.070000
+endBrightness 0.000000
+startBrightnessTime 0.500000
+endBrightnessTime 0.500000
+startScale 1.000000 1.000000 1.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 1.000000 1.000000 1.000000
+startScaleTime 0.200000
+endScaleTime 0.200000
+angle 0.000000 0.000000 30.000000
+angleRandRange 0.000000 0.000000 360.000000
+angluarVelocity 0.000000 0.000000 10.000000
+isFlucPhaseShift false
+flucAmp 0.200000
+flucAlpha false
+flucScale true
+flucBrightness false
+flucFreq 1.000000
+emitParam 30.000000
+texPatternH 2
+texPatternV 1
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.850000 0.000000
+texture ef022_SmallFire
+end

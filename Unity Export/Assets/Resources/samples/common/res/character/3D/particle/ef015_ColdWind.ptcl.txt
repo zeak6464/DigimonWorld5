@@ -1,0 +1,114 @@
+name 01
+generate true
+emitterType sphere
+emitterLifeTime 0.000000
+emitterAmount 3.000000
+emitterSize 19.000000 0.000000 19.000000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard true
+mirrorType none
+followType unfollow
+particleLifeTime 3.000000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 4.000000 -4.000000 0.000000
+linearVelocityRandom 1.000000
+randomColorCount 0
+randomColor0 1.000000 0.236220 0.000000 1.000000
+randomColor1 0.000000 0.692914 1.000000 1.000000
+randomColor2 0.818898 1.000000 0.000000 1.000000
+randomColor3 1.000000 0.803150 0.000000 1.000000
+minSize 0.100000
+maxSize 0.300000
+startAlpha 1.000000
+middleAlpha 1.000000
+endAlpha 0.000000
+startAlphaTime 0.200000
+endAlphaTime 0.800000
+startBrightness 1.000000
+middleBrightness 1.000000
+endBrightness 0.000000
+startBrightnessTime 0.200000
+endBrightnessTime 0.800000
+startScale 1.000000 1.000000 1.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 1.000000 1.000000 1.000000
+startScaleTime 0.000000
+endScaleTime 1.000000
+angle 45.000000 0.000000 0.000000
+angleRandRange 45.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 1000.000000
+isFlucPhaseShift false
+flucAmp 0.100000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.000000
+emitParam 1500.000000
+texPatternH 2
+texPatternV 1
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 8.000000 0.000000
+texture ef015_ColdWind
+end
+name 02
+generate true
+emitterType sphere
+emitterLifeTime 0.000000
+emitterAmount 3.000000
+emitterSize 19.000000 0.000000 19.000000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard true
+mirrorType none
+followType unfollow
+particleLifeTime 3.000000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 2.000000 -4.000000 0.000000
+linearVelocityRandom 1.000000
+randomColorCount 0
+randomColor0 1.000000 0.236220 0.000000 1.000000
+randomColor1 0.000000 0.692914 1.000000 1.000000
+randomColor2 0.818898 1.000000 0.000000 1.000000
+randomColor3 1.000000 0.803150 0.000000 1.000000
+minSize 0.100000
+maxSize 0.300000
+startAlpha 1.000000
+middleAlpha 1.000000
+endAlpha 0.000000
+startAlphaTime 0.200000
+endAlphaTime 0.800000
+startBrightness 1.000000
+middleBrightness 1.000000
+endBrightness 0.000000
+startBrightnessTime 0.200000
+endBrightnessTime 0.800000
+startScale 1.000000 1.000000 1.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 1.000000 1.000000 1.000000
+startScaleTime 0.000000
+endScaleTime 1.000000
+angle 45.000000 0.000000 0.000000
+angleRandRange 45.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 1000.000000
+isFlucPhaseShift false
+flucAmp 0.100000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.000000
+emitParam 1500.000000
+texPatternH 2
+texPatternV 1
+texPatternStart 1
+texPatternEnd 1
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 8.000000 0.000000
+texture ef015_ColdWind
+end

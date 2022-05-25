@@ -1,0 +1,1331 @@
+SGBクエスト	SGB Quest
+NewGame	NewGame
+SGBクエスト Trial	SGB Quest
+体験版	Trial
+村長の話を聞いた	Village_mayor
+村人の話を聞いた1	Villager_01
+村人の話を聞いた2	Villager_02
+村人の話を聞いた3	Villager_03
+あやしい場所を調べた1	Check_point_01
+あやしい場所を調べた2	Check_point_02
+あやしい場所を調べた3	Check_point_03
+ヒントをもらった1	Hint_01
+ヒントをもらった2	Hint_02
+ヒントをもらった3	Hint_03
+青色スイッチを押した	Switch_blue
+緑色スイッチを押した	Switch_green
+赤色スイッチを押した	Switch_red
+黄色スイッチを押した	Switch_yellow
+コウモリとバトルした	Battled with a bat
+ニワトリとバトルした	Battled with a chicken
+エンディングを実行する	Initiate ending
+G	G
+泊まる	Stay
+泊まらない	Don't stay
+お金が足りない...	Not enough money...
+買う	Buy
+売る	Sell
+やめる	Quit
+{0}を購入しました	Bought {0}.
+{0}を売却しました	Sold {0}.
+無	Non-element
+火	Fire
+氷	Ice
+風	Wind
+雷	Lightning
+聖	Holy
+冥	Dark
+毒	Poison
+眠り	Sleep
+麻痺	Paralysis
+即死	KO
+混乱	Confusion
+魅了	Charm
+リザルト	Result
+セーブしました！	Saved!
+上書き保存します。よろしいですか？	Overwrite save file?
+本当にゲームを終了しますか？	Are you sure you want to exit the game?
+決定	OK
+カーソル移動	Cursor movement
+キャラクター選択	Character select
+設定変更	Change settings
+閉じる	Close
+命中率	Accuracy
+消費{0} : {1}	Cost {0} : {1}
+アイテム無し	No items
+消費アイテム	Consumables
+武器	Weapon
+攻撃力	Attack
+鎧	Body armor
+防御力	Defense
+盾	Arm armor
+回避率	Evasion
+兜	Head armor
+アクセサリー	Accessory
+所持数	held
+アイテム	Items
+スキル	Skills
+装備	Equipment
+ステータス	Status
+セーブ	Save
+ゲーム終了	Exit game
+使う	Use
+捨てる	Throw away
+LV	LV
+HP	HP
+MP	MP
+状態	State
+正常	Normal
+戦闘不能	KO
+誰が使いますか？	No skills
+スキル無し	No skills
+誰の装備を変更しますか？	Do you want to change anyone's equipment?
+はずす	Remove
+なし	Nothing
+誰のステータスを見ますか？	I do not want to view anyone's status?
+腕力	Brawn
+体力	Physical strength
+魔力	Magical power
+素早さ	Agility
+経験値	EXP
+つぎのレベルまで	Until next level
+ゲームオーバー	Game over
+誰を攻撃しますか？	Who do you want to attack?
+誰に使用しますか？	Who do you want to use it on?
+{0}は様子を見ている	{0} is surveying the situation...
+{0}は眠っている……	{0} is sleeping...
+{0}は麻痺で動けない！	{0} is paralyzed and can't move!
+{0}の会心の一撃！	{0}'s critical blow!
+{0}は身を守っている……	{0} is defending...
+{0}は力をためている……	{0} is charging up power...
+{0}の攻撃！	{0}'s attack!
+{1}	{1}
+モンスターが現れた！	Monster appeared!
+戦闘に勝利した！	You are victorious!
+全滅した……	Annihilated......
+逃げ出した……	Ran away......
+お金を{0}{1}手に入れた！	You {0} {1} money!
+アイテム[{0}]を手に入れた！	You got item [{0}]!
+経験値を{0}ポイント獲得した！	You got {0} experience points!
+レベルアップ！	LevelUp!
+逃げる	Escape
+ミス	Miss!!
+戻る	Back
+はい	Yes
+いいえ	No
+SMILE GAME BUILDERを使ってどんなことができるか？　まずはコレでお試し！	Welcome to the SMILE GAME BUILDER!
+今はまだ何もない世界。この世界は、あなたが作る！	Welcome to the SMILE GAME BUILDER!
+一瞬	Instant
+速い	Fast
+普通	Normal
+遅い	Slow
+記憶する	Remember
+記憶しない	Don’t remember
+BGM	BGM
+効果音	Sound effects
+メッセージ速度	Message speed
+カーソル位置	Cursor position
+初期設定に戻す	Reset to defaults
+はじめから	New Game
+つづきから	Continue
+コンフィグ	Config
+属性攻撃力	Elem. Attack
+所持金	Held money
+プレイ時間	Playtime
+～伝説の宝をさがせ～	~ Find the legendary treasure ~
+続き	Continue
+{0}は毒を受けている！	{0} is poisoned...
+{0}は混乱している！	{0} is confused...
+{0}は魅了されている！	{0} is charmed...
+{0}は逃げ出した！	{0} escaped!
+{0}は混乱から回復した！	{0} recovered from confusion!
+{0}は立ち上がった！	{0} stood up!
+{0}は魅了から回復した！	{0} recovered from charm!
+{0}は麻痺から回復した！	{0} recovered paralysis!
+{0}は毒から回復した！	{0} recovered from poison!
+{0}は目を覚ました！	{0} has woken up!
+逃げることができなかった！	Could not escape!
+Exp	Exp
+シオン	Sion
+村に住むふつうの青年。冒険者にあこがれて剣の修行にはげんでいる。	An ordinary young man who lives in the village. Longing to become an adventurer, he trained hard with the sword.
+マリー	Marie
+村に住むふつうの少女。魔法の勉強をしている。	An ordinary girl living in the village. She studies magic.
+イグナーツ	Ignaz
+冒険者ギルドに所属する戦士。村の自警団のリーダー。	A warrior belonging to the Adventurer's Guild. The leader of the village watch group.
+リサ	Lisa
+冒険者ギルドに所属する魔法使い。村人たちに魔法を教えている。	A magician belonging to the Adventurer's Guild. Teaches magic to the villagers.
+エルドレッド	Eldred
+最近村にやってきた謎の多い青年。実は暗殺者ギルドの処刑人。	A mysterious youth who recently came to the village. This person is actually an executioner in the Assassin's Guild.
+Village	Village
+House	House
+Village_rooms	Village_rooms
+Shop	Shop
+Village_rooms	Village_rooms
+Church	Church
+Village_rooms	Village_rooms
+Mayer's House	Mayer's House
+Village_rooms	Village_rooms
+Castle	Castle
+Forest	Forest
+NightForest	Night Forest
+Inn	Inn
+Dungeon_1F	Dungeon_1F
+Dungeon	Dungeon
+Dungeon_2F	Dungeon_2F
+Dungeon	Dungeon
+Dungeon_3F	Dungeon_3F
+Dungeon	Dungeon
+薬草ハーブ	Medicinal herb
+HPを回復する薬草	A medicinal herb that restores HP
+ポーション	Potion
+HPをかなり回復する飲み薬	A drink that restores a lot of HP
+ナイフ	Knife
+日常生活でも使える大きなナイフ	A large knife can also be used in everyday life
+ロングソード	Longsword
+戦闘用に作られた立派な剣	A fine sword made for combat
+マジックハーブ	Magic herb
+MPを回復する薬草	An herb that restores MP
+マジックポーション	Magic Potion
+MPをかなり回復する飲み薬	A drink that restores a lot of MP
+フルポーション	Full Potion
+HPとMPを全回復する飲み薬	A drink that fully restores HP and MP
+毒消しハーブ	Antidote herb
+毒を治す薬草	An herb that cures poison
+ディスペルハーブ	Dispell herb
+さまざまな状態を治す薬草	An herb that cures a variety of conditions
+復活の羽	Revival feather
+戦闘不能を治す不死鳥の羽	A Phoenix feather that cures knockout
+炎の呪文書	Flame spellbook
+ファイアの魔法が発動する書物	A book that invokes fire magic
+幻影の呪文書	Phantom spellbook
+ブリンクボディの魔法が発動する書物	A book that invokes blink body magic
+青銅のカギ	Bronze key
+銅で作られた粗末なカギ	A crude key made of bronze
+白銀のカギ	Silver key
+銀で作られた立派なカギ	A fine key made of silver
+黄金のカギ	Gold key
+金で作られた豪華なカギ	A splendid key made of gold
+古代のカギ	Ancient key
+ぼろぼろに朽ちたカギ	A tattered rotten key
+カードキー	Card key
+謎の金属で作られた板	An card made out of some mysterious metal
+村長の手紙	Letter
+村長の話を聞くともらえる手紙	A letter you can get by listening to the village elder
+冒険者の証	Adventurer's license
+冒険者として認められた証	Proof of being a recognized adventurer
+村人の依頼書1	Villager's request 1
+村人からの依頼内容が書かれた紙	Paper with a request from a villager written on it
+村人の依頼書2	Villager's request 2
+村人からの依頼内容が書かれた紙	Paper with a request from a villager written on it
+村人の依頼書3	Villager's request 3
+村人からの依頼内容が書かれた紙	Paper with a request from a villager written on it
+月光花	Moonlight flower
+あらゆる病気を治す幻の花	An illusive flower that cures every illness
+古文書	Ancient manuscript
+古代魔法語で書かれた謎の書物	A mysterious book that contains ancient magic writing
+ギルドの依頼書1	Guild request 1
+ギルドからの依頼内容が書かれた紙	Paper with a request from a guild written on it
+ギルドの依頼書2	Guild request 2
+ギルドからの依頼内容が書かれた紙	Paper with a request from a guild written on it
+ギルドの依頼書3	Guild request 3
+ギルドからの依頼内容が書かれた紙	Paper with a request from a guild written on it
+賢者の石板	Philosopher's slate
+偉大なる賢者が残した予言の石板	Slate with the prophecy of a great wise man inscribed on it
+王の許可証	Royal permit
+王様から与えられた許可証	Permit given by the king
+鷲獅子の紋章	Griffin emblem
+グリフォンを象った古代王国のシンボル	Symbol of an ancient kingdom modeled after a griffin
+火の精霊石	Fire spirit stone
+火の力を秘めた赤い水晶玉	A red crystal ball with the power of fire hidden inside
+氷の精霊石	Ice spirit stone
+氷の力を秘めた青い水晶玉	A blue crystal ball with the power of ice hidden inside
+風の精霊石	Wind spirit stone
+風の力を秘めた緑の水晶玉	A green crystal ball with the power of wind hidden inside
+土の精霊石	Earth spirit stone
+土の力を秘めた黄色い水晶玉	A yellow crystal ball with the power of earth hidden inside
+魔獣の角	Beast's horn
+魔獣を倒した証	Proof of defeating a beast
+竜紅玉	Dragon ruby
+ドラゴンを倒した証	Proof of defeating a dragon
+魔王の眼	Devil's eye
+魔王を倒した証	Proof of defeating the devil
+ブラスナックル	Brass knuckles
+拳にはめる格闘武器	A melee weapons worn on the fist
+アイアンハンマー	Iron Hammer
+鋼鉄で作られた重いハンマー	A heavy hammer made of steel
+バトルアクス	Battle axe
+戦士が好んで使う両刃の斧	A double-edged axe favored by warriors
+セージロッド	Sage rod
+聖属性を秘めた魔法使いの杖	A magician's cane with hidden holy attributes
+ポイズンダガー	Poison dagger
+斬りつけた相手を毒にする猛毒のダガー	A deadly poisonous dagger that poisons any opponent it cuts
+アイスソード	Ice Sword
+氷属性を秘めたロングソード	A long sword with hidden ice attributes
+フレイムナックル	Flame knuckle
+火属性を秘めたナックル	Knuckles with hidden fire attributes
+サンダーアクス	Thunder Axe
+雷属性を秘めたバトルアクス	A battle axe with hidden lightning attributes
+バンダナ	Bandana
+布製のハチマキ	A cloth headband
+レザーハット	Leather hat
+動物の皮でつくられた帽子	A hat made of animal skins
+チェインヘルム	Chain helm
+鉄の鎖で編まれた兜	A helmet woven with iron chains
+クレストヘルム	Crest helm
+紋章の刻まれた騎士の兜	A knight's helmet with an emblem carved into it
+レザーチュニック	Leather tunic
+動物の皮でつくられた厚手の服	Thick clothes made of animal skins
+チェインメイル	Chain mail
+鉄の鎖で編まれた鎧	Armor woven with iron chains
+メイジローブ	Mage robe
+MPを増幅する魔法使いのローブ	A magician's robe that amplifies MP
+クレストメイル	Crest mail
+紋章の刻まれた騎士の鎧	A knight's armor with a coat of arms carved in it
+ルーンクロス	Rune cloth
+MPを増幅する魔法使いのローブ	A magician's robe that amplifies MP
+レザーグローブ	Leather gloves
+動物の皮でつくられた手袋	Gloves made of animal skins
+バックラー	Buckler
+攻撃を受け流す小型の盾	A compact shield for parrying attacks
+スパイクシールド	Spiked shield
+表面にトゲのついた円盾	A round shield covered in spikes
+クレストシールド	Crest shield
+紋章の刻まれた騎士の盾	A knight's shield with a coat of arms carved in it
+盗賊のブーツ	Thieves' boots
+素早さと回避率が上がる魔法のブーツ	Magic of boots that increases speed and avoidance rate
+虹色の魔除け	Rainbow amulet
+あらゆる状態異常に強くなる魔除け	Amulet that strengthens resistance to all abnormal statuses
+精霊の腕輪	Spirit bracelet
+全属性のダメージを半分にする腕輪	A bracelet that reduces the damage of all attributes by half
+ヒーリング	Healing
+味方ひとりのHPを回復する	Restores the HP of a single companion
+エリアヒール	Area heal
+味方全員のHPを回復する	Restores the HP of all companions
+キュアポイズン	Cure poison
+味方ひとりの毒を治す	Cures poison for a single companion
+レイズ	Raise
+味方ひとりを戦闘不能から復活させる	Revives a single companion from knock out
+パワーブースト	Power boost
+味方ひとりの攻撃力をアップする	Increases the attack power of a single companion
+ブリンクボディ	Blink body
+味方ひとりの回避率をアップする	Increases the evasion rate of a single companion
+ファイア	Fire
+敵一体に火属性のダメージを与える	Deals fire damage to a single enemy
+アイス	Ice
+敵一体に氷属性のダメージを与える	Deals ice damage to a single enemy
+サンダー	Thunder
+敵一体に雷属性のダメージを与える	Deals lightning damage to a single enemy
+ファイアストーム	Fire storm
+敵全体に火属性のダメージを与える	Deals fire damage to all enemies
+アイスストーム	Ice storm
+敵全体に氷属性のダメージを与える	Deals ice damage to all enemies
+サンダーストーム	Thunderstorm
+敵全体に雷属性のダメージを与える	Deals lightning damage to all enemies
+毒牙	Poison fang
+相手に毒を与える	Poison an opponent
+吸血	Suck blood
+相手のHPを吸収して自分のHPを回復する	Restore your HP with HP absorbed from an opponent
+麻痺にらみ	Paralyzing glare
+相手を麻痺させる	Paralyze an opponent
+ファイアブレス	Fire breath
+敵全体に火属性のダメージを与える	Deals fire damage to all enemies
+アイスブレス	Ice breath
+敵全体に氷属性のダメージを与える	Deals ice damage to all enemies
+アシッドブレス	Acid breath
+敵全体にダメージを与えて防御力もダウンさせる	Deals damage to and reduces the defense of all enemies
+アサシンブレード	Assassin's blade
+相手を即死させる（命中率は低い）	Deals instant death to an opponent (hit rate is low)
+呪い	Curse
+敵全体のすべての属性耐性を下げる	Downs the attributes and resistance of all enemies
+通常攻撃	Attack
+攻撃	Attack
+防御	Guard
+スキル	Skill
+アイテム	Item
+攻撃	Attack
+防御	Guard
+スキル	Skill
+アイテム	Item
+攻撃	Attack
+防御	Guard
+スキル	Skill
+アイテム	Item
+攻撃	Attack
+防御	Guard
+ためる	Charge
+アイテム	Item
+攻撃	Attack
+防御	Guard
+スキル	Skill
+アイテム	Item
+通常攻撃	Attack
+防御	Guard
+スキル	Skill
+アイテム	Item
+看板	Sign
+看板を読む	Read sign
+オープニングイベント	Opening event
+イベントシート	Event sheet
+看板	Sign
+看板を読む	Read sign
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+静止-アイテムがあると違う話をする	Stationary - a different conversation will happen when you have an item
+イベントシート	Event sheet
+wait	wait
+アイテムを持っている	Have an item
+古文書	Ancient manuscript
+手に入れる前	Before you obtain
+手に入れた後	After obtaining
+静止-話す	Stationary - Speak
+シート	Sheet
+看板	Sign
+看板を読む	Read sign
+荒ぶるニワトリ	Savage chicken
+イベントシート	Event sheet
+荒ぶるニワトリ_2	Savage chicken _2
+イベントシート	Event sheet
+荒ぶるニワトリ_3	Savage chicken _3
+イベントシート	Event sheet
+荒ぶるニワトリ_4	Savage chicken _4
+イベントシート	Event sheet
+荒ぶるニワトリ_5	Savage chicken _5
+イベントシート	Event sheet
+荒ぶるニワトリ_6	Savage chicken _6
+イベントシート	Event sheet
+荒ぶるニワトリ_7	Savage chicken _7
+イベントシート	Event sheet
+荒ぶるニワトリ_8	Savage chicken _8
+イベントシート	Event sheet
+静止-話す	Stationary - Speak
+シート	Sheet
+看板	Sign
+看板を読む	Read sign
+歩行-仲間になる	Walking - become companions
+シート	Sheet
+扉-他の場所へリンク	Door - link to another place
+場所移動	Move location
+keepClose	keepClose
+荒ぶらないニワトリ	Tame chicken
+イベントシート	Event sheet
+wait	wait
+セーブポイント	Save point
+シート	Sheet
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+扉-他の場所へリンク	Door - link to another place
+場所移動	Move location
+keepClose	keepClose
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+扉-他の場所へリンク	Door - link to another place
+場所移動	Move location
+keepClose	keepClose
+看板	Sign
+看板を読む	Read sign
+静止-アイテムがあると右に避ける	Stationary - dodge to the right if you have an item
+場所をあける	Open area
+wait	wait
+通れるとき	When you can pass
+通れないとき	When you cannot pass
+静止-アイテムを渡すとアイテムをくれる	Stationary - Receive an item when you give an item
+アイテム交換	Item exchange
+wait	wait
+交換アイテムがない	There is no exchange item
+交換済み	Exchange complete
+扉-他の場所へリンク	Door - link to another place
+場所移動	Move location
+keepClose	keepClose
+白い煙	White smoke
+イベントシート	Event sheet
+白い煙	White smoke
+イベントシート	Event sheet
+白い煙	White smoke
+イベントシート	Event sheet
+焚火	Bonfire
+イベントシート	Event sheet
+静止-質問	Stationary - Question
+シート	Sheet
+wait	wait
+寝ている男	Sleeping man
+寝てる	Sleeping
+keepdown2	keepdown2
+起きた	Woke up
+wait	wait
+宝箱-アイテムを得る(復活の羽)	Treasure chest - acquire item (revival feather)
+手に入れる前	Before you obtain
+keepClose	keepClose
+手に入れた後	After obtaining
+keepOpen	keepOpen
+宝箱-お金を得る(50)	Treasure chest - acquire money (50)
+手に入れる前	Before you obtain
+keepClose	keepClose
+手に入れた後	After obtaining
+keepOpen	keepOpen
+扉-アイテムがあると別の場所にリンク	Door - link to another place if you have an item
+場所移動	Move location
+keepClose	keepClose
+アイテムがない	You don't have an item
+洞窟の出入口-他の場所へリンク	Cave entrance - link to another place
+場所移動	Move location
+走っている-話す	Running - speak
+シート	Sheet
+run	run
+走っている-話す	Running - speak
+シート	Sheet
+run	run
+メッセージの表示について	About message display
+いろいろなメッセージを見せる	Show a variety of messages
+wait	wait
+ガケの下の宝箱	Treasure chest under a cliff
+イベントシート	Event sheet
+ガケの下の宝箱_2	Treasure chest under a cliff_2
+イベントシート	Event sheet
+宝箱-アイテムを得る(ロングソード)	Treasure chest - acquire item (long sword)
+手に入れる前	Before you obtain
+keepClose	keepClose
+手に入れた後	After obtaining
+keepOpen	keepOpen
+たんす-メッセージ	Dresser - message
+手に入れる前	Before you obtain
+keepClose	keepClose
+ベッドで寝る	Sleep in bed
+イベントシート	Event sheet
+しゃべるクマ	Talking bear
+扉の機能-他の場所へリンク	Door function - link to another place
+場所移動	Move location
+扉の機能-他の場所へリンク	Door function - link to another place
+場所移動	Move location
+扉の機能-他の場所へリンク	Door function - link to another place
+場所移動	Move location
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+本棚	Bookcase
+本を読む（３種類）	Read a book (3 types)
+店-カウンターの奥に配置	Store - located behind the counter
+お店	Shop
+wait	wait
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+静止-質問	Stationary - Question
+シート	Sheet
+wait	wait
+扉の機能-他の場所へリンク	Door function - link to another place
+場所移動	Move location
+扉の機能-他の場所へリンク	Door function - link to another place
+場所移動	Move location
+扉の機能-他の場所へリンク	Door function - link to another place
+場所移動	Move location
+静止-アイテムをくれる	Stationary - Give an item
+イベントシート	Event sheet
+wait	wait
+もらったあと	After receiving
+扉の機能-他の場所へリンク	Door function - link to another place
+場所移動	Move location
+扉の機能-他の場所へリンク_3	Door of the function - link to another place_3
+場所移動	Move location
+扉の機能-他の場所へリンク_2	Door of the function - link to another place_2
+場所移動	Move location
+扉の機能-他の場所へリンク	Door function - link to another place
+場所移動	Move location
+扉の機能-他の場所へリンク	Door function - link to another place
+場所移動	Move location
+扉の機能-他の場所へリンク	Door function - link to another place
+場所移動	Move location
+静止-アイテムがあると違う話をする	Stationary - a different conversation will happen when you have an item
+イベントシート	Event sheet
+wait	wait
+アイテムを持っている	Have an item
+静止-アイテムがあると違う話をする	Stationary - a different conversation will happen when you have an item
+イベントシート	Event sheet
+wait	wait
+アイテムを持っている	Have an item
+静止-アイテムがあると右に避ける	Stationary - dodge to the right if you have an item
+場所をあける	Open area
+wait	wait
+通れるとき	When you can pass
+通れないとき	When you cannot pass
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+テーブル-メッセージ	Table - message
+テーブルを調べる	Examine the table
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+扉の機能-他の場所へリンク	Door function - link to another place
+場所移動	Move location
+王様	King
+もらう前	Before you get
+wait	wait
+もらった後	After getting
+看板	Sign
+看板を読む	Read sign
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+宝箱-アイテムを得る(炎の呪文書)	Treasure chest - acquire item (spell book of flames)
+手に入れる前	Before you obtain
+keepClose	keepClose
+手に入れた後	After obtaining
+keepOpen	keepOpen
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+洞窟の出入口-他の場所へリンク	Cave entrance - link to another place
+場所移動	Move location
+他のマップへリンク_2	Links to another map_2
+場所移動	Move location
+洞窟の出入口-他の場所へリンク	Cave entrance - link to another place
+場所移動	Move location
+静止-パーティに加わる_2	Stationary - join party_2
+シート	Sheet
+看板	Sign
+看板を読む	Read sign
+宝箱-アイテムを得る(アイスソード)	Treasure chest - acquire item (ice sword)
+手に入れる前	Before you obtain
+keepClose	keepClose
+手に入れた後	After obtaining
+keepOpen	keepOpen
+宝箱-アイテムを得る(盗賊のブーツ)	Treasure chest - acquire item (thieve's boots)
+手に入れる前	Before you obtain
+keepClose	keepClose
+手に入れた後	After obtaining
+keepOpen	keepOpen
+地面のキラキラ-重要なアイテムを得る(月光花)	Sparkle on the ground - acquire important item (moonlight flower)
+手に入れる前	Before you obtain
+地面のキラキラ-重要なアイテムを得る(月光花)	Sparkle on the ground - acquire important item (moonlight flower)
+手に入れる前	Before you obtain
+壊せるブロック	Breakable block
+ハンマーなし	No hammer
+ハンマーあり	Have a hammer
+壊した後	After braking
+ハラヘッタマン	Hungry man
+行き倒れ	Dead on the street
+keepdown	keepdown
+他のマップへリンク	Link to another map
+場所移動	Move location
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+歩行-話す	Walking - speak
+シート	Sheet
+wait	wait
+静止-話す	Stationary - Speak
+シート	Sheet
+jump	jump
+花火	Fireworks
+イベントシート	Event sheet
+扉-他の場所へリンク	Door - link to another place
+場所移動	Move location
+keepClose	keepClose
+地面のキラキラ-重要なアイテムを得る(月光花)	Sparkle on the ground - acquire important item (moonlight flower)
+手に入れる前	Before you obtain
+ベッド-回復する	Bed - recover
+イベントシート	Event sheet
+ベッド-回復する	Bed - recover
+イベントシート	Event sheet
+ベッド-回復する	Bed - recover
+イベントシート	Event sheet
+宿屋のおじさん	Old man at the inn
+wait	wait
+歩行-話す	Walking - speak
+シート	Sheet
+wait	wait
+扉の機能-他の場所へリンク	Door function - link to another place
+場所移動	Move location
+扉の機能-他の場所へリンク	Door function - link to another place
+場所移動	Move location
+扉の機能-他の場所へリンク	Door function - link to another place
+場所移動	Move location
+モーション娘	Motion maiden
+いろいろなモーション見せるよ	I'll show you all kinds of motions
+wait	wait
+自動的にスポットライトON	Spotlight automaticcompanion ON
+イベントシート	Event sheet
+謎の男（スポットライト拡大）	Mysterious man (enlarged spotlight)
+月光花３つもってこい	Bring 3 moonlight flowers
+wait	wait
+月光花３つもってきた	Brought 3 moonlight flowers
+イベントクリア	Event clear
+ウィルオウィスプ	Will-o'-the-wisp
+触るとスポットライト拡大	Spotlight will expand upon contact
+壊せるブロック	Breakable block
+ハンマーなし	No hammer
+ハンマーあり	Have a hammer
+壊した後	After braking
+青色ボタンの扉	Blue button door
+スイッチがオン	Switch is on
+keepClose	keepClose
+スイッチがオフ	Switch is off
+すでに開いている	Already open
+keepOpen	keepOpen
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+洞窟の出入口-他の場所へリンク_2	Cave entrance - link to another place_2
+場所移動	Move location
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+静止-旅の商人	Stationary - Traveling merchant
+お店	Shop
+wait	wait
+宝箱-アイテムを得る(アイアンハンマー)	Treasure chest - acquire item (iron hammer)
+手に入れる前	Before you obtain
+keepClose	keepClose
+手に入れた後	After obtaining
+keepOpen	keepOpen
+壊せるブロック_2	Breakable block_2
+ハンマーなし	No hammer
+ハンマーあり	Have a hammer
+壊した後	After braking
+壊せるブロック_3	Breakable block_3
+ハンマーなし	No hammer
+ハンマーあり	Have a hammer
+壊した後	After braking
+壊せるブロック_4	Breakable block_4
+ハンマーなし	No hammer
+ハンマーあり	Have a hammer
+壊した後	After braking
+壊せるブロック_5	Breakable block_5
+ハンマーなし	No hammer
+ハンマーあり	Have a hammer
+壊した後	After braking
+壊せるブロック_6	Breakable block_6
+ハンマーなし	No hammer
+ハンマーあり	Have a hammer
+壊した後	After braking
+壊せるブロック_8	Breakable block_8
+青色ボタン	Blue button
+オフ→オン	Off → On
+keepClose	keepClose
+keepOpen	keepOpen
+歩行-話すとバトル（逃げられる）_2_2	Walking - speak and battle (escape)_2_2
+イベントシート	Event sheet
+walk	walk
+コウモリとのバトルをリセット	Reset battle with bat
+スイッチNo14をオフにする	Turn off switch No 14
+他の場所へリンク	Link to another place
+場所移動	Move location
+他の場所へリンク	Link to another place
+場所移動	Move location
+他の場所へリンク	Link to another place
+場所移動	Move location
+炎上（スイッチで消せる）	Flames (put out with switch)
+消せる炎	Flame that can be put out
+炎が消えた	Flame has been put out
+緑色ボタン	Green button
+オフ→オン	Off → On
+keepClose	keepClose
+keepOpen	keepOpen
+黄色ボタン	Yellow button
+オフ→オン	Off → On
+keepClose	keepClose
+keepOpen	keepOpen
+炎上（スイッチで消せる）_2	Flames (put out with switch)_2
+消せる炎	Flame that can be put out
+炎が消えた	Flame has been put out
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+押せる箱	Box that can be pushed
+押せる箱1	Box that can be pushed 1
+押せる箱	Box that can be pushed
+押せる箱1	Box that can be pushed 1
+押せる箱	Box that can be pushed
+押せる箱1	Box that can be pushed 1
+他の場所へリンク	Link to another place
+場所移動	Move location
+他の場所へリンク	Link to another place
+場所移動	Move location
+他の場所へリンク	Link to another place
+場所移動	Move location
+他の場所へリンク	Link to another place
+場所移動	Move location
+他の場所へリンク	Link to another place
+場所移動	Move location
+他の場所へリンク	Link to another place
+場所移動	Move location
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+静止-話すとバトル（逃げられない・ゲームオーバーにならない）	Stationary - speak and battle (can't escape - won't result in game over)
+イベントシート	Event sheet
+wait	wait
+闇の炎	Dark flame
+イベントシート	Event sheet
+闇の炎	Dark flame
+イベントシート	Event sheet
+闇の炎	Dark flame
+イベントシート	Event sheet
+闇の炎	Dark flame
+イベントシート	Event sheet
+落雷	Lightning
+イベントシート	Event sheet
+落雷	Lightning
+イベントシート	Event sheet
+落雷	Lightning
+イベントシート	Event sheet
+落雷	Lightning
+イベントシート	Event sheet
+落雷	Lightning
+イベントシート	Event sheet
+落雷	Lightning
+イベントシート	Event sheet
+炎上	Flames
+イベントシート	Event sheet
+炎上	Flames
+イベントシート	Event sheet
+他の場所へリンク	Link to another place
+場所移動	Move location
+他の場所へリンク	Link to another place
+場所移動	Move location
+他の場所へリンク	Link to another place
+場所移動	Move location
+ニワトリの王	Chicken king
+ラストバトル	Last battle
+run	run
+宝箱に変わる	Change to treasure chest
+keepClose	keepClose
+宝箱開けた後	After opening treasure chest
+keepOpen	keepOpen
+スタッフクレジット	Staff credits
+宝箱-アイテムを得る(バンダナ)	Treasure chest - acquire item (bandana)
+手に入れる前	Before you obtain
+keepClose	keepClose
+手に入れた後	After obtaining
+keepOpen	keepOpen
+宝箱-アイテムを得る(バンダナ)	Treasure chest - acquire item (bandana)
+手に入れる前	Before you obtain
+keepClose	keepClose
+手に入れた後	After obtaining
+keepOpen	keepOpen
+つぼ-お金を得る(50)	Pot - acquire money (50)
+手に入れる前	Before you obtain
+手に入れた後	After obtaining
+静止-話す	Stationary - Speak
+シート	Sheet
+wait	wait
+宝箱-アイテムを得る(薬草ハーブ)	Treasure chest - acquire item (medicinal herb)
+手に入れる前	Before you obtain
+keepClose	keepClose
+手に入れた後	After obtaining
+keepOpen	keepOpen
+ゲーム中の操作方法について\n＜キーボードでの操作＞\n\n移動:\n方向キー か [A] [D] [W] [S] キー\n\nダッシュ:\n[Shift] キー を押しながら移動\n\nメニュー表示／キャンセル:\n[ESC] キー か [X] キー\n\n決定:\n[Enter] キー か [Z] キー\n\nカメラ水平回転:\n[E] [Q] キー\n\nカメラ上下回転:\n[R] [F] キー\n\nカメラズーム:\n[C] [V] キー\n\nカメラ位置リセット:\n[K] キー\n\nカメラ視点切り替え\n[B]キー	About in-game controls \n<keyboard controls> \n\nMove: \ndirection keys or the [A] [D] [W] [S] keys \n\nDash: \nmove while holding down the [Shift] key \n\nMenu display / Cancel: \n[ESC] key or the [X] key \n\nConfirm: \n[Enter] key or the [Z] key \n\nPan camera: \n[E] [Q] keys \n\nTilt camera: \n[R] [F] keys \n\nCamera zoom: \n[C] [V] keys \n\nReset camera position: \n[K] key \n\nCamera Switcher: \n[B] key
+SMILE GAME BUILDER の世界へ ようこそ！\n\n\nこのゲームでは 世界に隠された 幻の秘宝SGBを探しながら\nSMILE GAME BUILDER の機能を体験することができます。	Welcome to the world of SMILE GAME BUILDER!\n\n\nYou can experiment with the SMILE GAME BUILDER\nfunctions while searching for the rare hidden treasure SGB in this game's world.
+ゲーム中の操作方法については 家の前にある\nカンバンに書かれているぞ！　チェックしてみよう。	The in-game controls are written on the sign\nin front of the house! Let's check it out.
+ゲーム中の操作方法について\n＜コントローラーでの操作＞\n\n移動:\n方向ボタン か 左スティック\n\nダッシュ:\n[X] ボタン を押しながら移動\n\nメニュー表示／キャンセル:\n[A] ボタン\n\n決定:\n[B] ボタン\n\nカメラ水平回転:\n右スティック左右\n\nカメラ上下回転:\n右スティック上下\n\nカメラズーム:\n[LB] [RB] ボタン\n\nカメラ位置リセット:\n右スティック押し込み\n\nカメラ視点切り替え\n[Y]ボタン	About in-game controls \n<controls with game controller> \n\nMove: \ndirectional button or the left stick \n\nDash: \nmove while holding down the [X] button \n\nMenu display / Cancel: \n[B] button \n\nConfirm: \n[A] button \n\nPan camera: \nleft right with right stick \n\nTilt camera: \nup down with right stick \n\nCamera zoom: \n[LB] [RB] buttons \n\nReset camera position: \npress right stick \n\nCamera Switcher: \n[Y] button
+やぁ カメラの回転機能は 使っているかい？\n\n\nカメラを回転させると 視点がグルっと回って\n建物のカゲや 地形の裏側に隠されているモノが\n見つかることもあるんだよ。\n試しに キーボードの[Q]のキーか\nコントローラーの右スティックを右に倒してごらん。	Do you know how to use the camera rotate function?\n\n\nRotating the camera moves around your view\nso you can look on the other side of buildings or\nterrain and find hidden objects.\nLet's try it out by pressing the [Q] key on the keyboard\nor moving the right stick to the right.
+この木だけ ほかの木と色がちがうよね？\n\n\n……なんか アヤシくない？	This tree is a different color from the others isn't it?\n\n\n......Something is suspicious don't you think?
+え？　根元に古文書が落ちてたって？\n\n\nそういえば 神父さんが 大切な古文書を\nなくしたって困ってたけど……。	Huh?　There's an [Ancient manuscript] at the base?\n\n\nSpeaking of which the priest was troubled because\nhe lost a precious [Ancient manuscript]......
+足元で なにか光っているようだ……	Looks like there is something sparkling at your feet......
+【古文書】を手に入れた！	You got an [Ancient manuscript]!
+ここのアイテム屋 よく 武器屋とまちがわれるから\n看板を作りまくったらしいよ。\n\nオヤジさんの名前が ブキヤだから しょうがないと\n思うんだけどね……。	It seems this item shop often gets mistaken for\na weapon shop so they made a bunch of signs.\n\nThe old man's name is Weapon \nso I don't think it can be helped......
+「ブキヤのアイテム屋」	Weapon's Item Shop
+ここは 世界中の荒ぶるニワトリたちが集められた\nニワトリ牧場さ。\n\n移動頻度と 移動スピードを上げて ランダム移動を\n設定すると これくらい エライことになるんだって。\nすごいね。	At this chicken ranch they have all the chickens \nthat have been going wild worldwide.\n\nIf you increase the movement frequency and speed,\nwhen you set random movement\nthis is the kind of trouble you'll encounter.\nWow.
+「村長の家」	Village elder's home
+あら なにか探し物？\n\n\nヒマだから 付き合ってあげてもいいわよ。	Oh, are you looking for something?\n\n\nI'll help you, I've got nothing better to do.
+新しい仲間が加わった！	A new companion has joined!
+open	open
+keepClose	keepClose
+よう オレは しゃべるニワトリ。\n\n\n効果音をうまくつかうと こんなこともできるぜ。	Hey, I'm a talking chicken.\n\n\nIf you make good use of sound effects\nyou can also do things like this.
+jump	jump
+……な？　いい鳴き声だろ！	......Right?　Great clucking!
+wait	wait
+セーブポイントがあります。\nここまでのゲームプレイをセーブしますか？	There is a save point.\nAre you sure you want to save the game play up to this point?
+はい	Yes
+いいえ	No
+この キラキラしているのは パーティクルエフェクトって\n言うんだって！\n\nキラキラのほかにも 炎がメラメラとか 煙がモクモクとか\n電気がパチパチとか あるそうよ。	This sparkling is called a particle effect!\n\n\nThere are flickering flames, billowing smoke,\ndancing sparks, in addition to sparkles.
+open	open
+こうやって置かれた木箱の上には 乗ることができるんだよ。\n\n\nただ イベントとして置かれたモノの上には 乗れないから\n覚えておいてくれよ！	You can get on top of a wooden box placed like this.\n\n\nBut remember you can't get on top of objects\nplaced as events!
+open	open
+「この先 モンスターに注意！」	Caution, monsters ahead!
+この先は 資格のあるものしか通れない。\n王の許可証 を持っていなければ\nここを通すわけには……\nなんと その手にあるのは 王の許可証 ではないか！\nこれは、大変失礼した。	Only those who qualify can move ahead.\nIf you don't have a royal permit you can't pass......\n\nHey! Isn't that a royal permit in your hand?!\nSo sorry about that.
+この先には 森がひろがっている。\nモンスターがうろついているから 気をつけて行きなさい。	There is a vast forest ahead.\nBe careful, there are monsters on the prowl.
+この先には 森がひろがっている。\nモンスターがうろついているから 気をつけて行きなさい。	There is a vast forest ahead.\nBe careful, there are monsters on the prowl.
+この先は 資格のあるものしか通れない。\n王の許可証 は 持っておるかな？\n\n……持っていないようだな 立ち去りなさい。	Only those who qualify can move ahead.\nDo you have a royal permit?\n\n......Looks like you don't have one. Turn back.
+おお それは 私のなくした古文書！\nそれを 返していただけますか！？	Oh! That's the [Ancient manuscript] I lost!\nMay I please have it back?!
+はい	Yes
+いいえ	No
+助かりました！\n\n\nえ？　教会に用事があったのですか？\nよろしい アナタを見込んで 入口のカギをお貸ししましょう！\n\n青銅のカギです。どうぞ お持ちください。	What a relief!\n\n\nWhat?　You have business with the church?\nFine, I will trust you with the key to the entrance!\n\nIt's a [Bronze key].Here, take it.
+【青銅のカギ】を手に入れた！	You got a [Bronze key]!
+ワタシが コレをなくしたことは くれぐれもご内密に……。	You mustn't tell anyone that I lost this....
+そうですか……これも 神の与えた試練なのですね。	Is that so......This too is a test from God.
+困った 困った……大切な古文書が……。\n\n\nいったい どこで落としたのだろう……\nアレがないと 大司教様に……ブツブツ。	Oh what to do? What to do?\n......My precious [Ancient manuscript].......\n\nWhere exactly did I lose it......\nWithout that I'll never become archbishop\n......Grumble grumble.
+アナタのおかげで助かりました！\nワタシが コレをなくしたことは くれぐれもご内密に……。	You're a life saver!\nYou mustn't tell anyone that I lost this....
+open	open
+keepClose	keepClose
+キミ そこの橋をくぐってきたのかい？	Did you pass under that bridge?
+はい	Yes
+いいえ	No
+やっぱりそうか！　この橋の下 くぐれるようにするの\nけっこう苦労したらしいよ！\n\nえ？　なんで苦労したかって？　ソイツは内緒だよ！	I knew it!\nIt heard it was quite hard passing under this bridge!\n\nWhat?　Why had a hard time?　That's a secret!
+そっか ボクの気のせいだったかな。	Maybe it was just my imagination.
+jump	jump
+……ん？\nオレが どうやって地面に寝ていたのか 気になるのかい？\n\nヒントは グラフィックを選ぶときの［モーション選択］だ。\n\n\nモーションの中にある［Keepdown2］ってやつが\nいまみたいに 上を向いて寝てるポーズさ。\n\nいろいろな動きがあるから アンタも試してみなよ。	......Hmm?\nDon't you wonder how I came to sleep on the ground?\n\nThe secret is the [select motion]\nwhen selecting a graphic.\n\n[Keepdown2] that can be found in motion is\nan upward facing sleeping pose just like this.\n\nThere are a lot of different motions so give them a try.
+open	open
+復活の羽を手に入れた！	You got a Revival feather!
+宝箱はすでに空っぽだ…	The treasure chest is already empty ...
+open	open
+50Gを手に入れた！	You got 50G!
+宝箱はすでに空っぽだ…	The treasure chest is already empty ...
+open	open
+keepClose	keepClose
+扉を開けることはできなかった。	You were unable to open the door.
+わーーい！	Woooow!
+わーーい！	Woooow!
+この SMILE GAME BUILDER では ３タイプのメッセージが\n表示できるのよ。\n\n白いウィンドウのメッセージが［会話を表示する］といって\nこうやって 話しているキャラクターの絵も 一緒に出せるの。\n\nもちろん 話すときの表情も 変えたりできるのよ。	There are 3 types of messages that can be displayed\nin SMILE GAME BUILDER.\n\nA white message window is for [Display dialogue]\nand will appear with the character's image.\n\nOf course you can also change the expressions\nwhile talking.
+こんな風にね！	Just like this!
+似ているけど［メッセージを表示する］では キャラクターは\n表示されないで 黒いウィンドウが背景になるの。\n\nこっちは アイテムをゲットしたときとか プレイヤーに\nお知らせや 説明をしたいときに使ってね。\n\nもうひとつ［テロップを表示する］というのもあるのだけれど\nこれは 見てもらったほうがはやいかしら。	Although it looks similar, characters are not shown with\n[Display message] and the background is black.\n\nUse this when you get an item or when you have\nan announcement or have an explanation for the player.\n\nAnother is [Display ticker text] but it'll be faster\nif you look at this.
+こんな感じで ストーリーとか 長い文章を ぐぐーっと動かして\n見せたいときに使うといいかも。\n背景に画像を表示することもできるし オープニング向きね。\n\nあ そうそう ［テロップを表示する］を うまく使いこなせれば\nエンディングのときのスタッフロールも作れるのよ。	It's best to use this when you want to show long text, like the story,\nthat you can scroll through.\nYou can add a background image and also use it for an opening.\n\nOh yeah and if you get good at using [Display ticker text]\nyou can also create an ending staff roll.
+メッセージについては これくらいかしら。\nお話を聞いてくれて ありがとう！	That's all there is about messages.\nThanks for listening!
+薬草ハーブ をもらった！	You got a [Healing herb]!
+ガケの下に宝箱が見える。\nここからでは 開けられないようだ。	I can see a treasure chest under the cliff..\nDoesn't seem like it can be opened from here.
+ガケの下に宝箱が見える。\nここからでは 開けられないようだ。	I can see a treasure chest under the cliff..\nDoesn't seem like it can be opened from here.
+open	open
+ロングソードを手に入れた！	You got a Long sword!
+宝箱はすでに空っぽだ…	The treasure chest is already empty ...
+open	open
+たんすの中に メモが落ちているぞ。\n「伝説の宝は ダンジョンの奥にねむる」	The is a note inside the dresser.\n"A legendary treasure lies deep within the dungeon."
+close	close
+ベッドがある。\n横になりますか？	There is a bed.\nDo you want to rest?
+はい	Yes
+いいえ	No
+全員のHPとMPが回復した！	All characters' HP and MP has been recovered!
+ハハッ おどろいたか？\n\n\nいま オレ様の頭の上に ポコッと飛び出たのが\n感情マーク ってやつだ。\n\nイベントパネルの［感情マークを出す］から\n呼び出せるから うまく使ってくれよな！	Haha, surprised?\n\n\nThat's what is called an emoticon that just\npopped up above my head.\n\nYou can call it up from [Display emoticon] in\nthe event panel, use it well!
+お兄ちゃん 知ってた？\nそこのベッドで 寝ると 頭も体もスッキリするんだよ！	Did you already know?\nMy mind and body feel great after sleeping in that bed!
+バトルに関する本が たくさん並んでいる。\nどの本を読んでみますか？	There are a lot of books here about battles.\nDo you want to read one of these books?
+バトルのターンについて	About battle turns
+状態異常について	About abnormal status
+属性攻撃力について	About elemental attacks
+読まない	Do not read
+【バトルのターンについて】の本を手にとった。\n\n\nSMILE GAME BUILDERのバトルでは\nターン制バトルシステムが採用されています。\n\nバトルに参加する キャラクターとモンスター\n全員が１回ずつ行動すると１ターン経過します。\n\nバトルでは このターンを どちらかのパーティが全滅するか\n逃げ出すまで繰り返します。	You grabbed the book [About Battle Turns].\n\n\nBattles in SMILE GAME BUILDER utilize\na turn based battle system.\n\nAll characters and monsters that participate in battle\nuse one turn per action.\n\nIn battle these turns will repeat until either one of the parties is annihilated or escapes.
+【状態異常について】の本を手にとった。\n\n\nSMILE GAME BUILDERでは\n［毒］［麻痺］［眠り］［混乱］［魅了］［戦闘不能］ の\n６種類の状態異常があります。\n状態異常とは バトル中に行動ができなくなったり\n行動するたびにダメージを受けるなど 早く治さないと\n不利になる 悪い状態のことです。\n［毒］と［戦闘不能］以外の状態異常は バトルが終了するか\nターンが経過したり 回復アイテムやスキルで治ります。\n\n［毒］と［戦闘不能］は 回復アイテムやスキルなどで\n治さないかぎり 戻ることはありません。\n\n特に［毒］は 早く治さないと歩いているだけでもダメージを\n受けてしまいます！	You grabbed the book [About Abnormal Status].\n\n\nIn SMILE GAME BUILDER, there are 6 types of\nabnormal statuses, [Poison] [Paralysis]\n[Sleep] [Confusion] [Charm] and [KO].\nAbnormal statuses can prevent actions during battle\nor cause damage with every action you take,\n\nso cure them quickly or you may find yourself at\na severe disadvantage.\n\nStatuses other than [Poison] or [KO] can be\ncured by finishing the battle or using a recovery item or skill, or will wear off after a number of turns.\nYou will not recover from [Poison] or [KO]\nwithout using a recovery item or skill.\n\nIt is especicompanion important to cure [Poison] quickly\nas you will receive damage just by walking!
+【属性攻撃力について】の本を手にとった。\n\n\n武器のデータを作るときには 通常の攻撃力とは別に\n属性攻撃力を設定することができます。\n\n通常の攻撃力は 無属性として ダメージを与えます。\n属性攻撃力は 武器に 炎や氷といった［攻撃属性］を\n選んだときに 設定できるようになります。\n属性攻撃力のついた武器で攻撃すると 通常の攻撃力による\nダメージのほかに 属性攻撃力によるダメージが上乗せされます。\n\n属性は ひとつの武器に ひとつまでしか設定できません。	You grabbed the book [About Elemental Attacks].\n\n\nWhen creating weapons data, you can set elemental\nattacks as well as normal attack power.\n\nNormal attack power deals damage without attributes.\nElemental attacks are set when selecting\n[attack elements] such as fire and ice for a weapon.\nWhen you attack with a weapon that has an elemental\nattack set it will deal elemental damage\non top of the damage dealt by normal attacks.\nOnly a single element can be set per weapon.
+本棚に そっと本を戻した。	You gently returned the book back to the bookshelf.
+いらっしゃいませ、何をお求めですか？	Welcome. Can I help you find something?
+またどうぞ、お越しください。	Thank you, please come again.
+ここのお店みたいに カウンターの向こう側にいる\n店員さんに 話しかけられるようにしたいときは……\n\nイベントを作るとき 開始方法で［一歩前から反応する］に\nチェックをつけてみて。\n\nぴったりくっつかなくても 話しかけたり\n調べたりできるようになるから うまくつかってみてね！	When you want to talk to the shopkeep\non the other side of the counter in a shop like this......\n\nCheck [React from even 1 step]\nwith how to initiate when creating an event.\n\nYou can talk without having to be right next to\nthe character,giving yourself some room to examine\nthe area, so try it out!
+ようこそ ブキヤのアイテムショップへ。\nオレは この店の主人 ブキヤだ。\n\n名前と この見た目のせいで お客から\nよく「ロングソードください」って 言われるのが\n最近の悩みなんだ。\nあんまり言われるもんだから\nヤケになって 武器と防具の販売も始めたよ……。\n\nなぁ アイテム屋で武器を売るのは おかしいと思うかい？	Welcome to Weapon's Item Shop.\nI'm Weapon, the owner.\n\nDue to his name and appearance\ncustomers often come in and ask for along sword.\nThis has been giving him trouble lately.\nIt happens so I often I became desperate and \nstarted selling weapons and armor too .......\n\nDo you think it's strange to be selling weapons at\nan item shop?
+はい	Yes
+いいえ	No
+やっぱ おかしいか……。\nでも 意外と売れるから まぁ 悪くなかったのかな。	I thought it was too ....\nBut I actucompanion sell a lot,\nso I don't see anything wrong with it.
+そうかい ありがとよ。\n武器は 意外と売れるし まぁ 悪くなかったのかな。	I see. Thanks.\nI actucompanion sell a lot, so it's fine with me.
+ここの神父に会いにきたら 出かけておってな。\nそのまま 留守番をしとったんじゃ。\n\nなに？　王様に会いたいとな。\nそれならば この手紙をもっていくといい。	If you've come to see the priest, he's out.\nI'm just keeping an eye on the place while he's out.\n\nWhat?　You want to meet the king, huh.\nThen you better take this letter.
+村長の手紙を手に入れた！	You got a [Letter] from the village elder.
+お城の入口にいる じいさんは ワシの弟なんじゃ。\nそいつを見せれば 通してくれるはずじゃよ。	The old man at the castle entrance is\nmy younger brother.\nIf you show it to him, he'll let you pass.
+お城の入口にいるじいさんは ワシの弟なんじゃ。\nそいつを見せれば 通してくれるはずじゃよ。\n\n……それにしても 留守番とは ヒマじゃのう。	The old man at the castle entrance is\nmy younger brother.\nIf you show it to him, he'll let you pass.\n......Even so,\nI've got so much time on my hands just waiting here.
+おや まぁ こんにちは。\nウチのひとなら 朝から 教会に行ってますよ。 	Oh my, hello there.\nMy people go to church in the morning.
+ウチのひとに会えましたか？　そう それはよかった。	Did you meet any of my people?　Oh. That is good.
+え？　王様に会いたいの！？\nそれなら おじいさまに 紹介状を書いてもらうといいわ。	Huh?　You want to meet the king?!\nIf so you better have my grandpa write you a letter.
+え？　王様に会いたいの！？\nそれなら おじいさまに 紹介状を書いてもらうといいわ。\n\nおじいさまの居場所なら おばあさまが知っているはずよ。	Huh?　You want to meet the king?!\nIf so you better have my grandpa write you a letter.\n\nIf you want to know where he is you better\nask my grandma.
+あら おじいさまに会えたのね。よかったわね！	Oh, did you meet my grandpa? That's great!
+この先は 資格のある者しか通れないんじゃ。\n\n\nなんと その手にあるのは 村長の手紙 ではないか！\nこれは 大変失礼した。	Only those who are qualified can pass through here.\n\n\nIsn't that a [Letter] from the village elder\nin your hand?! My apologies.
+さあ お行きなさい。	Well then, you may go.
+気を付けてお行きなさい。	Please go carefully.
+この先は 資格のあるものしか通れないんじゃ。\n村長の手紙 は持っておるかな？	Only those who are qualified can pass through here.\nDo you have a [Letter] from the village elder?
+ワタクシは 王に仕える大司教です。\n\n\nえ？　村の神父が だいじな古文書をなくしたですって？\n\n\nハハハ ご冗談を。\nマジメな彼にかぎって そのようなことはありませんよ！	I am the archbishop who serves the king.\n\n\nWhat?　The village priest lost the important\n[Ancient manuscript]?\n\nHa ha ha you must be joking.\nHe is too earnest, there's no way he would do something\nlike that!
+山のような財宝を発見した！\n\n\n……と思ったら、作り物だった。	I found a whole mound of treasure!\n\n\n......Or so I thought, it wasn't real.
+王様に 失礼のないようにな！	Do not offend the king!
+王様は 民の声にも 耳をかたむけてくださる。\n頼みごとがあるのなら 申し出てみるがよい。	The king listens to the voice of his people.\nIf you have a request, try asking.
+余が国王である。\n\n\nほう ダンジョンに伝説の宝を 探しに行くと申すのだな。\nよかろう 許可証を与えよう！	I am the king.\n\n\nI say, it is about time to go searching for the legendary treasure in the dungeon.\nI shall grant you a permit!
+王の許可証を手に入れた！	You got a [Royal permit]!
+かのダンジョンは 北の森を抜けた先に ひっそりと立っている。\n\n\nその許可証を 見張りの兵士に渡せば 道を空けてくれるはず。\nしっかり準備を整えてから向かうのだぞ。	From what I hear the dungeon stands at the other end\nof the forest to the north.\n\nIf you give your permit to the soldier who guards\nthe road, he will let you pass.\nMake sure you're fully prepared before going.
+かのダンジョンは 北の森を抜けた先に ひっそりと立っている。\n\n\nその許可証を 見張りの兵士に渡せば 道を空けてくれるはず。\nしっかり準備を整えてから向かうのだぞ。	From what I hear the dungeon stands at the other end\nof the forest to the north.\n\nIf you give your permit to the soldier who guards\nthe road, he will let you pass.\nMake sure you're fully prepared before going.
+「モンスターに注意！」	Watch out for monsters!
+階段が見えにくいこともあるから 移動中は\nときどき カメラを回してみるといいよ。\n\nカメラを回すときは キーボードの[Q]のキーか\nコントローラーの右スティックを右に倒してごらん。	Sometimes it is hard to see the stairs, so\nit's a good idea to rotate the camera from time to time.\n\nTry pressing the [Q] key on the keyboard or\npressing the right stick on the controller right to\nrotating the camera.
+open	open
+炎の呪文書を手に入れた！	You got a Flame spellbook!
+宝箱はすでに空っぽだ…	The treasure chest is already empty ...
+ダンジョンでは なにが待ち受けているかわからないぞ。\n\n\n地形や 仕掛けに気をつけて 探索するといい。\n\n\nアヤしいところがあったら 調べるのを忘れるな！	I do not know what is waiting for us in the dungeon.\n\n\nWe should be careful of the terrain and of mechanisms while searching.\n\nDon't forget any suspicious areas!
+日が暮れて 夜になった……	The sun has set and it is now night......
+おまえたち あのダンジョンに行くんだろう？\n\n\nだったら オレも一緒に行かせてもらうぜ。	Are you all going to that dungeon?\n\n\nIf so, I'm going with you.
+新しい仲間が加わった！	A new companion has joined!
+「階段 あります」	There are stairs
+open	open
+アイスソードを手に入れた！	You got an Ice sword!
+宝箱はすでに空っぽだ…	The treasure chest is already empty ...
+open	open
+盗賊のブーツを手に入れた！	You got a Thieve's boots!
+宝箱はすでに空っぽだ…	The treasure chest is already empty ...
+足元に何か落ちているようだ。	Looks like there is something by your feet.
+月光花を手に入れた！	You got a Moonlight flower!
+足元に何か落ちているようだ。	Looks like there is something by your feet.
+月光花を手に入れた！	You got a Moonlight flower!
+ハンマーみたいなものがあれば 壊れそうだぞ……	Looks like it can be broken with something like a hammer......
+ハラへった……\n\n\n薬草でも なんでもいいから 食えるものあったら分けてくれ…	So hungry......\n\n\nI'll eat anything, medicinal herbs, whatever.\nIf you have anything to eat give it here...
+ハラへった……\n\n\n薬草でも なんでもいいから 食えるものあったら分けてくれ…	So hungry......\n\n\nI'll eat anything, medicinal herbs, whatever.\nIf you have anything to eat give it here...
+薬草ハーブをあげる	You give a Healing herb.
+もったいないのであげない	You don’t want to waste it on him.
+お 食い物か！？\n\n\n……って 本当に薬草かよ。\n\n\nまぁ いいや……モシャモシャ。\n\n\nふー これで なんとか動けそうだ。助かったぜ！\n\n\nほう ダンジョンに行くのか？ いいぜ 付き合ってやるよ！	Oh, food?!\n\n\n......Uhg, it's really just a Healing herb.\n\n\nOh well......Chomp chomp.\n\n\nHaaa... This will give me enough energy to move again.\nThanks!\n\nHey, are you going to the dungeon?\nAlright! I'm coming with!
+新しい仲間が加わった！	A new companion has joined!
+……ハラへった……	......So hungry......
+夜が明けた……	Dawn breaks......
+突然 夜になっておどろいたかい？\n\n\nマップ設定で［光源設定］を 夜 に変えてごらん。\nマップ全体が暗くなって 建物にも明かりがつくんだよ。	Are you surprised it became night so suddenly?\n\n\nTry changing to night with [light source settings] under\nthe map settings.\n\nThe whole map becomes dark and even the lights in\nthe buildings come on.
+花火を使いたいときは［演出］にある［花火］を選んでね。\n\n\nマップの［光源設定］を夜にしておくと キレイに見えるよ！	If you want to use fireworks, select [fireworks] \nunder [Effects].\n\nIf you set the map's [light source settings] to night,\nit looks really nice!
+花火 キレイだなー。\n高いところからだと よく見えるね！	Fireworks are beautiful.\nYou can see them well from somewhere high up!
+open	open
+keepClose	keepClose
+足元に何か落ちているようだ。	Looks like there is something by your feet.
+月光花を手に入れた！	You got a Moonlight flower!
+ベッドがある。\n横になりますか？	There is a bed.\nDo you want to rest?
+はい	Yes
+いいえ	No
+全員のHPとMPが回復した！	All characters' HP and MP has been recovered!
+ベッドがある。\n横になりますか？	There is a bed.\nDo you want to rest?
+はい	Yes
+いいえ	No
+全員のHPとMPが回復した！	All characters' HP and MP has been recovered!
+ベッドがある。\n横になりますか？	There is a bed.\nDo you want to rest?
+はい	Yes
+いいえ	No
+全員のHPとMPが回復した！	All characters' HP and MP has been recovered!
+王様からのご指示で ダンジョンに挑戦するみなさまには\n無料で お休みいただいております。\n\nどうぞ ベッドを調べて お休みになられてください。	All who have fought in the dungeon may rest for free\nby the king's decree.\n\nGo ahead and check the bed to rest.
+ダンジョンの中には いろいろな仕掛けがあるそうですわ。\n\n\n押して動かせる木箱や 壊せるブロック スイッチを押すことで\n通れるようになる扉……工夫をすれば いろいろな仕掛けを\n用意できるそうですから ご参考になさっては いかがかしら。	It seems like the dungeon has a lot of different\nmechanisms.\n\nMovable wooden boxes, breakable blocks, and doors\nthat will open when a switch has been pressed......\n\nIf you plan it out there are a number of mechanisms\nyou can prepare, so why don't you have a look.
+……こんにちは。\n\n\nイベントの［グラフィック選択］で 3Dモデルを選ぶとき\nいっしょにモーションも選べるの。\n\n……いくつか見せてあげようか？	......Hello.\n\n\nSelect motion when you are choosing a 3D model\nwith the event's [select graphics].\n\n......Shall I show you a couple?
+バンザイしてみて	Try raising your arms over your head
+ガッカリしてみて	Try being disappointed
+バタッと倒れてみて	Try falling flat
+ジャンプしてみて	Try jumping
+……オッケー。	......OK.
+happy	happy
+disappointed	disappointed
+keepdown	keepdown
+jump	jump
+フフフ…いきなり暗くなって驚いているな？\n\n\n森に生えている 月光花を ３つもってきたら\n闇の炎 ウィルオウィスプの加護を授けてやろう。	Heh heh heh...Are you surprised it suddenly become\ndark?\n\nIf you bring me 3 moonlight flowers that grow\nin the forest I'll bestow upon you the blessing of\nthe will-o'-the-wisp of the dark flame.
+どうやら 月光花を ３つもってきたようだな。\n\n\nいいだろう。\nワタシの背後にある 闇の炎に触れてみるのだ……。	Oh you've brought me 3 moonlight flowers.\n\n\nNice huh.\nTry touching the dark flame behind me......
+ウィルオウィスプの加護を受けた！	You have been blessed by the will-o'-the-wisp!
+ハンマーみたいなものがあれば 壊れそうだぞ……	Looks like it can be broken with something\nlike a hammer......
+open	open
+イベントスイッチは 離れたところの仕掛けを動かしたり\n謎解きに使える 基本中のキホンだ。\n\nひとつのイベントスイッチには 電気のスイッチと同じで\nオンとオフの２つの状態があると考えてくれ。\n\n状況に応じて オン／オフ を切り替えることで\nプレイヤーの行動をチェックできるんだぜ！\n\n緑色と黄色のボタンにもイベントスイッチは使われている。\nこのスイッチを自由に使いこなせるようになれば\n達人の領域まで あと一歩だぜ！	Touching an event switch to initiate a mechanism\nto solve puzzles is the most basic of the basics.\nThink of an event switch like a light switch,\nit has both an on and off position.\n\nSwitch between the on and off state and\nyou can observe the player's actions!\n\nGreen and yellow switches are also used as event switches.\nIf you can comfortably master this switch?\nthen you are one step closer to becoming an expert!
+そこの黒い穴の上 通れないと思ったろ？\n\n\n１ブロック分 床を凹ませて 透明のブロックを置けば\n上を歩けるようにもできるんだぜ。\nそうは言っても ２ブロック以上凹ませると ダメだけどな！\nなんでも テクニックしだいってワケよ。	I bet you thought you couldn't pass over this black hole?\n\n\nIf you place 1 block in the hole in the floor\nyou will be able to walk over it.\n\nHaving said that if it requires 2 or more blocks\nyou won't be able to!\nIt all depends on your technique.
+ククク…紫の沼は 毒の沼。\n\n\n毒にやられて さぞ お困りでしょう。\n\n\nちょうどよいところに 毒消しがありますよ……。	He he he...Purple swamps are poison swamps.\n\n\nBeing poisoned puts you at a disadvantage doesn't it?\n\n\nLuckily we just happen to have an antidote......
+ククク…また お会いしましょう。	He he he...Until we meet again.
+open	open
+アイアンハンマーを手に入れた！	You got an Iron hammer!
+宝箱はすでに空っぽだ…	The treasure chest is already empty ...
+ハンマーみたいなものがあれば 壊れそうだぞ……	Looks like it can be broken with something\nlike a hammer......
+ハンマーみたいなものがあれば 壊れそうだぞ……	Looks like it can be broken with something\nlike a hammer......
+ハンマーみたいなものがあれば 壊れそうだぞ……	Looks like it can be broken with something\nlike a hammer......
+ハンマーみたいなものがあれば 壊れそうだぞ……	Looks like it can be broken with something\nlike a hammer......
+ハンマーみたいなものがあれば 壊れそうだぞ……	Looks like it can be broken with something\nlike a hammer......
+open	open
+close	close
+ケケケ。歩き回るイベントを使えば ぶつかるだけで\nバトルが始まるようにもできるんだぜ！	Heh heh heh.\nIf you use an event in which you wander\naround you can start a battle by just running into it!
+な なかなか やるじゃねぇか……グゲッ	Not bad, not bad at all......Guffaw
+open	open
+close	close
+open	open
+close	close
+そこの白いブロック……壊せそうな感じだよな。\n素手じゃ 無理だろうけど。	There is a white block over there......\nLooks like it can be broken.\nYou can't do it with your bare hands.
+この先は 魔王さまの部屋だ。\n\n\nお宝が どうのとかいって 最近 ニンゲンがよくやってくるけど\n大したモンないぜ ココ。\n\nなんたって 魔王さまが アレだからな……。	The devil's room is ahead.\n\n\nLot's of humans have been coming recently\nfor the treasure but they haven't been much of a match.\nHaha.\nWell that's he is The Devil......
+そこの木箱 押せば動くぜ。\n\n\n奥に デカイのいるから 気をつけろよ。	If you push that wooden box, it'll move.\n\n\nThere's a big one in the back, so be careful.
+魔王さまから ニンゲンは通すな と言われている。\n悪いが ガブッといかせてもらうぜ。	The devil says humans may not pass.\nSorry but I am leaving.
+薬草ハーブ を手に入れた！	You got a Healing herb!
+負けてしまった……。	I lost.......
+よくぞ ここまできた。ニンゲンの子よ。\n\n\nワタシは かつて あの魔王さまに飼われていたこともある\n荒ぶるニワトリの 高貴なる末裔である。\n\nゆえあって 魔王さまに代わり この玉座を任されているが\nそれなりに強いぞ？\n\nさぁ 逃げるなら いまのうちだ。	I'm amazed you made this far. Little humans.\n\n\nAt one time I was also kept by the devil,\nI am the nobel descendant of a savage chicken.\n\nTherefore I have been entrusted with the devil's throne,\nare you strong enough to take me on?\n\nIf you want to run, now's your chance.
+戦う	Fight
+ちょっと待って	Wait
+覚悟はできているようだな……よかろう。\n\n\nおまえたち ニンゲンが望む秘宝は わが手にある！\n存分に そのチカラを示すがよい！	You seem to be prepared......Very well.\n\n\nThe treasure you humans seek is in my hands!\nYou should show your full power!
+見事だ……この世に生を受けて60日と3日……思い残すことはない……コケッ	Spectacular......I have been alive in this world 60 and 3 days......I have no regrets......Croak.
+フフ…それもよかろう。\n限りある命 粗末にするでないぞ。	Hehe...That is also good.\nA mortal existence shouldn't allowed to rot.
+open	open
+伝説の秘宝 【SGB】 を手に入れた！	You got the legendary treasure [SGB]!
+これがあれば いつでもゲームが作れるぞ！	If you have this you can make a game anytime you please!
+企画・原案：\nスマイルブーム\n\n\n\nシナリオ担当：\nスマイルブーム\n\n\n\nグラフィック担当：\nスマイルブーム\n\n\n\nサウンド担当：\nスマイルブーム\n\n\n\nマップ担当：\nスマイルブーム\n\n\n\nイベント担当：\nスマイルブーム\n\n\n\nスペシャルサンクス：\nプレイヤーのみなさん\n\n\n\n製作総指揮：\nスマイルブーム	Planning / Drafting:\nSmileboom\n\n\n\nScenario writer:\nSmileboom\n\n\n\nGraphics:\nSmileboom\n\n\n\nSound engineer:\nSmileboom\n\n\n\nMap creator:\nSmileboom\n\n\n\nEvent creator:\nSmileboom\n\n\n\nSpecial thanks:\nAll the players\n\n\n\nExecutive producer\nSmileboom
+THE　END	THE END
+open	open
+バンダナを手に入れた！	You got a Bandana!
+宝箱はすでに空っぽだ…	The treasure chest is already empty ...
+open	open
+バンダナを手に入れた！	You got a Bandana!
+宝箱はすでに空っぽだ…	The treasure chest is already empty ...
+つぼの中から、50Gを手に入れた！	You got 50G from inside the pot!
+ここはすでに調べたところだ。	This has already been searched.
+家にある 調べられる宝箱やタンス ツボは\nみんな イベントテンプレートで作られているんだよ。\n\n	All the treasure chests, dressers, and pots that can be examined in the house are created with event templates.\n\n
+家にある 調べられる宝箱やタンス ツボは\nみんな イベントテンプレートを使って作られているんだよ。\n\nイベントテンプレートは RPGによくある 宝箱やお店とかを\nカンタンに作れるようにする 便利機能なのさ。\n\n実は このアタシだって イベントテンプレートから\n作られているんだよ！\n\n使ってみたかったら［マップパーツ］の中にある\nイベントリストから 好きなのを選ぶといいよ。	All the treasure chests, dressers, and pots that can be examined in the house are created with event templates.\n\nEvent templates are a handy function that allows you to create things like treasure chest and shops\nthat are often found in RPGs.\n\nIn fact even I have been created\nwith an event template!\n\nI you want to try it out, pick one from the event list\nfound in [map parts].
+魔王さまから ニンゲンは通すな と言われている。\n悪いが ガブッといかせてもらうぜ。	The devil says humans may not pass.\nSorry but I am leaving.
+竜紅玉 を手に入れた！	You got a Dragon ruby!
+負けてしまった……。	I lost.......
+open	open
+薬草ハーブを手に入れた！	You got a Healing herb!
+宝箱はすでに空っぽだ…	The treasure chest is already empty ...
+イベントスイッチは 離れたところの仕掛けを動かしたり\n謎解きに使える 基本中のキホンだ。\n\nひとつのイベントスイッチには 電灯のスイッチと同じで\nオンとオフの２つの状態があると考えてくれ。\n\n状況に応じて オン／オフ を切り替えることで\nプレイヤーの行動をチェックできるんだぜ！\n\n緑色と黄色のボタンにもイベントスイッチは使われている。\nこのイベントスイッチを 自由に使いこなせるようになれば\nSGBマスターまで あと一歩だぜ！	Touching an event switch to initiate a mechanism\nto solve puzzles is the most basic of the basics.\n\nThink of an event switch like a light switch,\nit has both an on and off position.\n\nSwitch between the on and off state and\nyou can observe the player's actions!\n\nGreen and yellow switches are also used as event\nswitches.\n\nIf you can comfortably master this switch?\nthen you are one step closer to becoming an expert!
+スライム	Slime
+ドロドロした粘液のようなモンスター	A slimy gelatinous monster
+ホーネット	Hornet
+巨大化したスズメバチ	A giant hornet
+ポイズンバット	Poison bat
+毒をもったコウモリ	A poisonous bat
+ダイアウルフ	Dire wolf
+鋭いキバをもったオオカミ	A wolf with sharp fangs
+アサシン	Assassin
+一撃で相手の息の根を止める暗殺者	An assassin who can kill an opponent with a single blow
+ゴブリン	Goblin
+小柄な緑色の鬼	A small green demon
+コカトリス	Cockatrice
+ニワトリの姿をした魔獣	A beast that looks like a rooster
+レッサーデーモン	Lesser demon
+異世界よりやってきた悪魔族の手下	A minion of the underworld's devil tribe
+スケルトンファイター	Skeleton fighter
+魔法の力で動き出したガイコツ兵	A skeleton soldiers brought to life with magic
+メデューサ	Medusa
+ヘビの身体をもつ堕落した女神	A fallen goddess with the body of a snake
+ゲイズデーモン	Gaze demon
+魔法によって生み出された巨大な目の怪物	A huge eye monster born from magic
+ランドワーム	Land worm
+あらゆるものを飲み込んでしまう巨大なミミズ	A giant worm that swallows everything
+ビーストロード	Beast lord
+巨大な角をもつ魔獣たちの王	The king of the beasts, with huge horns
+アイスドラゴン	Ice dragon
+全身が冷気に包まれた翼竜	A dragon wrapped in freezing cold
+魔王	Devil
+すべての魔物を総べる闇の王	The dark lord of all the monsters
+ヴァンパイアバット	Vampire bat
+人間の血を吸う大きなコウモリ	A giant bat that sucks human blood
+ドラゴン	Dragon
+魔王の部屋を守るドラゴン族	A dragon that protects the devil's room
+家にある 調べられる宝箱やタンス それに ツボなんかは\nみんな イベントテンプレートを使って作られているんだよ。\n\nイベントテンプレートは RPGによくある 宝箱やお店とかを\nカンタンに作れるようにする 便利機能なのさ。\n\n実は このアタシだって イベントテンプレートから\n作られているんだよ！\n\n使ってみたかったら［マップパーツ］の中にある\nイベントリストから 好きなのを選ぶといいよ。	All the treasure chests and pots that can be examined\nin the house are created with event templates.\n\nEvent templates are a handy function that allows you\nto create things like treasure chest and shops\nthat are often found in RPGs.\nIn fact even I have been created with an event template!\n\n\nI you want to try it out, pick one from the event list\n found in [map parts].
+家にある 調べられる宝箱やタンス それに ツボなんかは\nみんな イベントテンプレートを使って作られているんだよ。\n\nイベントテンプレートは RPGによくある 宝箱やお店とかを\nカンタンに作れるようにする 便利機能なのさ。\n\n実は このアタシだって イベントテンプレートから\n作られているんだよ！\n\n使ってみたかったら［マップパーツ］の中にある\nイベントリストから 好きなのを選ぶといいよ。	All the treasure chests and pots that can be examined\nin the house are created with event templates.\n\nEvent templates are a handy function that allows you\nto create things like treasure chest and shops\nthat are often found in RPGs.\nIn fact even I have been created with an event template!\n\n\nI you want to try it out, pick one from the event list\nfound in [map parts].
+店-カウンターの奥に配置_2	Store - located behind the counter
+段差降りる	Step Down
+段差降りる_2	Step Down
+段差降りる_3	Step Down
+静止-質問_2	Stationary - Question
+静止-話す_2	Stationary - Speak
+静止-アイテムをくれる_2	
+ベッドで寝る_2	Bed - recover
+本棚_2	Bookshelf
+しゃべるクマ_2	Talking bear
+モーション娘_2	Motion maiden
+ハシゴ昇る	Ladder Up
+ハシゴ降りる	Ladder Down
+静止-話す_3	Stationary - Speak
+静止-話す_4	Stationary - Speak
+歩行-話す_2	Walking - speak
+静止-話すとバトル（逃げられない・ゲームオーバーにならない）_2_2	Stationary - Speak to initiate battle(Escapable)
+スタッフクレジット_2	Staff credits
+静止-話す_5	Stationary - Speak
+静止-話す_6	Stationary - Speak
+押せる箱_2	Box that can be pushed
+助かりました！\n\n\nお礼に これを差し上げましょう。\nあなたの冒険に きっと役立つはずです。	You've been very helpful!\n\n\nLet me give you this item as my expression of gratitude.\nIt’ll certainly help your journey.
+【精霊の腕輪】を手に入れた！	You got a [Spirit bracelet]!
+イベントテンプレートは RPGによくある 宝箱やお店とかを\nカンタンに作れるようにする 便利機能なのさ。\n\n実は このアタシだって イベントテンプレートから\n作られているんだよ！\n\n使ってみたかったら［マップパーツ］の中にある\nイベントリストから 好きなのを選ぶといいよ。	Event templates are a handy function that allows you\nto create things like treasure chest and shops\nthat are often found in RPGs.\nIn fact even I have been created\nwith an event template!\n\nI you want to try it out, pick one from the event list\nfound in [Map parts].
+フフフ。\n急に 視点が切り替わって おどろいているね？\n\nSMILE GAME BUILDER では プレイ中に\nカメラの視点を切り替えることもできるんだよ。\n\n元の視点に戻したいときは キーボードの［B］ キーか\nコントローラの［Y］ボタンを押してごらん。\n押すたびに 切り替わるよ！	Hehehe. Did you surprise?!\nYou can switch the camera angles while you're\nin Test Plays of SMILE GAME BUILDER!\nIf you want the previous camera angle,\npress [B] on the keyboard or [Y] on the controller.\nIt'll switch whenever you press it!
+見事だ……この世に生を受けて60日と3日……\n思い残すことはない……コケッ	Spectacular......\nI have been alive in this world 60 and 3 days......\nI have no regrets......Croak.
+!Lucky	!Lucky
+!Question	!Question
+!Surprise	!Surprise
+01打撃小	01 Weak Hit
+02打撃中	02 Medium Hit
+03打撃大	03 Strong Hit
+04打撃属性炎	04 Fire Hit
+05打撃属性氷	05 Water Hit
+06打撃属性雷	06 Bolt Hit
+07打撃連続	07 Rapid Hit
+08斬撃小	08 Weak Slash
+09斬撃中	09 Medium Slash
+10斬撃大	10 Strong Slash
+11斬撃属性炎	11 Fire Slash
+12斬撃属性氷	12 Ice Slash
+13斬撃属性雷	13 Bolt Slash
+14斬撃連続	14 Rapid Slash
+15斬撃必殺	15 Slash 
+16殴打小	16 Light Strike
+17殴打大	17 Hard Strike
+18爪	18 Claws
+19牙	19 Fangs
+20気弾１	20 Spirit Blast 1
+21気弾２	21 Spirit Blast 2
+22炎１	22 Fire 1
+23炎２	23 Fire 2
+24炎３	24 Fire 3
+25炎全体	25 Fire All
+26氷１	26 Ice
+27氷２	27 Ice 2
+28氷３	28 Ice 3
+29氷全体	29 Ice All
+30雷１	30 Bolt
+31雷２	31 Bolt 2
+32雷３	32 Bolt 3
+33雷全体	33 Bolt All
+34爆発	34 Explosion
+35爆発全体	35 Explosion All
+36メテオ	36 Meteo
+37毒	37 Poison
+38毒全体	38 Poison All
+39風	39 Wind
+40風全体	40 Wind All
+41土	41 Earth
+42土全体	42 Earth All
+43水	43 Water
+44水全体	44 Water All
+45光	45 Light
+46光全体	46 Light All
+47闇	47 Dark
+48闇全体	48 Dark All
+49回復１	49 Recover 1
+50回復２	50 Recover 2
+51回復３	51 Recover 3
+52ステータス上昇	52 Status Up
+53ステータス下降	53 Status Down
+54防御	54 Defense
+55混乱	55 Confuse
+56吸収	56 Absorb
+57眠り	57 Sleep
+58麻痺	58 Paralysis
+59沈黙	59 Silence
+60死	60 Death
+agi_down	agi_down
+agi_up	agi_up
+atk_down	atk_down
+atk_up	atk_up
+avoid_down	avoid_down
+avoid_up	avoid_up
+Confusion	Confusion
+def_down	def_down
+def_up	def_up
+Fascination	Fascination
+hit_down	hit_down
+hit_up	hit_up
+mag_down	mag_down
+mag_up	mag_up
+Paralysis	Paralysis
+Poison	Poison
+Sleep	Sleep
+Sparkle	Sparkle
+セーブデータ	Save data 
+操作チュートリアル2	Operating Tutorial 2
+イベントシート	Event sheet
+操作チュートリアル3	Operating Tutorial 3
+イベントシート	Event sheet
+操作チュートリアル4	Operating Tutorial 4
+イベントシート	Event sheet
+通行不可	Closed Passage
+イベントシート	Event sheet
+通行不可	Closed Passage
+イベントシート	Event sheet
+通行不可	Closed Passage
+イベントシート	Event sheet
+操作チュートリアル5	Operating Tutorial 5
+イベントシート	Event sheet
+操作チュートリアル6	Operating Tutorial 6
+イベントシート	Event sheet
+操作チュートリアル7	Operating Tutorial 7
+イベントシート	Event sheet
+操作チュートリアル8	Operating Tutorial 8
+イベントシート	Event sheet
+ダッシュ判定	Running Evaluation
+イベントシート	Event sheet
+操作チュートリアル9	Operating Tutorial 9
+イベントシート	Event sheet
+操作チュートリアル1	Operating Tutorial 1
+イベントシート	Event sheet
+続いて 目の前にあるものを調べてみましょう。	Next: Let's investigate the object in front of you.
+＜キーボードで操作するとき＞\n調べる・話す：\n[Enter] キー か [Z] キー\n＜コントローラーで操作するとき＞\n調べる・話す:\n[B] ボタン	< How to Control with the Keyboard >\nSearch/Talk: \n[Enter] Key or [Z] Key\n< How to Control with the Controller >\nSearch/Talk: \n[B] Button
+いまの操作について もういちど確認しますか？	Would you like to read it again?
+もうわかった	No, I think I got it.
+もういちど確認する	Yes, I'll check it again.
+それでは 目の前の宝箱を開けてみましょう。	Then, let's open the treasure box in front of you.
+キーボードの [Enter] キー か [Z] キー\nコントローラーの [B] ボタン は\n目の前の人物に話しかけるときにも使用します。	Use [Enter] Key or [Z] Key with the keyboard \n[B] Button for the controller which will be used for talking to people in front of you.
+それでは 次に カメラ操作について覚えましょう。\nゲーム中 カメラは……	The next step will be how to operate the camera. \nThe camera can be rotated ......
+このように上下方向（X軸）と……	Like this way, vertically (X axis) and ......
+水平方向（Y軸）に回転させることができます。	horizontality (Y axis).
+実際に カメラを上下回転（X軸）させてみましょう。\n次のキーやボタンを押してみてください。\n※メッセージが表示されているときも カメラは操作できます。	Let's rotate the camera vertically (X axis). \nPlease try to press the following keys or buttons. \n(You can control the camera while the messages are displayed.)
+＜キーボードでの操作＞\nカメラ上下回転（X軸）:\n[R] [F] キー\n＜コントローラーでの操作＞\nカメラ上下回転（X軸）:\n右スティックを上下に動かす	< How to Control with the Keyboard >\nRotate Camera Vertically: \n[R]  [F] Keys\n< How to Control with the Controller >\nRotate Camera Vertically: \nMove the right stick up and down.
+いまの操作方法について もういちど確認しますか？	Would you like to read it again?
+もうわかった	No, I think I got it.
+もういちど確認する	Yes, I'll read it again.
+続けて カメラを水平回転（Y軸）させてみましょう。\n次のキーやボタンを押してみてください。\n※メッセージが表示されているときも カメラは操作できます。	Let's rotate the camera horizontality (Y axis). \nPlease try to press the following keys or buttons. \n(You can control the camera while the messages are displayed.)
+＜キーボードでの操作＞\nカメラ水平回転（Y軸）:\n[Q] [E] キー\n＜コントローラーでの操作＞\nカメラ水平回転（Y軸）:\n右スティックを左右に動かす	< How to Control with the Keyboard >\nRotate Camera Horizontality: \n[Q]  [E] Keys\n< How to Control with the Controller >\nRotate Camera Horizontality: \nMove the right stick left and right.
+ゲーム中のカメラ操作では\nズームイン／ズームアウトもできます。	You can zoom in/out this camera during the game play.
+実際に カメラをズームイン ズームアウトさせてみましょう。\n次のキーやボタンを押してみてください。\n※メッセージが表示されているときも カメラは操作できます。	Let's zoom in/out the camera. \nPlease try to press the following keys or buttons. \n(You can control the camera while the messages are displayed.)
+＜キーボードでの操作＞\nカメラのズームイン／ズームアウト:\n[C] [V] キー\n＜コントローラーでの操作＞\nカメラのズームイン／ズームアウト:\n[LB] [RB] ボタン	< How to Control with the Keyboard >\nCamera Zoom In/Out: \n[C]  [V] Keys\n< How to Control with the Controller >\nCamera Zoom In/Out: \n[LB] [RB] Buttons
+いまの操作方法について もういちど確認しますか？	Would you like to read it again?
+もうわかった	No, I think I got it.
+もういちど確認する	Yes, I'll read it again.
+操作したカメラを 最初の状態に戻したいときは\n次のキーやボタンを押してみてください。\n※メッセージが表示されているときも カメラは操作できます。	If you'd like to reset the camera position, \nPlease try the following keys or buttons. \n(You can control the camera while the messages are displayed.)
+＜キーボードでの操作＞\nカメラ位置をリセット:\n[K] キー\n＜コントローラーでの操作＞\nカメラ位置をリセット:\n右スティックを押し込む	< How to Control with the Keyboard >\nReset the Camera Position: \n[K] Key\n< How to Control with the Controller >\nReset the Camera Position: \nPress the right stick.
+まずは 宝箱の前まで 移動してみましょう。	Let's walk to the front of the treasure chest.
+実際にメニュー画面を開いて\nキャラクターに バンダナを装備させてあげてください。\nバンダナは 頭に装備できるアイテムです。	Let's open the menu window and equip a bandana for the character. \nThe bandana is an equipment item for the head. 
+次のキーやボタンで\nメニュー画面を呼び出すことができます。\nメニューの「装備」の項目で バンダナを装備できます。	You can bring up the menu window using the following key or button.  You can equip the bandana from the "Equipment" category.
+＜キーボードでの操作＞\nメニュー画面の表示／キャンセル:\n[ESC] キー か [X] キー\n＜コントローラーでの操作＞\nメニュー画面の表示／キャンセル:\n[A] ボタン	< How to Control with the Keyboard >\nBring up the Menu Window/Cancel: \n[ESC] Key or [X] Key\n< How to Control with the Controller >\nBring up the Menu Window/Cancel: \n[A] Button
+いまの操作方法について もういちど確認しますか？	Would you like to read it again?
+もうわかった	No, I think I got it.
+もういちど確認する	Yes, I'll read it again.
+ダッシュ移動してみましょう。	Let's try running movement.
+＜キーボードでの操作＞\nダッシュ移動:\n[Shift] キー を押しながら移動\n＜コントローラーでの操作＞\nダッシュ移動:\n[X] ボタン を押しながら移動	< How to Control with the Keyboard >\nRunning Movement: \nMove while holding [Shift] Key\n< How to Control with the Controller >\nRunning Movement: \nMove while holding [X] Button
+いまの操作方法について もういちど確認しますか？	Would you like to read it again?
+もうわかった	No, I think I got it.
+もういちど確認する	Yes, I'll read it again.
+まずは 宝箱の前まで 移動してみましょう。	Let's walk to the front of the treasure chest.
+実際にメニュー画面を開いて\nキャラクターに バンダナを装備させてあげてください。\nバンダナは 頭に装備できるアイテムです。	Let's open the menu window and equip the bandana for the character. \nThe bandana is an equipment item for the head. 
+次のキーやボタンで\nメニュー画面を呼び出すことができます。\nメニューの「装備」の項目で バンダナを装備できます。	You can bring up the menu window using the following key or button. \nYou can equip the bandana from the "Equipment" category.
+＜キーボードでの操作＞\nメニュー画面の表示／キャンセル:\n[ESC] キー か [X] キー\n＜コントローラーでの操作＞\nメニュー画面の表示／キャンセル:\n[A] ボタン	< How to Control with the Keyboard >\nBring up the Menu Window/Cancel: \n[ESC] Key or [X] Key\n< How to Control with the Controller >\nBring up the Menu Window/Cancel: \n[A] Button
+いまの操作方法について もういちど確認しますか？	Would you like to read it again?
+もうわかった	No, I think I got it.
+もういちど確認する	Yes, I'll read it again.
+ダッシュ移動してみましょう。	Let's try running movement.
+＜キーボードでの操作＞\nダッシュ移動:\n[Shift] キー を押しながら移動\n＜コントローラーでの操作＞\nダッシュ移動:\n[X] ボタン を押しながら移動	< How to Control with the Keyboard >\nRunning Movement: \nMove while holding [Shift] Key\n< How to Control with the Controller >\nRunning Movement: \nMove while holding [X] Button
+いまの操作方法について もういちど確認しますか？	Would you like to read it again?
+もうわかった	No, I think I got it.
+もういちど確認する	Yes, I'll read it again.
+まずは 宝箱の前まで 移動してみましょう。	Let's walk to the front of the treasure chest.
+実際にメニュー画面を開いて\nキャラクターに バンダナを装備させてあげてください。\nバンダナは 頭に装備できるアイテムです。	Let's open the menu window and equip a bandana for the character. \nThe bandana is an equipment item for the head. 
+次のキーやボタンで\nメニュー画面を呼び出すことができます。\nメニューの「装備」の項目で バンダナを装備できます。	You can bring up the menu window using the following key or button. \nYou can equip the bandana from the "Equipment" category.
+＜キーボードでの操作＞\nメニュー画面の表示／キャンセル:\n[ESC] キー か [X] キー\n＜コントローラーでの操作＞\nメニュー画面の表示／キャンセル:\n[A] ボタン	< How to Control with the Keyboard >\nBring up the Menu Window/Cancel: \n[ESC] Key or [X] Key\n< How to Control with the Controller >\nBring up the Menu Window/Cancel: \n[A] Button
+いまの操作方法について もういちど確認しますか？	Would you like to read it again?
+もうわかった	No, I think I got it.
+もういちど確認する	Yes, I'll read it again.
+ダッシュ移動してみましょう。	Let's try running movement.
+＜キーボードでの操作＞\nダッシュ移動:\n[Shift] キー を押しながら移動\n＜コントローラーでの操作＞\nダッシュ移動:\n[X] ボタン を押しながら移動	< How to Control with the Keyboard >\nRunning Movement: \nMove while holding [Shift] Key\n< How to Control with the Controller >\nRunning Movement: \nMove while holding [X] Button
+いまの操作方法について もういちど確認しますか？	Would you like to read it again?
+もうわかった	No, I think I got it.
+もういちど確認する	Yes, I'll read it again.
+さきほど 宝箱から手に入れた「バンダナ」は\nキャラクターが装備できるアイテムです。\nせっかくなので 装備させてあげましょう。	The item you've found from the treasure chest is "Bandana" which is a head armor for characters. \nLet's equip it on the character.
+次のキーやボタンで\nメニュー画面を呼び出すことができます。\nメニューの「装備」の項目で バンダナを装備できます。	You can bring up the menu window using the following key or button. \nYou can equip the bandana from the "Equipment" category.
+＜キーボードでの操作＞\nメニュー画面の表示／キャンセル:\n[ESC] キー か [X] キー\n＜コントローラーでの操作＞\nメニュー画面の表示／キャンセル:\n[A] ボタン	< How to Control with the Keyboard >\nBring up the Menu Window/Cancel: \n[ESC] Key or [X] Key\n< How to Control with the Controller >\nBring up the Menu Window/Cancel: \n[A] Button
+いまの操作方法について もういちど確認しますか？	Would you like to read it again?
+もうわかった	No, I think I got it.
+もういちど確認する	Yes, I'll read it again.
+それでは 実際にメニュー画面を開いて\nキャラクターに バンダナを装備させてあげてください。\nバンダナは 頭に装備できるアイテムです。	Let's open the menu window and equip a bandana for the character. \nThe bandana is an equipment item for the head. 
+メニュー画面では「装備」ほかに 回復アイテムや\nスキルを使ったり キャラクターの強さを確認したり\nプレイデータをセーブすることができます。	On the menu window, you can use recovery items and skills, and check characters' statuses.  And also you can save the play data.
+ゲーム中は ダッシュ移動もできます。\n次の操作で キャラクターがダッシュします。	It's possible to use running movement in the game. \nThe following keys/buttons can make the character run.
+＜キーボードでの操作＞\nダッシュ移動:\n[Shift] キー を押しながら移動\n＜コントローラーでの操作＞\nダッシュ移動:\n[X] ボタン を押しながら移動	< How to Control with the Keyboard >\nRunning Movement: \nMove while holding [Shift] Key\n< How to Control with the Controller >\nRunning Movement: \nMove while holding [X] Button
+いまの操作方法について もういちど確認しますか？	Would you like to read it again?
+もうわかった	No, I think I got it.
+もういちど確認する	Yes, I'll read it again.
+それでは 実際にダッシュ移動してみましょう。	Let's try the running movement.
+ダッシュ移動は 広いマップを移動するときに役立ちます。\n\n\nここまでが ゲームを遊ぶときの基本的な操作です。\nそれでは よい旅を！	The running movement is very useful when the map is very big.  \n\nThese are the basic control operations when you play games. \nHave a nice trip!
+……おっと だいじなことを 忘れていました。\n\n\nカメラの視点モードを切り替えると 主人公の目線で世界が\n見えます。さっそく試してみましょう！\n※メッセージが表示されているときも カメラは操作できます。	...... Oops, forgot to introduce you this important feature. \n\nYou can switch the camera viewpoint to the first-person view mode. \nLet's try it! \n(You can control the camera while the messages are displayed.)
+＜キーボードでの操作＞\nカメラ視点切り替え：\n[B]キー\n＜コントローラーでの操作＞\nカメラ視点切り替え：\n[Y]ボタン	< How to Control with the Keyboard >\nSwitch Camera Viewpoint: \n[B] Key\n< How to Control with the Controller >\nSwitch Camera Viewpoint: \n[Y] Button
+いまの操作方法について もういちど確認しますか？	Would you like to read it again?
+もうわかった	No, I think I got it.
+もういちど確認する	Yes, I'll read it again.
+ゲーム中のカメラ視点は [B]キーや [Y]ボタンを押すたびに\n切り替わります。\n\nそれでは よい旅を！	Whenever you press [B] Key or [Y] Key, the camera viewpoint will switch during the games.  \nWell, have a nice trip!
+はじめに 操作方法のチュートリアルを確認しますか？	Would you like to start the basic operation tutorial?
+必要ないぜ！	Nope, I don't need to.
+確認しておこう	Yes! I'd love to.
+ゲーム中の操作方法については 家の外にあるカンバンに\n書かれています。\n操作がわからなくなったときは チェックしてみましょう。	There is an instruction of the basic operation on the sign in front of the house. \nYou can check it whenever you forget which keys you can use.
+最初に SMILE GAME BUILDER で作られた\nゲームで遊ぶときの操作方法をマスターしましょう。\n\nゲーム中は キーボードか コントローラーを使って\nキャラクターを操作することができます。\n	Let's learn the basic operation when you play games\nwhich were made by SMILE GAME BUILDER. \n\nWhen you play games, you can use your keyboard or controller to move the character.
+＜キーボードでの操作＞\n移動:\n方向キー か [A] [D] [W] [S] キー\n＜コントローラーでの操作＞\n移動:\n方向ボタン か 左スティック	< How to Control with the Keyboard >\nMovements: \nDirection Keys or [A] [D] [W] [S] Keys\n< How to Control with the Controller >\nMovements: \nDirection Keys or the left stick
+いまの操作方法について もういちど確認しますか？	Would you like to read it again?
+もうわかった	No, I think I got it.
+もういちど確認する	Yes, I'll read it again.
+それでは 奥に見えている宝箱の前まで 移動してみましょう。	Alright, let's go to the treasure chest over there.
+アイテム袋がいっぱいです。	Your inventory is full.
+どのアイテムを捨てますか？	Which item(s) do you want to discard?
+{0}をすべて捨てます。よろしいですか？	Discard all {0} items. Are you sure?
+{0}をあきらめる	Discard {0}
+アイテムが一杯のため、装備が外せませんでした。	The equipment cannot be removed\nbecause this would exceed the maximum item limit.

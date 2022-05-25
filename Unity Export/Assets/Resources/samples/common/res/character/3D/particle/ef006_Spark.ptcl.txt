@@ -1,0 +1,114 @@
+name 01
+generate true
+emitterType sphere
+emitterLifeTime 0.000000
+emitterAmount 20.000000
+emitterSize 0.300000 0.000000 0.300000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard true
+mirrorType none
+followType unfollow
+particleLifeTime 0.300000
+particleLifeRandom 1.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 2
+randomColor0 1.000000 1.000000 1.000000 1.000000
+randomColor1 0.811024 0.897328 1.000000 1.000000
+randomColor2 0.000000 0.000000 1.000000 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.500000
+maxSize 1.200000
+startAlpha 0.000000
+middleAlpha 0.050000
+endAlpha 0.000000
+startAlphaTime 0.100000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 0.200000
+endBrightness 0.000000
+startBrightnessTime 0.100000
+endBrightnessTime 0.100000
+startScale 1.000000 1.000000 1.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 1.000000 1.000000 1.000000
+startScaleTime 0.100000
+endScaleTime 0.400000
+angle 0.000000 0.000000 360.000000
+angleRandRange 0.000000 0.000000 360.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 0.200000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.500000
+emitParam 100.000000
+texPatternH 2
+texPatternV 2
+texPatternStart 0
+texPatternEnd 3
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.500000 0.000000
+texture ef006_Spark02
+end
+name 02
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 10.000000
+emitterSize 1.000000 0.000000 1.000000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 0.300000
+particleLifeRandom 1.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 2
+randomColor0 0.923181 0.834646 1.000000 1.000000
+randomColor1 0.700787 0.837436 1.000000 1.000000
+randomColor2 0.000000 0.000000 1.000000 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.500000
+maxSize 1.000000
+startAlpha 0.000000
+middleAlpha 0.200000
+endAlpha 0.000000
+startAlphaTime 0.500000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 1.000000
+endBrightness 0.000000
+startBrightnessTime 0.500000
+endBrightnessTime 0.500000
+startScale 1.000000 1.000000 1.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 1.000000 1.000000 1.000000
+startScaleTime 0.100000
+endScaleTime 0.400000
+angle 360.000000 360.000000 360.000000
+angleRandRange 360.000000 360.000000 360.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 0.200000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.500000
+emitParam 100.000000
+texPatternH 1
+texPatternV 1
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.500000 0.000000
+texture ef006_Spark01
+end

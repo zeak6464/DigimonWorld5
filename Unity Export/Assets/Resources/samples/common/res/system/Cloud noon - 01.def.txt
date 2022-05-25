@@ -1,0 +1,3 @@
+mtl Material::cloud_mat
+shader map_nolit
+uscrollspeed 0.5

@@ -1,0 +1,19 @@
+anim
+walk 1 48 loop
+wait 51 161 loop
+run 171 200 loop
+happy 211 261
+disappointed 271 331
+keepdown 351 410 loop
+jump 431 461
+keepdown2 481 540 loo
+attack 171 200 loop
+charge 51 161 loop
+guard 51 161 loop
+skill 211 261
+item 211 261
+damage 271 331
+KO 351 410 loop
+win 431 461 loop
+escape 171 200 loop
+wait2 51 161 loop

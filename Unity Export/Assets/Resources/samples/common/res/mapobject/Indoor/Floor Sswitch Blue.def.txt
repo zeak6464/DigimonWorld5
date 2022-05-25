@@ -1,0 +1,5 @@
+anim
+keepClose 1
+open 1 30
+keepOpen 40
+close 41 60

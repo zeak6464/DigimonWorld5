@@ -1,0 +1,174 @@
+name prt
+generate true
+emitterType sphere
+emitterLifeTime 0.000000
+emitterAmount 10.000000
+emitInterval 0.000000
+emitterSize 1.500000 0.000000 1.500000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 0.300000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 3.000000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 1
+randomColor0 0.000000 1.000000 0.645669 1.000000
+randomColor1 0.716535 0.872776 1.000000 1.000000
+randomColor2 0.000000 0.000000 1.000000 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 0.100000
+maxSize 0.200000
+startAlpha 0.000000
+middleAlpha 0.500000
+endAlpha 0.000000
+startAlphaTime 0.200000
+endAlphaTime 0.800000
+startBrightness 0.000000
+middleBrightness 1.000000
+endBrightness 0.000000
+startBrightnessTime 0.200000
+endBrightnessTime 0.800000
+startScale 1.000000 1.000000 1.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 1.000000 1.000000 1.000000
+startScaleTime 0.500000
+endScaleTime 0.500000
+angle 0.000000 0.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 0.300000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.300000
+emitParam 100.000000
+texPatternH 2
+texPatternV 1
+texPatternStart 0
+texPatternEnd 0
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.150000 0.000000
+texture ef023_Glow_D
+end
+name ring
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 1.000000
+emitInterval 0.000000
+emitterSize 0.000000 0.000000 0.000000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 2.000000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.500000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 1
+randomColor0 0.527560 1.000000 0.832600 1.000000
+randomColor1 0.716535 0.872776 1.000000 1.000000
+randomColor2 0.000000 0.000000 1.000000 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 1.000000
+maxSize 1.000000
+startAlpha 0.000000
+middleAlpha 1.000000
+endAlpha 0.000000
+startAlphaTime 0.500000
+endAlphaTime 0.500000
+startBrightness 0.000000
+middleBrightness 1.000000
+endBrightness 0.000000
+startBrightnessTime 0.500000
+endBrightnessTime 0.500000
+startScale 1.000000 1.000000 1.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 1.000000 1.000000 1.000000
+startScaleTime 0.500000
+endScaleTime 0.500000
+angle 90.000000 0.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 0.300000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.300000
+emitParam 100.000000
+texPatternH 2
+texPatternV 1
+texPatternStart 1
+texPatternEnd 1
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.150000 0.000000
+texture ef023_Glow_D
+end
+name ring
+generate true
+emitterType point
+emitterLifeTime 0.000000
+emitterAmount 5.000000
+emitInterval 0.000000
+emitterSize 0.000000 0.000000 0.000000
+gravity 0.000000 0.000000 0.000000
+airDrag 0.000000
+billboard false
+mirrorType none
+followType unfollow
+particleLifeTime 3.000000
+particleLifeRandom 0.000000
+baseSpeed 0.000000
+linearVelocity 0.000000 0.500000 0.000000
+linearVelocityRandom 0.000000
+randomColorCount 1
+randomColor0 0.527560 1.000000 0.832600 1.000000
+randomColor1 0.716535 0.872776 1.000000 1.000000
+randomColor2 0.000000 0.000000 1.000000 1.000000
+randomColor3 0.000000 1.000000 0.000000 1.000000
+minSize 1.000000
+maxSize 1.000000
+startAlpha 0.000000
+middleAlpha 0.500000
+endAlpha 0.000000
+startAlphaTime 0.200000
+endAlphaTime 0.200000
+startBrightness 0.000000
+middleBrightness 0.500000
+endBrightness 0.000000
+startBrightnessTime 0.200000
+endBrightnessTime 0.200000
+startScale 1.000000 1.000000 1.000000
+middleScale 1.000000 1.000000 1.000000
+endScale 1.000000 1.000000 1.000000
+startScaleTime 0.500000
+endScaleTime 0.500000
+angle 90.000000 0.000000 0.000000
+angleRandRange 0.000000 0.000000 0.000000
+angluarVelocity 0.000000 0.000000 0.000000
+isFlucPhaseShift false
+flucAmp 0.300000
+flucAlpha false
+flucScale false
+flucBrightness false
+flucFreq 0.300000
+emitParam 100.000000
+texPatternH 2
+texPatternV 1
+texPatternStart 1
+texPatternEnd 1
+texPatternInterpolateType linear
+texPatternCycle 0
+positionOffset 0.000000 0.150000 0.000000
+texture ef023_Glow_D
+end
