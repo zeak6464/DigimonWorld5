@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <TargetFrameworkProfile />
+    <ProjectGuid>{F056336B-FA53-50F9-060E-546B143D030D}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="common">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\BAKIN\lib\\common.dll</HintPath>
+    </Reference>
+    <Reference Include="bakinengine">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\BAKIN\lib\\bakinengine.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpKmyCore">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\BAKIN\lib\\SharpKmyCore.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="script\FrameCount.cs" />
+    <Compile Include="script\InfMoney.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+Other similar extension points exist, see Microsoft.Common.targets.
+<Target Name="BeforeBuild">
+</Target>
+<Target Name="AfterBuild">
+</Target>
+-->
+</Project>
