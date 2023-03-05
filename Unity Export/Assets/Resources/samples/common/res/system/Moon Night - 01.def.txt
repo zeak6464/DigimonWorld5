@@ -1,4 +1,0 @@
-mtl Material::moon_mat
-blend add
-shader legacy_tex
-depthwrite false

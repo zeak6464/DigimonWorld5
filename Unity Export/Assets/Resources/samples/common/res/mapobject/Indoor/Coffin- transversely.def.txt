@@ -1,5 +1,0 @@
-anim
-keepClose 1
-open 1 70
-keepOpen 71
-close 81 140

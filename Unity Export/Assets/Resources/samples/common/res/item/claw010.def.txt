@@ -1,3 +1,0 @@
-preview
-offset 0.023 -0.02 -0.05
-angle 75 -50 -5

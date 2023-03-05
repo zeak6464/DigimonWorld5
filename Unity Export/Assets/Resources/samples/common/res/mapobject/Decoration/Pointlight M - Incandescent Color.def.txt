@@ -1,5 +1,0 @@
-mtl Material::add_mat
-shader legacy_tex
-depthwrite false
-blend add
-vscrollspeed 0.0
