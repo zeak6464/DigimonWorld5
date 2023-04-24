@@ -32,10 +32,10 @@ namespace Yukar.Battle
             if (index < 0) index = 0;
 
             var battleCommands = battle.battleViewer.battleCommandChoiceWindowDrawer;
-            var choices = battleCommands?.GetChoicesData();
+            var choices = battleCommands?.GetChoicesData() ?? new List<ChoiceWindowDrawer.ChoiceItemData>();
 
             var battleItems = battle.battleViewer.itemSelectWindowDrawer;
-            var items = battleItems?.GetChoicesData();
+            var items = battleItems?.GetChoicesData() ?? new List<ChoiceWindowDrawer.ChoiceItemData>();
             #endregion
 
             switch (content.type)
@@ -1540,7 +1540,7 @@ namespace Yukar.Battle
                             return true;
                         }
                     case GameContentParser.ContentType.PARTYHP:
-                        if (heros.Count > owner.PageIndex)
+                        if (owner.PageIndex > -1 && heros.Count > owner.PageIndex)
                         {
                             var hero = heros[owner.PageIndex];
                             owner.SetVariable(
@@ -1577,7 +1577,7 @@ namespace Yukar.Battle
                             return true;
                         }
                     case GameContentParser.ContentType.PARTYMP:
-                        if (heros.Count > owner.PageIndex)
+                        if (owner.PageIndex > -1 && heros.Count > owner.PageIndex)
                         {
                             var hero = heros[owner.PageIndex];
                             // MAXMPが0だった場合、ゲージが空っぽで表示できるようにする
@@ -1621,7 +1621,7 @@ namespace Yukar.Battle
                             return true;
                         }
                     case GameContentParser.ContentType.PARTYEXP:
-                        if (gameContent.CharacterLevelUpData.Count > owner.PageIndex)
+                        if (owner.PageIndex > -1 && gameContent.CharacterLevelUpData.Count > owner.PageIndex)
                         {
                             var characterLevelUpData = gameContent.CharacterLevelUpData[owner.PageIndex];
                             var value = characterLevelUpData.castLevelUpData.totalExp - characterLevelUpData.castLevelUpData.CurrentLevelNeedTotalExp;
@@ -1645,7 +1645,7 @@ namespace Yukar.Battle
                             return true;
                         }
                     case GameContentParser.ContentType.ENEMYSTATUS_0:
-                        if (enemies.Count > menuIndex)
+                        if (menuIndex > -1 && enemies.Count > menuIndex)
                         {
                             var enemy = enemies[menuIndex];
                             owner.SetVariable(
@@ -1663,7 +1663,7 @@ namespace Yukar.Battle
                             return true;
                         }
                     case GameContentParser.ContentType.ENEMYSTATUS_1:
-                        if (enemies.Count > menuIndex)
+                        if (menuIndex > -1 && enemies.Count > menuIndex)
                         {
                             var enemy = enemies[menuIndex];
 

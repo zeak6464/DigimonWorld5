@@ -1,8 +1,0 @@
-C:\Jenkins-Runner\workspace\Bakin_Main_Build\src\bin\x64\Release\lib\bakinbattle.dll.config
-C:\Jenkins-Runner\workspace\Bakin_Main_Build\src\bin\x64\Release\lib\bakinbattle.dll
-C:\Jenkins-Runner\workspace\Bakin_Main_Build\src\bin\x64\Release\lib\bakinbattle.pdb
-C:\Jenkins-Runner\workspace\Bakin_Main_Build\src\Yukar Battle Engine\obj\x64\Release\Yukar Battle Engine.csproj.AssemblyReference.cache
-C:\Jenkins-Runner\workspace\Bakin_Main_Build\src\Yukar Battle Engine\obj\x64\Release\Yukar Battle Engine.csproj.CoreCompileInputs.cache
-C:\Jenkins-Runner\workspace\Bakin_Main_Build\src\Yukar Battle Engine\obj\x64\Release\Yukar Battle Engine.csproj.CopyComplete
-C:\Jenkins-Runner\workspace\Bakin_Main_Build\src\Yukar Battle Engine\obj\x64\Release\bakinbattle.dll
-C:\Jenkins-Runner\workspace\Bakin_Main_Build\src\Yukar Battle Engine\obj\x64\Release\bakinbattle.pdb

@@ -185,7 +185,7 @@ namespace Yukar.Battle
 
                                 if (!string.IsNullOrEmpty(item.positionAnchorTag))
                                 {
-                                    obj.HideNotUsingAnimation();
+                                    obj.HideWithNotAnimation();
                                 }
                             }
                         }
@@ -360,7 +360,32 @@ namespace Yukar.Battle
 
                         if (!string.IsNullOrEmpty(item.positionAnchorTag))
                         {
-                            var res = positionProvider(item.positionAnchorTag, item.containerIndex);
+                            var index = item.containerIndex;
+                            var renderContainer = obj as RenderContainer;
+                            MenuSubContainer subMenuContainer = null;
+                            var parent = obj.Parent;
+                            if (parent is object)
+                            {
+                                subMenuContainer = parent as MenuSubContainer;
+                                parent = parent.Parent;
+                                if (subMenuContainer is null && parent is object)
+                                {
+                                    subMenuContainer = parent as MenuSubContainer;
+                                }
+                            }
+                            if (subMenuContainer is object)
+                            {
+                                index = subMenuContainer.MenuIndex;
+                            }
+                            else if (renderContainer is object)
+                            {
+                                index = renderContainer.MenuIndex;
+                            }
+                            if(index < 0)
+                            {
+                                index = 0;
+                            }
+                            var res = positionProvider(item.positionAnchorTag, index);
                             if (res != null)
                                 obj.Position = res.Value;
                         }
@@ -711,10 +736,12 @@ namespace Yukar.Battle
 
         }
 
-        //------------------------------------------------------------------------------
-        /**
-         *	描画処理
-         */
+        /// <summary>
+        /// 描画処理
+        /// drawing process
+        /// </summary>
+        /// <param name="playerData"></param>
+        /// <param name="enemyMonsterData"></param>
         internal override void Draw(List<BattlePlayerData> playerData, List<BattleEnemyData> enemyMonsterData)
         {
             DisplayIdUtil.changeScene(DisplayIdUtil.SceneType.BATTLE);
@@ -875,7 +902,7 @@ namespace Yukar.Battle
 
                 if (tag == "Enemy")
                 {
-                    if (index < owner.enemyData.Count && owner.enemyData[index] != null)
+                    if (index >= 0 && index < owner.enemyData.Count && owner.enemyData[index] != null)
                     {
                         var actor = enemies.FirstOrDefault(x => x.source == owner.enemyData[index]);
                         if (actor != null)
@@ -885,7 +912,7 @@ namespace Yukar.Battle
                 }
                 else if (tag == "Player")
                 {
-                    if (playerData.Count > index)
+                    if (index >= 0 &&  playerData.Count > index)
                     {
                         var pl = playerData[index];
                         foreach (var f in friends)
@@ -1097,10 +1124,12 @@ namespace Yukar.Battle
             return 0;
         }
 
-        //------------------------------------------------------------------------------
-        /**
-         *	フィールドを描画
-         */
+        /// <summary>
+        /// フィールドを描画
+        /// draw field
+        /// </summary>
+        /// <param name="playerData"></param>
+        /// <param name="enemyMonsterData"></param>
         internal void DrawField(List<BattlePlayerData> playerData, List<BattleEnemyData> enemyMonsterData)
         {
             // エフェクト
@@ -1112,10 +1141,10 @@ namespace Yukar.Battle
 
         }
 
-        //------------------------------------------------------------------------------
-        /**
-         *	エフェクトを描画
-         */
+        /// <summary>
+        /// エフェクトを描画
+        /// draw effect
+        /// </summary>
         private void drawEffect()
         {
             if (skillUser == null)
@@ -1235,10 +1264,11 @@ namespace Yukar.Battle
             }
         }
 
-        //------------------------------------------------------------------------------
-        /**
-         *	エネミー情報を描画
-         */
+        /// <summary>
+        /// エネミー情報を描画
+        /// Draw enemy information
+        /// </summary>
+        /// <param name="enemyMonsterData"></param>
         private void drawEnemyInfo(List<BattleEnemyData> enemyMonsterData)
         {
             BattleEnemyData currentSelectMonster = null;
@@ -1330,42 +1360,42 @@ namespace Yukar.Battle
             // Displays status up information, status down information, and abnormal status of the currently selected monster.
             // 他のモンスターの画像に隠れないように全てのモンスターの画像を描画し終わってから描画
             // Draw after drawing all the monster images so that they are not hidden by the images of other monsters.
-            if (currentSelectMonster != null)
-            {
-                if (currentSelectMonster != prevSelectedMonster)
-                {
-                    SetMonsterStatusEffect(currentSelectMonster);
-                }
+            //if (currentSelectMonster != null)
+            //{
+            //    if (currentSelectMonster != prevSelectedMonster)
+            //    {
+            //        SetMonsterStatusEffect(currentSelectMonster);
+            //    }
 
-                prevSelectedMonster = currentSelectMonster;
+            //    prevSelectedMonster = currentSelectMonster;
 
-                var effects = new List<EffectDrawer>();
+            //    var effects = new List<EffectDrawer>();
 
-                effects.Add(currentSelectMonster.positiveEffectDrawers.ElementAtOrDefault(currentSelectMonster.positiveEffectIndex));
-                effects.Add(currentSelectMonster.negativeEffectDrawers.ElementAtOrDefault(currentSelectMonster.negativeEffectIndex));
-                //effects.Add(currentSelectMonster.statusEffectDrawers.ElementAtOrDefault(currentSelectMonster.statusEffectIndex));
+            //    effects.Add(currentSelectMonster.positiveEffectDrawers.ElementAtOrDefault(currentSelectMonster.positiveEffectIndex));
+            //    effects.Add(currentSelectMonster.negativeEffectDrawers.ElementAtOrDefault(currentSelectMonster.negativeEffectIndex));
+            //    //effects.Add(currentSelectMonster.statusEffectDrawers.ElementAtOrDefault(currentSelectMonster.statusEffectIndex));
 
-                effects.RemoveAll(effect => effect == null);
+            //    effects.RemoveAll(effect => effect == null);
 
-                Vector2 effectGraphicsSize = new Vector2(48, 48);
-                Vector2 effectDrawPosition = searchFromActors(currentSelectMonster).getScreenPos(p, v);
-                effectDrawPosition.X -= (effects.Count - 1) * 0.5f * effectGraphicsSize.X;
-                effectDrawPosition.Y -= effectGraphicsSize.Y;
+            //    Vector2 effectGraphicsSize = new Vector2(48, 48);
+            //    Vector2 effectDrawPosition = searchFromActors(currentSelectMonster).getScreenPos(p, v);
+            //    effectDrawPosition.X -= (effects.Count - 1) * 0.5f * effectGraphicsSize.X;
+            //    effectDrawPosition.Y -= effectGraphicsSize.Y;
 
-                // エフェクトがメッセージウィンドウと重ならないように位置を調整
-                // Adjust the position so that the effect does not overlap the message window
-                if (effectDrawPosition.Y <= Graphics.ScreenHeight * 0.2f)
-                {
-                    effectDrawPosition.Y = Graphics.ScreenHeight * 0.2f;
-                }
+            //    // エフェクトがメッセージウィンドウと重ならないように位置を調整
+            // // Adjust the position so that the effect does not overlap the message window
+            //    if (effectDrawPosition.Y <= Graphics.ScreenHeight * 0.2f)
+            //    {
+            //        effectDrawPosition.Y = Graphics.ScreenHeight * 0.2f;
+            //    }
 
-                foreach (var effectDrawer in effects)
-                {
-                    effectDrawer.draw((int)effectDrawPosition.X, (int)effectDrawPosition.Y);
+            //    foreach (var effectDrawer in effects)
+            //    {
+            //        effectDrawer.draw((int)effectDrawPosition.X, (int)effectDrawPosition.Y);
 
-                    effectDrawPosition.X += effectGraphicsSize.X;
-                }
-            }
+            //        effectDrawPosition.X += effectGraphicsSize.X;
+            //    }
+            //}
         }
 
         int STATUS_X { get { return 256; } }
@@ -1440,10 +1470,12 @@ namespace Yukar.Battle
             friend.setColor(color);
         }
 
-        //------------------------------------------------------------------------------
-        /**
-         *	プレイヤーパネルを描画
-         */
+        /// <summary>
+        /// プレイヤーパネルを描画
+        /// draw player panel
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="index"></param>
         private void drawPlayerPanel(BattlePlayerData player, int index)
         {
             // その人のターンだった時は背景を点滅させる
@@ -1545,10 +1577,12 @@ namespace Yukar.Battle
             return actor;
         }
 
-        //------------------------------------------------------------------------------
-        /**
-         *	ダメージテキストを描画
-         */
+        /// <summary>
+        /// ダメージテキストを描画
+        /// draw damage text
+        /// </summary>
+        /// <param name="playerData"></param>
+        /// <param name="enemyMonsterData"></param>
         private void drawDamageText(List<BattlePlayerData> playerData, List<BattleEnemyData> enemyMonsterData)
         {
             if (damageTextList != null && damageTextList.Count() > 0)
@@ -1802,14 +1836,18 @@ namespace Yukar.Battle
                 if (turnMark != null && !turnMark.IsInOutAnimating)
                 {
                     turnMark.SkipUpdateVisibleFromParent = true;
-                    if (!owner.GetTurnOrdererdCharacter(i).IsSelect && turnMark.IsVisible)
+                    var current = owner.GetTurnOrdererdCharacter(i);
+                    if (current != null)
                     {
-                        turnMark.Hide();
-                    }
-                    else if (owner.GetTurnOrdererdCharacter(i).IsSelect && !turnMark.IsVisible)
-                    {
-                        turnMark.Show();
-                        (turnMark as SpriteRenderObject)?.ResetAnimationProgress();
+                        if (!current.IsSelect && turnMark.IsVisible)
+                        {
+                            turnMark.Hide();
+                        }
+                        else if (current.IsSelect && !turnMark.IsVisible)
+                        {
+                            turnMark.Show();
+                            (turnMark as SpriteRenderObject)?.ResetAnimationProgress();
+                        }
                     }
                 }
             }
@@ -1977,10 +2015,12 @@ namespace Yukar.Battle
             }
         }
 
-        //------------------------------------------------------------------------------
-        /**
-         *	アクションの完了待ち
-         */
+        /// <summary>
+        /// アクションの完了待ち
+        /// Wait for action to complete
+        /// </summary>
+        /// <param name="self"></param>
+        /// <returns></returns>
         public override bool IsEndMotion(BattleCharacterBase self)
         {
             var actor = searchFromActors(self);
@@ -1991,13 +2031,11 @@ namespace Yukar.Battle
             return actor.mapChr.isChangeMotionAvailable();
         }
 
-        //------------------------------------------------------------------------------
-        /**
-         *	アクションの実行
-         */
-
-        // カメラ戻す
-        // camera back
+        /// <summary>
+        /// カメラ戻す
+        /// camera back
+        /// </summary>
+        /// <param name="inTime"></param>
         public void restoreCamera(float inTime = 0)
         {
             skillUser = friends[0];
@@ -2396,10 +2434,11 @@ namespace Yukar.Battle
             return true;
         }
 
-        //------------------------------------------------------------------------------
-        /**
-         *	描画処理
-         */
+        /// <summary>
+        /// 描画処理
+        /// drawing process
+        /// </summary>
+        /// <param name="scn"></param>
         public void draw(SharpKmyGfx.Render scn)
         {
             if (mapDrawer.currentRom == null)
@@ -2453,10 +2492,13 @@ namespace Yukar.Battle
             }
         }
 
-        //------------------------------------------------------------------------------
-        /**
-         *	カメラ行列の生成
-         */
+        /// <summary>
+        /// カメラ行列の生成
+        /// Generate Camera Matrix
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="v"></param>
+        /// <param name="asp"></param>
         internal void createCameraMatrix(out SharpKmyMath.Matrix4 p, out SharpKmyMath.Matrix4 v/*, Rom.ThirdPersonCameraSettings camera*/, float asp)
         {
             var farclip = 2000;
@@ -2500,10 +2542,11 @@ namespace Yukar.Battle
 
         }
 
-        //------------------------------------------------------------------------------
-        /**
-         *	キャラクタを描画
-         */
+        /// <summary>
+        /// キャラクタを描画
+        /// draw a character
+        /// </summary>
+        /// <param name="scn"></param>
         private void drawCharacters(SharpKmyGfx.Render scn)
         {
             foreach (var mapChr in friends)
@@ -2720,7 +2763,7 @@ namespace Yukar.Battle
             friend.mapChr.setPosition(neutralPos);
         }
 
-        private void prepareFriends(List<BattlePlayerData> playerData)
+        internal void prepareFriends(List<BattlePlayerData> playerData)
         {
             // 味方キャラを読み込む
             // load an ally character

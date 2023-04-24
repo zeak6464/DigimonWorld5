@@ -42,9 +42,9 @@ using System.Runtime.InteropServices;
 // revision
 //
 // すべての値を指定するか、次を使用してビルド番号とリビジョン番号を既定に設定できます
-// You can specify all values \u200b\u200bor default to build and revision numbers using
+// You can specify all values or default to build and revision numbers using
 // 既定値にすることができます:
 // Can be default:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.4.5")]
-[assembly: AssemblyFileVersion("1.1.4.5")]
+[assembly: AssemblyVersion("1.2.2.4")]
+[assembly: AssemblyFileVersion("1.2.2.4")]

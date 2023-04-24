@@ -81,7 +81,7 @@ namespace Yukar.Battle
                 newEventRef.guId = guid;
                 newEventRef.pos.X =
                 newEventRef.pos.Z = -1;
-                var dummyChr = new MapCharacter(ev, newEventRef);
+                var dummyChr = new MapCharacter(ev, newEventRef, this);
                 dummyChr.isCommonEvent = true;
                 checkAllSheet(dummyChr, true, true, false);
                 dummyChrs.Add(dummyChr);
@@ -183,7 +183,7 @@ namespace Yukar.Battle
 
         internal void update()
         {
-            if (owner == null)
+            if (owner == null || battle == null)
                 return;
 
             // バトルビューアからのカメラ情報をセットしておく
@@ -412,6 +412,9 @@ namespace Yukar.Battle
 
         internal bool isBusy()
         {
+            if (battle == null)
+                return false;
+
             // ステータス変動によるゲージアニメをここでやってしまう
             // I will do a gauge animation by status change here
             bool isUpdated = false;
@@ -483,12 +486,19 @@ namespace Yukar.Battle
             switch (curCommand.attrList[cur++].GetInt())
             {
                 case 0:
-                    cmd.type = BattleCommand.CommandType.ATTACK;
-                    cmd.power = 100;
-                    tgt.selectedBattleCommandType = BattleCommandType.Attack;
-                    tgt.selectedBattleCommand = cmd;
-                    battle.battleViewer.commandTargetSelector.Clear();
-                    tgt.targetCharacter = battle.GetTargetCharacters(tgt);
+                    {
+                        cmd.type = BattleCommand.CommandType.ATTACK;
+                        cmd.power = 100;
+                        tgt.selectedBattleCommandType = BattleCommandType.Attack;
+                        tgt.selectedBattleCommand = cmd;
+                        battle.battleViewer.commandTargetSelector.Clear();
+                        var tgt2 = getTargetData(curCommand, ref cur, evGuid);
+                        if (tgt2 != null) {
+                            battle.battleViewer.commandTargetSelector.AddBattleCharacters(new List<BattleCharacterBase>() { tgt2 });
+                            battle.battleViewer.commandTargetSelector.SetSelect(tgt2);
+                        }
+                        tgt.targetCharacter = battle.GetTargetCharacters(tgt);
+                    }
                     break;
                 case 1:
                     cmd.type = BattleCommand.CommandType.GUARD;
@@ -523,6 +533,13 @@ namespace Yukar.Battle
                         tgt.selectedBattleCommandType = BattleCommandType.Skill;
                         tgt.selectedSkill = skill;
                         tgt.selectedBattleCommand = cmd;
+                        battle.battleViewer.commandTargetSelector.Clear();
+                        var tgt2 = getTargetData(curCommand, ref cur, evGuid);
+                        if (tgt2 != null)
+                        {
+                            battle.battleViewer.commandTargetSelector.AddBattleCharacters(new List<BattleCharacterBase>() { tgt2 });
+                            battle.battleViewer.commandTargetSelector.SetSelect(tgt2);
+                        }
                         tgt.targetCharacter = battle.GetTargetCharacters(tgt);
                     }
                     else
@@ -607,7 +624,7 @@ namespace Yukar.Battle
                 battle.targetEnemyData.Remove(tgt);
 
                 battle.battleViewer.AddFadeOutCharacter(tgt);
-                battle.remveVisibleEnemy(tgt);
+                battle.removeVisibleEnemy(tgt);
             }
 
             var data = battle.addEnemyData((Guid)entry.id, entry.layout, entry.idx);
@@ -747,7 +764,7 @@ namespace Yukar.Battle
 
                 data.selectedBattleCommandType = BattleCommandType.Skip;
 
-                battle.remveVisiblePlayer(data);
+                battle.removeVisiblePlayer(data);
                 //battle.stockPlayerData.Add(data);
                 battle.playerData.Remove(data);
                 battle.targetPlayerData.Remove(data);
