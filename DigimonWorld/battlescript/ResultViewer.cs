@@ -251,7 +251,7 @@ namespace Yukar.Battle
             systemIconImageId = catalog.getItemFromGuid(gameSettings.newItemIcon.guId) as Common.Resource.Texture;
             if (systemIconImageId != null) Graphics.LoadImage(systemIconImageId);
 
-            newImageId = owner.catalog.getItemFromGuid(owner.catalog.getGameSettings().GraphicNewSprite.guId) as Resource.Texture;
+            newImageId = owner.catalog.getItemFromGuid(owner.catalog.getGameSettings().GraphicNewSprite) as Resource.Texture;
             if (newImageId == null) newImageId = Resource.Texture.getDefaultCommonTexture(Resource.Texture.CommonTexture.NewIcon);
             Graphics.LoadImage(newImageId);
 

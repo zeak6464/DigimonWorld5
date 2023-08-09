@@ -6859,7 +6859,7 @@ namespace Yukar.Battle
                 var positionPreEvo = battleviewer3d.friends[currentTarget].mapChr.pos;
                 var positionCache = new Vector3(positionPreEvo.X, positionPreEvo.Y, positionPreEvo.Z);
                 var graphic = catalog.getItemFromGuid(hero.rom.Graphic, false) as GfxResourceBase;
-                hero.SetLevel(party.Players[currentTarget].level, catalog);
+                hero.SetLevel(party.Players[currentTarget].level, catalog, party);
                 playerData[currentTarget].MagicPoint /= 2;
                 var percentageToReduce = 100 - (playerData[currentTarget].MagicPointPercent * 100);
                 playerToEvolve.SetParameters(hero, owner.debugSettings.battleHpAndMpMax, owner.debugSettings.battleStatusMax, party);
