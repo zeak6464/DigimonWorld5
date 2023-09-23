@@ -1,6 +1,9 @@
+using Microsoft.Xna.Framework;
+using SharpKmyMath;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Yukar.Common.GameData;
 using Yukar.Common.Rom;
 using Yukar.Engine;
@@ -10,10 +13,14 @@ namespace Bakin
 {
     public class Digievo : BakinObject
     {
+
+        // Map to go when digievolving:
+        private string digievoMap = "Digivolution_Map";
+
+        // ======================================== //
+
         private bool showingShoices;
         private string[] currentChoiseList = { "test", "test2" };
-        private int currentIndexSelected;
-        private bool selectingEvoDone;
         private bool activateScript = false;
         int phase = 0;
         private bool isIni;
@@ -21,15 +28,25 @@ namespace Bakin
         private int lastChoice;
         private int lastLevel;
         private bool locked;
-        List<int> repetidosList = new List<int>();
         private ScriptRunner _generatorRunner;
         private Yukar.Common.Rom.Event _evoCast;
-        private bool startOffset;
-        private bool startEffect;
+        private bool started;
+        private bool? _usingPartyTrain;
+        private bool effectVisible;
+        private bool goEffect;
+        private MapCharacter _effect;
+        private MethodInfo ChangeMap;
+        private MethodInfo excludeEvent;
+        private ScriptRunner _fadeInRunner;
+        private int _currentChoice;
+        private bool _performDigievo;
+        private Guid _lastMap;
+        private Microsoft.Xna.Framework.Vector3 _lastPosition;
+   
 
         public override void Start()
         {
-
+            GetMethods();
             // キャラクターが生成される時に、このメソッドがコールされます。
             // This method is called when the character is created.
         }
@@ -52,7 +69,8 @@ namespace Bakin
                 }
             }
 
-            ChoiseSelection();
+            if (_performDigievo) PerformDigievolution(_currentChoice);
+            else ChoiseSelection();
             // キャラクターが生存している間、
             // 毎フレームこのキャラクターのアップデート前にこのメソッドがコールされます。
             // This method is called every frame before this character updates while the character is alive.
@@ -95,6 +113,8 @@ namespace Bakin
 
             var choice = mapScene.GetChoicesResult();
 
+            
+
             if (choice != -1)
             {
                 if (phase == 0)
@@ -103,7 +123,8 @@ namespace Bakin
                 }
                 else
                 {
-                    PerformDigievolution(choice);
+                    _currentChoice = choice;
+                    _performDigievo = true;
                 }
 
                 mapScene.menuWindow.ResetLayout(LayoutProperties.LayoutNode.UsageInGame.Choice);
@@ -121,66 +142,107 @@ namespace Bakin
             if (mapScene.owner.catalog.getItemFromName(currentChoiseList[choice], typeof(Cast)) is Cast castToAdd)
             {
                 var heroToAdd = Party.createHeroFromRom(catalog, mapScene.owner.data.party, castToAdd, lastLevel);
-                mapChr.setPosition(mapScene.hero.pos);
-                var effect = mapScene.mapCharList.FirstOrDefault(x => x?.rom?.name == "EvoEffect");
+              //  mapChr.setPosition(mapScene.hero.pos);
+          
 
-                if (effect == null)
+                ScriptRunner runner = null;
+                if(_usingPartyTrain == null) _usingPartyTrain = mapScene.owner.data.start.followers.visible;
+                Tools.PushLog("Is using party train?: " + _usingPartyTrain.ToString());
+                if (_usingPartyTrain == true) 
+                {
+                    mapScene.mapEngine.followerVisible = false;
+                }
+                float wait = 0f;
+
+                if(_fadeInRunner == null) FadeInScreen(1);
+
+                if(!_fadeInRunner.isFinished()) return;
+     
+                var Map = catalog.getItemFromName<Map>(digievoMap).guId;
+                _lastMap = mapScene.map.guId;
+                _lastPosition = mapScene.hero.pos;
+                Microsoft.Xna.Framework.Vector3 position = new Microsoft.Xna.Framework.Vector3(12.5f, 0.5f, 12.5f);
+                ChangeMap?.Invoke(GameMain.instance.mapScene, new object[] { Map, position });
+
+
+                _effect = mapScene.mapCharList.FirstOrDefault(x => x?.rom?.name == "EvoEffect");
+
+                if (_effect == null)
                 {
                     GenerateEvent();
                 }
 
-                ScriptRunner runner = null;
-                mapScene.mapEngine.followerVisible = false;
-                float wait = 0f;
-
                 bool Func()
                 {
-                    if (!_generatorRunner.isFinished()) return true;
-                 
-                    if(wait <= 0.2)
+                    if (!_generatorRunner.isFinished() || !_fadeInRunner.isFinished()) return true;
+                    if (wait <= 0.2)
                     {
                         wait += GameMain.getElapsedTime();
                         return true;
                     }
-                    if (effect == null)
-                    {
-                        effect = mapScene.mapCharList.FirstOrDefault(x => x?.rom?.name == "EvoEffect");
-                        if (effect == null) return true;
 
-                        Tools.PushLog(mapScene.ChangeGraphic(effect, DigiToEvo.rom.graphic).ToString());
-                        mapScene.hero.setVisibility(false);
-                        effect.setPosition(mapScene.hero.pos);
+                    if (!started)
+                    {
+                  
                         runner = mapScene.GetScriptRunner(_evoCast.guId);
                         runner?.Run();
+    
+                        if (_effect == null)
+                        {
+                            _effect = mapScene.mapCharList.FirstOrDefault(x => x?.rom?.name == "EvoEffect");
+                            if (_effect == null)
+                            {
+                                GenerateEvent();
+                                wait = 0f;
+                                return true;
+                            }
+                              
+
+                            Tools.PushLog(mapScene.ChangeGraphic(_effect, DigiToEvo.rom.graphic).ToString());
+                            _effect.setVisibility(false);
+                        }
+
+                        started = true;
                     }
 
                     if (!StartEvoEffect()) return true;
+                   
+                    if(!effectVisible) {
+                        _effect.setPosition(mapScene.hero.pos);
+                        mapScene.hero.setVisibility(false);
+                        effectVisible = true;
+                        _effect.setVisibility(true); 
+                    }
+
+                    if (mapScene.owner.hasTask("ShowEffect")) goEffect = true;
+
+                    if(!goEffect) return true;
 
                     if (wait <= 3.7f)
                     {
                         wait += GameMain.getElapsedTime();
-                        var vector3 = effect.getRotation();
+                        var vector3 = _effect.getRotation();
                         vector3.Y += (GameMain.getElapsedTime() * 280 * wait * 1.2f);
-                        effect.setRotation(vector3);
+                        _effect.setRotation(vector3);
                         return true;
                     }
                     else if (wait != 999)
                     {
                         wait = 999f;
 
-                        if (effect != null)
+                        if (_effect != null)
                         {
-                            Tools.PushLog(mapScene.ChangeGraphic(effect, heroToAdd.rom.graphic).ToString());
-                            effect = mapScene.mapCharList.FirstOrDefault(x => x?.rom?.name == "EvoEffect");
+                            Tools.PushLog(mapScene.ChangeGraphic(_effect, heroToAdd.rom.graphic).ToString());
+                            _effect = mapScene.mapCharList.FirstOrDefault(x => x?.rom?.name == "EvoEffect");
                         }
 
-                        effect.setDirection(1, true, true);
-                        effect.playMotion("attack", 0.2f, false, true);
+                        _effect.setDirection(1, true, true);
+                        _effect.playMotion("attack", 0.2f, false, true);
                     }
 
-                    if (effect.isChangeMotionAvailable())
+                    if (_effect.isChangeMotionAvailable())
                     {
-                        effect.playMotion("wait", 0.4f, false, false);
+                        _effect.playMotion("wait", 0.4f, false, false);
                     }
 
                     if (runner.isFinished())
@@ -191,16 +253,38 @@ namespace Bakin
                             locked = false;
                         }
                         mapScene.owner.data.party.SetPlayer(heroToAdd, lastChoice);
-                        mapScene.RefreshHeroMapChr();
-                        mapScene.mapEngine.followerVisible = true;
+                      
+                        if(_usingPartyTrain == true)
+                        {
+                            mapScene.mapEngine.followerVisible = true;
+                        }
+                      
+
                         mapScene.hero.setVisibility(true);
-                        effect.setVisibility(false);
-                        mapScene.mapCharList.Remove(effect);
+                        _effect.setVisibility(false);
+                        effectVisible = false;
+                        mapScene.mapCharList.Remove(_effect);
+                        //mapScene.runnerDic.Remove(new Guid("49d5de7b-d2a0-4dc1-8d9d-ed437b60d862"));
                         mapScene.runnerDic.Remove(new Guid("23ec3512-0560-43af-8844-9a8a89b319bb"));
                         _generatorRunner = null;
-                        effect = null;
+                        //_fadeInRunner = null;
 
+                        _currentChoice = -1;
+                        _performDigievo = false;
+                        _effect = null;
+                        _usingPartyTrain = null;
+                        started = false;
                         mapScene.owner.data.system.SetSwitch("startEvoEffect", false);
+                        mapScene.RefreshHeroMapChr(); 
+                        goEffect = false;
+
+
+                       
+                        ChangeMap?.Invoke(GameMain.instance.mapScene, new object[] { _lastMap, _lastPosition });
+
+                        FadeInScreen(0);
+
+            
                         return false;
                     }
                     return true;
@@ -212,6 +296,41 @@ namespace Bakin
             activateScript = false;
             isIni = false;
             phase = 0;
+        }
+
+        private void FadeInScreen(int inOut)
+        {
+            mapScene.runnerDic.Remove(new Guid("49d5de7b-d2a0-4dc1-8d9d-ed437b60d862"));
+            _fadeInRunner = null;
+
+            Script script = new Script()
+            {
+                guId = new Guid(),
+                name = "FadeIn"
+            };
+
+            script.commands.Add(new Script.Command()
+            {
+                type = Script.Command.FuncType.SCREEN
+            });
+
+            Script.IntAttr source = new Script.IntAttr(inOut);  
+            Script.IntAttr source2 = new Script.IntAttr(1);  
+            Script.IntAttr elResto = new Script.IntAttr(0);
+            Script.IntAttr time = new Script.IntAttr(1000);
+
+            script.commands[0].attrList.Add(source);
+            script.commands[0].attrList.Add(time);
+            script.commands[0].attrList.Add(source2);
+         
+
+            _fadeInRunner = new ScriptRunner(mapScene, mapChr, script);
+
+
+            Guid fadeInOutId = new Guid("49d5de7b-d2a0-4dc1-8d9d-ed437b60d862");
+            if (!mapScene.runnerDic.ContainsKey(fadeInOutId)) mapScene.runnerDic.Add(fadeInOutId, _fadeInRunner);
+
+            _fadeInRunner.Run();
         }
 
         private bool GenerateEvent()
@@ -254,16 +373,38 @@ namespace Bakin
 
             _generatorRunner = new ScriptRunner(mapScene, mapChr, script);
 
-
+            
             Guid evoEffectGuid = new Guid("23ec3512-0560-43af-8844-9a8a89b319bb");
             if (!mapScene.runnerDic.ContainsKey(evoEffectGuid)) mapScene.runnerDic.Add(evoEffectGuid, _generatorRunner);
 
             _generatorRunner.Run();
             return true;
         }
-        private void SetEvolutionList(int choice)
+
+        private void GetMethods()
         {
 
+            MethodInfo[] gamemainMethods = typeof(MapScene).GetMethods(BindingFlags.NonPublic | BindingFlags.Instance);
+
+            foreach (MethodInfo method in gamemainMethods)
+            {
+                if (method.Name == "ReservationChangeMap")
+                {
+                    ChangeMap = method;
+                }
+                else if (method.Name == "ExclusionAllEvents")
+                {
+                    if (method.GetParameters().Length == 2)
+                    {
+                        excludeEvent = method;
+                    }
+                }
+            }
+        }
+
+        private void SetEvolutionList(int choice)
+        {
+            _fadeInRunner = null;
             DigiToEvo = mapScene.owner.data.party.Players[choice];
             lastChoice = mapScene.owner.data.party.Players.IndexOf(DigiToEvo);
 

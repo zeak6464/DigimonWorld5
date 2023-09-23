@@ -1,12 +1,20 @@
+using Microsoft.Xna.Framework;
+using SharpKmyMath;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using Yukar.Common.GameData;
+using Yukar.Common.Rom;
 using Yukar.Engine;
+using static Yukar.Engine.MapData;
 using Hero = Yukar.Common.GameData.Hero;
 
 namespace Bakin
 {
     public class PartyNames : BakinObject
     {
+		private SystemData _systemData;
         private readonly string currentPartyName = "cParty"; //current party - Bakin variable name
         private readonly string partyName = "party"; //Static party - Bakin variable name
 
@@ -37,6 +45,7 @@ namespace Bakin
                 // mapScene.owner.data.system.SetToArray(partyName, i, party[i].rom.name);
                 
             }
+			
 
             // キャラクターが生存している間、
             // 毎フレームこのキャラクターのアップデート前にこのメソッドがコールされます。
