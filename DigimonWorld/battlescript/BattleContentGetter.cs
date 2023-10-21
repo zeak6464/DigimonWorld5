@@ -98,10 +98,10 @@ namespace Yukar.Battle
                 #region BATTLEENEMY
                 case GameContentParser.ContentType.ENEMYNAME:
                 {
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
                     if (heros != null && heros.Count > index)
                     {
-                        var partyName = battle.enemyData[index].Name;
+                        var partyName = battle.EnemyViewDataList[index].Name;
                         return partyName;
                     }
                     else
@@ -111,11 +111,18 @@ namespace Yukar.Battle
                 }
                 case GameContentParser.ContentType.ENEMYSTATUS_A:
                 {
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
 
                     if (heros != null && heros.Count > index)
                     {
                         var hero = heros[index];
+
+                        if (content.growthFactor)
+                        {
+                            return owner.GetGrowthFactor(hero.Hero, content.attrs[0]);
+                        }
+
+                        var rewardsRate = Catalog.sInstance.getGameSettings().useLevelDependenceOfBattleRewards ? hero.monsterGameData.level : 1;
                         var status = new int[] {
                             hero.monsterGameData.level,
                             hero.MaxHitPoint,
@@ -126,15 +133,15 @@ namespace Yukar.Battle
                             hero.VitalityBase,
                             hero.Magic,
                             hero.Speed,
-                            hero.monster.exp,
-                            Common.GameData.Party.GetExp(hero.monster.levelGrowthRate, hero.monsterGameData.level - 1) - hero.monsterGameData.exp,
+                            hero.monster.exp * rewardsRate,
+                            hero.monster.levelUpExpList[hero.monsterGameData.level - 1] - hero.monsterGameData.exp,
                             hero.Attack,
                             hero.ElementAttack,
                             hero.Defense,
                             Math.Min(100, hero.Dexterity),
                             Math.Min(100, hero.Evasion),
                             Math.Min(100, hero.Critical),
-                            hero.monster.money};
+                            hero.monster.money * rewardsRate};
 
                         // LV99のときは数値を返さない
                         // Does not return a number when LV99
@@ -151,7 +158,7 @@ namespace Yukar.Battle
                 }
                 case GameContentParser.ContentType.ENEMYIMAGE:
                 {
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
                     if (heros.Count > index)
                     {
                         owner.SetPartyImageThumbnail(result, heros[index].monster);
@@ -161,7 +168,7 @@ namespace Yukar.Battle
                 }
                 case GameContentParser.ContentType.ENEMYIMAGEICON:
                 {
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
                     if (heros.Count > index)
                     {
                         var hero = heros[index];
@@ -173,7 +180,7 @@ namespace Yukar.Battle
                 }
                 case GameContentParser.ContentType.ENEMYGRAPHIC:
                 {
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
                     if (heros.Count > index)
                     {
                         owner.SetPartyThumbnail(result, heros[index].monster);
@@ -183,7 +190,7 @@ namespace Yukar.Battle
                 }
                 case GameContentParser.ContentType.ENEMYCONDITION_A:
                 {
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
                     if (heros != null && heros.Count > index)
                     {
                         var hero = heros[index];
@@ -208,7 +215,7 @@ namespace Yukar.Battle
                 break;
                 case GameContentParser.ContentType.ENEMYCONDITION:
                 {
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
                     if (heros.Count > index)
                     {
                         var hero = heros[index];
@@ -233,7 +240,7 @@ namespace Yukar.Battle
                 break;
                 case GameContentParser.ContentType.ENEMYCONDITIONICON_A:
                 {
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
                     var partyIndex = index;
                     if (heros != null && heros.Count > partyIndex)
                     {
@@ -245,7 +252,7 @@ namespace Yukar.Battle
                 }
                 case GameContentParser.ContentType.ENEMYCONDITIONICON:
                 {
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
                     index = Math.Min(index, heros.Count - 1);
                     index = Math.Max(0, index);
                     if (heros != null && heros.Count > index)
@@ -260,7 +267,7 @@ namespace Yukar.Battle
                 case GameContentParser.ContentType.ENEMYSUBCLASSICON:
                 {
                     var isSubClass = content.type == GameContentParser.ContentType.ENEMYSUBCLASSICON;
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
                     if (heros.Count > index)
                     {
                         var hero = heros[index];
@@ -273,7 +280,7 @@ namespace Yukar.Battle
                 case GameContentParser.ContentType.ENEMYSUBCLASSLEVEL:
                 {
                     var isSubClass = content.type == GameContentParser.ContentType.ENEMYSUBCLASSLEVEL;
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
 
                     if (heros.Count > index)
                     {
@@ -293,7 +300,7 @@ namespace Yukar.Battle
                 case GameContentParser.ContentType.ENEMYSUBCLASS:
                 {
                     var isSubClass = content.type == GameContentParser.ContentType.ENEMYSUBCLASS;
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
                     if (heros.Count > index)
                     {
                         var hero = heros[index].monsterGameData;
@@ -304,7 +311,7 @@ namespace Yukar.Battle
                 }
                 case GameContentParser.ContentType.ENEMYATTRIBUTEICON:
                 {
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
                     if (heros.Count > index)
                     {
                         var hero = heros[index];
@@ -317,7 +324,7 @@ namespace Yukar.Battle
                 case GameContentParser.ContentType.ENEMYRESISTANCEICON_A:
                 {
 
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
                     if (heros.Count > index)
                     {
                         var hero = heros[index];
@@ -332,7 +339,7 @@ namespace Yukar.Battle
                 case GameContentParser.ContentType.ENEMYRESISTANCE_A:
                 {
 
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
                     if (heros.Count > index)
                     {
                         var hero = heros[index];
@@ -342,7 +349,7 @@ namespace Yukar.Battle
                 }
                 case GameContentParser.ContentType.ENEMYEXTRAPARAM_A_A:
                 {
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
                     var partyIndex = content.attrs[0];
 
                     if (heros.Count > partyIndex && content.options.Count > 1)
@@ -354,7 +361,7 @@ namespace Yukar.Battle
                 case GameContentParser.ContentType.ENEMYEXTRAPARAM_A:
                 {
 
-                    var heros = battle.enemyData;
+                    var heros = battle.EnemyViewDataList;
                     if (heros.Count > index)
                     {
                         return owner.GetHeroExtraParameter(heros[index].monsterGameData, content.option);
@@ -459,11 +466,25 @@ namespace Yukar.Battle
                         var level = chr.Value.castLevelUpData.CurrentLevel;
                         var preLevel = level - 1;
                         if (preLevel == 0) preLevel = 1;
-                        var preStatus = CalclateHeroStatus(hero, cast, preLevel, chr.Value, catalog, gameContent);
-                        if (preStatus.Length > content.attrs[0])
+
+                        if (content.growthFactor)
                         {
-                            result.HasLevelUpElement = true;
-                            return preStatus[content.attrs[0]].ToString();
+                            var preStatus = 0;
+
+                            if (CalclateHeroGrowthFactor(hero, cast, preLevel, content.attrs[0], chr.Value, catalog, gameContent, ref preStatus))
+                            {
+                                result.HasLevelUpElement = true;
+                                return preStatus.ToString();
+                            }
+                        }
+                        else
+                        {
+                            var preStatus = CalclateHeroStatus(hero, cast, preLevel, chr.Value, catalog, gameContent);
+                            if (preStatus.Length > content.attrs[0])
+                            {
+                                result.HasLevelUpElement = true;
+                                return preStatus[content.attrs[0]].ToString();
+                            }
                         }
                     };
                     result.HasLevelUpElement = false;
@@ -477,24 +498,43 @@ namespace Yukar.Battle
                         var hero = chr.Value.player.player;
                         var cast = hero.rom;
                         var level = chr.Value.castLevelUpData.CurrentLevel;
-                        var nowStatus = CalclateHeroStatus(hero, cast, level, chr.Value, catalog, gameContent);
-                        if (nowStatus.Length > content.attrs[0])
+                        var preLevel = level - 1;
+
+                        if (preLevel == 0)
                         {
-                            var preLevel = level - 1;
-
-                            if (preLevel == 0)
-                            {
-                                preLevel = 1;
-                            }
-
-                            var preStatus = CalclateHeroStatus(hero, cast, preLevel, chr.Value, catalog, gameContent);
-
-                            refStatusUpDown = CompareStatus(preStatus[content.attrs[0]], nowStatus[content.attrs[0]]);
-
-                            result.HasLevelUpElement = true;
-                            return nowStatus[content.attrs[0]].ToString();
+                            preLevel = 1;
                         }
-                    };
+
+                        if (content.growthFactor)
+                        {
+                            var nowStatus = 0;
+
+                            if (CalclateHeroGrowthFactor(hero, cast, level, content.attrs[0], chr.Value, catalog, gameContent, ref nowStatus))
+                            {
+                                var preStatus = 0;
+
+                                CalclateHeroGrowthFactor(hero, cast, preLevel, content.attrs[0], chr.Value, catalog, gameContent, ref preStatus);
+
+                                refStatusUpDown = CompareStatus(preStatus, nowStatus);
+
+                                result.HasLevelUpElement = true;
+                                return nowStatus.ToString();
+                            }
+                        }
+                        else
+                        {
+                            var nowStatus = CalclateHeroStatus(hero, cast, level, chr.Value, catalog, gameContent);
+                            if (nowStatus.Length > content.attrs[0])
+                            {
+                                var preStatus = CalclateHeroStatus(hero, cast, preLevel, chr.Value, catalog, gameContent);
+
+                                refStatusUpDown = CompareStatus(preStatus[content.attrs[0]], nowStatus[content.attrs[0]]);
+
+                                result.HasLevelUpElement = true;
+                                return nowStatus[content.attrs[0]].ToString();
+                            }
+                        }
+                    }
                     result.HasLevelUpElement = false;
                     return "";
                 }
@@ -508,28 +548,55 @@ namespace Yukar.Battle
                         var level = chr.Value.castLevelUpData.CurrentLevel;
                         var preLevel = level - 1;
                         if (preLevel == 0) preLevel = 1;
-                        var preStatus = CalclateHeroStatus(hero, cast, preLevel, chr.Value, catalog, gameContent);
-                        if (content.attrs[0] >= preStatus.Length)
+
+                        if (content.growthFactor)
                         {
-                            result.HasLevelUpElement = false;
-                            return "";
-                        }
-                        var nowStatus = CalclateHeroStatus(hero, cast, level, chr.Value, catalog, gameContent);
+                            var preStatus = 0;
 
-                        var diff = nowStatus[content.attrs[0]] - preStatus[content.attrs[0]];
-                        if (diff == 0)
+                            if (CalclateHeroGrowthFactor(hero, cast, preLevel, content.attrs[0], chr.Value, catalog, gameContent, ref preStatus))
+                            {
+                                var nowStatus = 0;
+
+                                CalclateHeroGrowthFactor(hero, cast, level, content.attrs[0], chr.Value, catalog, gameContent, ref nowStatus);
+
+                                var diff = nowStatus - preStatus;
+
+                                if (diff != 0)
+                                {
+                                    refStatusUpDown = CompareStatus(preStatus, nowStatus);
+
+                                    var arrow = " → ";
+
+                                    result.HasLevelUpElement = true;
+                                    return arrow + nowStatus.ToString();
+                                }
+                            }
+                        }
+                        else
                         {
-                            result.HasLevelUpElement = false;
-                            return "";
+                            var preStatus = CalclateHeroStatus(hero, cast, preLevel, chr.Value, catalog, gameContent);
+                            if (content.attrs[0] >= preStatus.Length)
+                            {
+                                result.HasLevelUpElement = false;
+                                return "";
+                            }
+                            var nowStatus = CalclateHeroStatus(hero, cast, level, chr.Value, catalog, gameContent);
+
+                            var diff = nowStatus[content.attrs[0]] - preStatus[content.attrs[0]];
+                            if (diff == 0)
+                            {
+                                result.HasLevelUpElement = false;
+                                return "";
+                            }
+
+                            refStatusUpDown = CompareStatus(preStatus[content.attrs[0]], nowStatus[content.attrs[0]]);
+
+                            var arrow = " → ";
+
+                            result.HasLevelUpElement = true;
+                            return arrow + nowStatus[content.attrs[0]].ToString();
                         }
-
-                        refStatusUpDown = CompareStatus(preStatus[content.attrs[0]], nowStatus[content.attrs[0]]);
-
-                        var arrow = " → ";
-
-                        result.HasLevelUpElement = true;
-                        return arrow + nowStatus[content.attrs[0]].ToString();
-                    };
+                    }
                     result.HasLevelUpElement = false;
                     return "";
                 }
@@ -543,18 +610,39 @@ namespace Yukar.Battle
                         var level = chr.Value.castLevelUpData.CurrentLevel;
                         var preLevel = level - 1;
                         if (preLevel == 0) preLevel = 1;
-                        var preStatus = CalclateHeroStatus(hero, cast, preLevel, chr.Value, catalog, gameContent);
-                        if (content.attrs[0] >= preStatus.Length)
+
+                        if (content.growthFactor)
                         {
-                            result.HasLevelUpElement = false;
-                            return "";
+                            var preStatus = 0;
+
+                            if (CalclateHeroGrowthFactor(hero, cast, preLevel, content.attrs[0], chr.Value, catalog, gameContent, ref preStatus))
+                            {
+                                var nowStatus = 0;
+
+                                CalclateHeroGrowthFactor(hero, cast, level, content.attrs[0], chr.Value, catalog, gameContent, ref nowStatus);
+
+                                var arrow = GetStatusDiffText(preStatus, nowStatus, out refStatusUpDown);
+
+                                result.HasLevelUpElement = refStatusUpDown != GameContentParser.StatusUpDown.NoChange;
+
+                                return result.HasLevelUpElement ? arrow : string.Empty;
+                            }
                         }
-                        var nowStatus = CalclateHeroStatus(hero, cast, level, chr.Value, catalog, gameContent);
-                        var arrow = GetStatusDiffText(preStatus[content.attrs[0]], nowStatus[content.attrs[0]], out refStatusUpDown);
+                        else
+                        {
+                            var preStatus = CalclateHeroStatus(hero, cast, preLevel, chr.Value, catalog, gameContent);
+                            if (content.attrs[0] >= preStatus.Length)
+                            {
+                                result.HasLevelUpElement = false;
+                                return "";
+                            }
+                            var nowStatus = CalclateHeroStatus(hero, cast, level, chr.Value, catalog, gameContent);
+                            var arrow = GetStatusDiffText(preStatus[content.attrs[0]], nowStatus[content.attrs[0]], out refStatusUpDown);
 
-                        result.HasLevelUpElement = refStatusUpDown != GameContentParser.StatusUpDown.NoChange;
+                            result.HasLevelUpElement = refStatusUpDown != GameContentParser.StatusUpDown.NoChange;
 
-                        return result.HasLevelUpElement ? arrow : string.Empty;
+                            return result.HasLevelUpElement ? arrow : string.Empty;
+                        }
                     }
                     result.HasLevelUpElement = false;
                     return "";
@@ -569,26 +657,53 @@ namespace Yukar.Battle
                         var level = chr.Value.castLevelUpData.CurrentLevel;
                         var preLevel = level - 1;
                         if (preLevel == 0) preLevel = 1;
-                        var preStatus = CalclateHeroStatus(hero, cast, preLevel, chr.Value, catalog, gameContent);
-                        if (content.attrs[0] >= preStatus.Length)
+
+                        if (content.growthFactor)
                         {
-                            result.HasLevelUpElement = false;
-                            return "";
+                            var preStatus = 0;
+
+                            if (CalclateHeroGrowthFactor(hero, cast, preLevel, content.attrs[0], chr.Value, catalog, gameContent, ref preStatus))
+                            {
+                                var nowStatus = 0;
+
+                                CalclateHeroGrowthFactor(hero, cast, level, content.attrs[0], chr.Value, catalog, gameContent, ref nowStatus);
+
+                                var diff = nowStatus - preStatus;
+                                var easingTime = chr.Value.easingProgress;
+                                if (0.35f > easingTime) easingTime = 0f;
+                                else if (easingTime > 0.65f) easingTime = 1.0f;
+                                else easingTime = (easingTime - 0.35f) * 3.33f;
+                                var diffEasingValue = (int)Engine.Easing.EasingFunction.GetEasingResult(new Engine.Easing.Linear(), easingTime, 1f, 0f, diff);
+
+                                refStatusUpDown = CompareStatus(preStatus, nowStatus);
+
+                                result.HasLevelUpElement = true;
+                                return (preStatus + diffEasingValue).ToString();
+                            }
                         }
-                        var nowStatus = CalclateHeroStatus(hero, cast, level, chr.Value, catalog, gameContent);
+                        else
+                        {
+                            var preStatus = CalclateHeroStatus(hero, cast, preLevel, chr.Value, catalog, gameContent);
+                            if (content.attrs[0] >= preStatus.Length)
+                            {
+                                result.HasLevelUpElement = false;
+                                return "";
+                            }
+                            var nowStatus = CalclateHeroStatus(hero, cast, level, chr.Value, catalog, gameContent);
 
-                        var diff = nowStatus[content.attrs[0]] - preStatus[content.attrs[0]];
-                        var easingTime = chr.Value.easingProgress;
-                        if (0.35f > easingTime) easingTime = 0f;
-                        else if (easingTime > 0.65f) easingTime = 1.0f;
-                        else easingTime = (easingTime - 0.35f) * 3.33f;
-                        var diffEasingValue = (int)Engine.Easing.EasingFunction.GetEasingResult(new Engine.Easing.Linear(), easingTime, 1f, 0f, diff);
+                            var diff = nowStatus[content.attrs[0]] - preStatus[content.attrs[0]];
+                            var easingTime = chr.Value.easingProgress;
+                            if (0.35f > easingTime) easingTime = 0f;
+                            else if (easingTime > 0.65f) easingTime = 1.0f;
+                            else easingTime = (easingTime - 0.35f) * 3.33f;
+                            var diffEasingValue = (int)Engine.Easing.EasingFunction.GetEasingResult(new Engine.Easing.Linear(), easingTime, 1f, 0f, diff);
 
-                        refStatusUpDown = CompareStatus(preStatus[content.attrs[0]], nowStatus[content.attrs[0]]);
+                            refStatusUpDown = CompareStatus(preStatus[content.attrs[0]], nowStatus[content.attrs[0]]);
 
-                        result.HasLevelUpElement = true;
-                        return (preStatus[content.attrs[0]] + diffEasingValue).ToString();
-                    };
+                            result.HasLevelUpElement = true;
+                            return (preStatus[content.attrs[0]] + diffEasingValue).ToString();
+                        }
+                    }
                     result.HasLevelUpElement = false;
                     return "";
                 }
@@ -602,26 +717,54 @@ namespace Yukar.Battle
                         var level = chr.Value.castLevelUpData.CurrentLevel;
                         var preLevel = level - 1;
                         if (preLevel == 0) preLevel = 1;
-                        var preStatus = CalclateHeroStatus(hero, cast, preLevel, chr.Value, catalog, gameContent);
-                        if (content.attrs[0] >= preStatus.Length)
+
+                        if (content.growthFactor)
                         {
-                            result.HasLevelUpElement = false;
-                            return "";
+                            var preStatus = 0;
+
+                            if (CalclateHeroGrowthFactor(hero, cast, preLevel, content.attrs[0], chr.Value, catalog, gameContent, ref preStatus))
+                            {
+                                var nowStatus = 0;
+
+                                CalclateHeroGrowthFactor(hero, cast, level, content.attrs[0], chr.Value, catalog, gameContent, ref nowStatus);
+
+                                var diff = nowStatus - preStatus;
+                                var easingTime = chr.Value.easingProgress;
+                                if (0.35f > easingTime) easingTime = 0f;
+                                else if (easingTime > 0.65f) easingTime = 1.0f;
+                                else easingTime = (easingTime - 0.35f) * 3.33f;
+                                var diffEasingValue = (int)Engine.Easing.EasingFunction.GetEasingResult(new Engine.Easing.Linear(), easingTime, 1f, diff, 0f);
+                                var arrow = GetStatusDiffText(0, diffEasingValue, out refStatusUpDown);
+
+                                result.HasLevelUpElement = refStatusUpDown != GameContentParser.StatusUpDown.NoChange;
+
+                                return result.HasLevelUpElement ? arrow : string.Empty;
+                            }
                         }
-                        var nowStatus = CalclateHeroStatus(hero, cast, level, chr.Value, catalog, gameContent);
+                        else
+                        {
+                            var preStatus = CalclateHeroStatus(hero, cast, preLevel, chr.Value, catalog, gameContent);
+                            if (content.attrs[0] >= preStatus.Length)
+                            {
+                                result.HasLevelUpElement = false;
+                                return "";
+                            }
+                            var nowStatus = CalclateHeroStatus(hero, cast, level, chr.Value, catalog, gameContent);
 
-                        var diff = nowStatus[content.attrs[0]] - preStatus[content.attrs[0]];
-                        var easingTime = chr.Value.easingProgress;
-                        if (0.35f > easingTime) easingTime = 0f;
-                        else if (easingTime > 0.65f) easingTime = 1.0f;
-                        else easingTime = (easingTime - 0.35f) * 3.33f;
-                        var diffEasingValue = (int)Engine.Easing.EasingFunction.GetEasingResult(new Engine.Easing.Linear(), easingTime, 1f, diff, 0f);
-                        var arrow = GetStatusDiffText(0, diffEasingValue, out refStatusUpDown);
+                            var diff = nowStatus[content.attrs[0]] - preStatus[content.attrs[0]];
+                            var easingTime = chr.Value.easingProgress;
+                            if (0.35f > easingTime) easingTime = 0f;
+                            else if (easingTime > 0.65f) easingTime = 1.0f;
+                            else easingTime = (easingTime - 0.35f) * 3.33f;
+                            var diffEasingValue = (int)Engine.Easing.EasingFunction.GetEasingResult(new Engine.Easing.Linear(), easingTime, 1f, diff, 0f);
+                            var arrow = GetStatusDiffText(0, diffEasingValue, out refStatusUpDown);
 
-                        result.HasLevelUpElement = refStatusUpDown != GameContentParser.StatusUpDown.NoChange;
+                            result.HasLevelUpElement = refStatusUpDown != GameContentParser.StatusUpDown.NoChange;
 
-                        return result.HasLevelUpElement ? arrow : string.Empty;
-                    };
+                            return result.HasLevelUpElement ? arrow : string.Empty;
+                        }
+
+                    }
                     result.HasLevelUpElement = false;
                     return "";
                 }
@@ -635,26 +778,55 @@ namespace Yukar.Battle
                         var level = chr.Value.castLevelUpData.CurrentLevel;
                         var preLevel = level - 1;
                         if (preLevel == 0) preLevel = 1;
-                        var preStatus = CalclateHeroStatus(hero, cast, preLevel, chr.Value, catalog, gameContent);
-                        if (content.attrs[0] >= preStatus.Length)
+
+                        if (content.growthFactor)
                         {
-                            result.HasLevelUpElement = false;
-                            return "";
-                        }
-                        var easingTime = chr.Value.easingProgress;
+                            var preStatus = 0;
 
-                        if (easingTime >= 0.9f)
+                            if (CalclateHeroGrowthFactor(hero, cast, preLevel, content.attrs[0], chr.Value, catalog, gameContent, ref preStatus))
+                            {
+                                var easingTime = chr.Value.easingProgress;
+
+                                if (easingTime >= 0.9f)
+                                {
+                                    result.HasLevelUpElement = false;
+                                    return "";
+                                }
+
+                                var nowStatus = 0;
+
+                                CalclateHeroGrowthFactor(hero, cast, level, content.attrs[0], chr.Value, catalog, gameContent, ref nowStatus);
+
+                                var arrow = GetStatusDiffText(preStatus, nowStatus, out refStatusUpDown);
+
+                                result.HasLevelUpElement = refStatusUpDown != GameContentParser.StatusUpDown.NoChange;
+
+                                return result.HasLevelUpElement ? arrow : string.Empty;
+                            }
+                        }
+                        else
                         {
-                            result.HasLevelUpElement = false;
-                            return "";
+                            var preStatus = CalclateHeroStatus(hero, cast, preLevel, chr.Value, catalog, gameContent);
+                            if (content.attrs[0] >= preStatus.Length)
+                            {
+                                result.HasLevelUpElement = false;
+                                return "";
+                            }
+                            var easingTime = chr.Value.easingProgress;
+
+                            if (easingTime >= 0.9f)
+                            {
+                                result.HasLevelUpElement = false;
+                                return "";
+                            }
+
+                            var nowStatus = CalclateHeroStatus(hero, cast, level, chr.Value, catalog, gameContent);
+                            var arrow = GetStatusDiffText(preStatus[content.attrs[0]], nowStatus[content.attrs[0]], out refStatusUpDown);
+
+                            result.HasLevelUpElement = refStatusUpDown != GameContentParser.StatusUpDown.NoChange;
+
+                            return result.HasLevelUpElement ? arrow : string.Empty;
                         }
-
-                        var nowStatus = CalclateHeroStatus(hero, cast, level, chr.Value, catalog, gameContent);
-                        var arrow = GetStatusDiffText(preStatus[content.attrs[0]], nowStatus[content.attrs[0]], out refStatusUpDown);
-
-                        result.HasLevelUpElement = refStatusUpDown != GameContentParser.StatusUpDown.NoChange;
-
-                        return result.HasLevelUpElement ? arrow : string.Empty;
                     }
                     result.HasLevelUpElement = false;
                     return "";
@@ -665,11 +837,11 @@ namespace Yukar.Battle
                 #region BATTLEPARTY
                 case GameContentParser.ContentType.PARTYNAME_A:
                 {
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     var partyIndex = content.attrs[0];
                     if (heros != null && heros.Count > partyIndex)
                     {
-                        var partyName = battle.playerData[partyIndex].Name;
+                        var partyName = battle.PlayerViewDataList[partyIndex].Name;
                         result.HasPartyElement = true;
                         return partyName;
                     }
@@ -680,10 +852,10 @@ namespace Yukar.Battle
                 }
                 case GameContentParser.ContentType.PARTYNAME:
                 {
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     if (heros != null && heros.Count > index)
                     {
-                        var partyName = battle.playerData[index].Name;
+                        var partyName = battle.PlayerViewDataList[index].Name;
                         result.HasPartyElement = true;
                         return partyName;
                     }
@@ -712,7 +884,7 @@ namespace Yukar.Battle
                     }
                     else
                     {
-                        var heros = battle.playerData;
+                        var heros = battle.PlayerViewDataList;
                         var partyIndex = content.attrs[0];
 
                         if (heros.Count > partyIndex)
@@ -744,7 +916,7 @@ namespace Yukar.Battle
                     }
                     else
                     {
-                        var heros = battle.playerData;
+                        var heros = battle.PlayerViewDataList;
                         if (heros.Count > index)
                         {
                             owner.SetPartyImageThumbnail(result, heros[index].player.rom);
@@ -778,7 +950,7 @@ namespace Yukar.Battle
                     }
                     else
                     {
-                        var heros = battle.playerData;
+                        var heros = battle.PlayerViewDataList;
                         var partyIndex = content.attrs[0];
 
                         if (heros.Count > partyIndex)
@@ -813,7 +985,7 @@ namespace Yukar.Battle
                     }
                     else
                     {
-                        var heros = battle.playerData;
+                        var heros = battle.PlayerViewDataList;
                         if (heros.Count > index)
                         {
                             owner.SetPartyIconThumbnail(result, heros[index].player.rom);
@@ -844,7 +1016,7 @@ namespace Yukar.Battle
                     }
                     else
                     {
-                        var heros = battle.playerData;
+                        var heros = battle.PlayerViewDataList;
                         var partyIndex = content.attrs[0];
 
                         if (heros.Count > partyIndex)
@@ -876,7 +1048,7 @@ namespace Yukar.Battle
                     }
                     else
                     {
-                        var heros = battle.playerData;
+                        var heros = battle.PlayerViewDataList;
                         if (heros.Count > index)
                         {
                             owner.SetPartyThumbnail(result, heros[index].player.rom);
@@ -889,11 +1061,17 @@ namespace Yukar.Battle
                 break;
                 case GameContentParser.ContentType.PARTYSTATUS_A_A:
                 {
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     var partyIndex = content.attrs[0];
                     if (heros != null && partyIndex > -1 && heros.Count > partyIndex)
                     {
                         var hero = heros[partyIndex];
+
+                        if (content.growthFactor)
+                        {
+                            return owner.GetGrowthFactor(hero.Hero, content.attrs[1]);
+                        }
+
                         var status = new int[] {
                                 hero.player.level,
                                 hero.MaxHitPoint,
@@ -905,7 +1083,7 @@ namespace Yukar.Battle
                                 hero.Magic,
                                 hero.Speed,
                                 hero.player.exp,
-                                Common.GameData.Party.GetExp(hero.player.rom.levelGrowthRate, hero.player.level - 1) - hero.player.exp,
+                                hero.player.rom.levelUpExpList[hero.player.level - 1] - hero.player.exp,
                                 hero.Attack,
                                 hero.ElementAttack,
                                 hero.Defense,
@@ -938,11 +1116,17 @@ namespace Yukar.Battle
                 }
                 case GameContentParser.ContentType.PARTYSTATUS_A:
                 {
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
 
                     if (heros.Count > index)
                     {
                         var hero = heros[index];
+
+                        if (content.growthFactor)
+                        {
+                            return owner.GetGrowthFactor(hero.Hero, content.attrs[0]);
+                        }
+
                         var status = new int[] {
                             hero.player.level,
                             hero.MaxHitPoint,
@@ -954,7 +1138,7 @@ namespace Yukar.Battle
                             hero.Magic,
                             hero.Speed,
                             hero.player.exp,
-                            Common.GameData.Party.GetExp(hero.player.rom.levelGrowthRate, hero.player.level - 1) - hero.player.exp,
+                            hero.player.rom.levelUpExpList[hero.player.level - 1] - hero.player.exp,
                             hero.Attack,
                             hero.ElementAttack,
                             hero.Defense,
@@ -985,7 +1169,7 @@ namespace Yukar.Battle
                 }
                 case GameContentParser.ContentType.PARTYCONDITION_A_A:
                 {
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     var partyIndex = content.attrs[0];
                     if (heros != null && heros.Count > partyIndex)
                     {
@@ -1012,7 +1196,7 @@ namespace Yukar.Battle
                 break;
                 case GameContentParser.ContentType.PARTYCONDITION_A:
                 {
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     var partyIndex = index;
                     if (heros != null && heros.Count > partyIndex)
                     {
@@ -1039,7 +1223,7 @@ namespace Yukar.Battle
                 break;
                 case GameContentParser.ContentType.PARTYCONDITION:
                 {
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     index = Math.Min(index, heros.Count - 1);
                     index = Math.Max(0, index);
 
@@ -1068,7 +1252,7 @@ namespace Yukar.Battle
                 break;
                 case GameContentParser.ContentType.PARTYCONDITIONICON_A_A:
                 {
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     var partyIndex = content.attrs[0];
                     if (heros != null && heros.Count > partyIndex)
                     {
@@ -1082,7 +1266,7 @@ namespace Yukar.Battle
 
                 case GameContentParser.ContentType.PARTYCONDITIONICON_A:
                 {
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     var partyIndex = index;
                     if (heros != null && heros.Count > partyIndex)
                     {
@@ -1095,7 +1279,7 @@ namespace Yukar.Battle
                 }
                 case GameContentParser.ContentType.PARTYCONDITIONICON:
                 {
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     index = Math.Min(index, heros.Count - 1);
                     index = Math.Max(0, index);
                     if (heros != null && heros.Count > index)
@@ -1112,7 +1296,7 @@ namespace Yukar.Battle
                 {
                     var isSubClass = content.type == GameContentParser.ContentType.PARTYSUBCLASS_A;
 
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     var partyIndex = content.attrs[0];
                     if (heros.Count > partyIndex)
                     {
@@ -1132,7 +1316,7 @@ namespace Yukar.Battle
                 {
                     var isSubClass = content.type == GameContentParser.ContentType.PARTYSUBCLASS;
 
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     if (heros.Count > index)
                     {
                         result.HasPartyElement = true;
@@ -1148,7 +1332,7 @@ namespace Yukar.Battle
                 {
                     var isSubClass = content.type == GameContentParser.ContentType.PARTYSUBCLASSLEVEL_A;
 
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     var partyIndex = content.attrs[0];
 
                     if (heros.Count > partyIndex)
@@ -1172,7 +1356,7 @@ namespace Yukar.Battle
                 {
                     var isSubClass = content.type == GameContentParser.ContentType.PARTYSUBCLASSLEVEL;
 
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
 
                     if (heros.Count > index)
                     {
@@ -1194,7 +1378,7 @@ namespace Yukar.Battle
                 {
                     var isSubClass = content.type == GameContentParser.ContentType.PARTYSUBCLASSICON_A;
 
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     var partyIndex = content.attrs[0];
                     if (heros.Count > partyIndex)
                     {
@@ -1212,7 +1396,7 @@ namespace Yukar.Battle
                 case GameContentParser.ContentType.PARTYSUBCLASSICON:
                 {
                     var isSubClass = content.type == GameContentParser.ContentType.PARTYSUBCLASSICON;
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     if (heros.Count > index)
                     {
                         var hero = heros[index].Hero;
@@ -1226,7 +1410,7 @@ namespace Yukar.Battle
                 break;
                 case GameContentParser.ContentType.PARTYATTRIBUTEICON_A:
                 {
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     var partyIndex = content.attrs[0];
                     if (heros != null && heros.Count > partyIndex)
                     {
@@ -1239,7 +1423,7 @@ namespace Yukar.Battle
                 }
                 case GameContentParser.ContentType.PARTYATTRIBUTEICON:
                 {
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     index = Math.Min(index, heros.Count - 1);
                     index = Math.Max(0, index);
                     if (heros != null && heros.Count > index)
@@ -1253,7 +1437,7 @@ namespace Yukar.Battle
                 }
                 case GameContentParser.ContentType.PARTYRESISTANCEICON_A_A:
                 {
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     var partyIndex = content.attrs[0];
                     if (heros != null && heros.Count > partyIndex)
                     {
@@ -1266,7 +1450,7 @@ namespace Yukar.Battle
                 }
                 case GameContentParser.ContentType.PARTYRESISTANCEICON_A:
                 {
-                    var heros = battle.playerData;
+                    var heros = battle.PlayerViewDataList;
                     var partyIndex = index;
                     if (heros != null && heros.Count > partyIndex)
                     {
@@ -1401,6 +1585,26 @@ namespace Yukar.Battle
             return null;
         }
 
+        private static bool CalclateHeroGrowthFactor(Common.GameData.Hero hero, Cast cast, int inLevel, int inIndex, CharacterLevelUpData clud, Catalog catalog, AbstractRenderObject.GameContent gameContent, ref int refParam)
+        {
+            var info = catalog.getGameSettings().GetCastStatusParamInfo(inIndex);
+
+            if (info == null)
+            {
+                return false;
+            }
+
+            var paramList = cast.StatusParam.ParamDic[info.guId].Item2;
+            var level = (inLevel <= paramList.Count) ? inLevel : paramList.Count;
+
+            refParam = paramList[inLevel - 1] + hero.itemEffect.statusValue.GetStatus(info.guId);
+
+            refParam += Common.GameData.Party.createCastJobFromRom(catalog, hero.jobCast?.rom, false, clud.jobLevelUpData.totalExp)?.statusValue.GetStatus(info.guId) ?? 0;
+            refParam += Common.GameData.Party.createCastJobFromRom(catalog, hero.sideJobCast?.rom, true, clud.sideJobLevelUpData.totalExp)?.statusValue.GetStatus(info.guId) ?? 0;
+
+            return true;
+        }
+
         private static int[] CalclateHeroStatus(Common.GameData.Hero hero, Cast cast, int level, CharacterLevelUpData clud, Catalog catalog, AbstractRenderObject.GameContent gameContent)
         {
             var chr = gameContent.CharacterLevelUpData.FirstOrDefault(x => x.player.player.rom.guId == cast.guId);
@@ -1512,8 +1716,8 @@ namespace Yukar.Battle
                 return false;
             if (gameMain?.mapScene?.isBattle ?? false)
             {
-                var heros = battle.playerData;
-                var enemies = battle.enemyData;
+                var heros = battle.PlayerViewDataList;
+                var enemies = battle.EnemyViewDataList;
                 var index = 0;
                 owner.ShouldDrawVariableSlider = true;
                 if (content.attrs.Count > 0)

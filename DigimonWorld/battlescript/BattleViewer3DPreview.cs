@@ -23,8 +23,12 @@ namespace Yukar.Battle
         private float lastYAngle;
         private long recentTick;
 
-        public override bool HideMonsters { get{ return hideMonsters; }
-            set { hideMonsters = value;
+        public override bool HideMonsters
+        {
+            get { return hideMonsters; }
+            set
+            {
+                hideMonsters = value;
                 for (int i = 0; i < enemies.Length; i++)
                 {
                     if (enemies[i] != null)
@@ -64,7 +68,7 @@ namespace Yukar.Battle
                 if (chrRom == null)
                     continue;
                 count++;
-                friends[count] = BattleActor.GenerateFriend(catalog, chrRom, count % max, max);
+                friends[count] = BattleActor.GenerateFriend(catalog, null, chrRom, count % max, max);
                 friends[count].mapChr.setHeroSymbol(false);
 
                 if (lyt != null && lyt.Length > count)
@@ -87,7 +91,7 @@ namespace Yukar.Battle
                 if (lyts != null)
                     max = Math.Min(max, lyts.Length);
 
-                for (; count < max; )
+                for (; count < max;)
                 {
                     var chr = monsters[rand.Next(monsters.Count)] as Common.Rom.Cast;
                     var grp = catalog.getItemFromGuid(chr.Graphics3D) as Common.Resource.GfxResourceBase;
@@ -149,7 +153,7 @@ namespace Yukar.Battle
             }
 
             lastYAngle = yangle;
-            if(startTime + TimeSpan.FromMilliseconds(500) < DateTime.Now)  // エフェクトは再生開始から一定時間発生待ちにする / Wait for the effect to occur for a certain period of time from the start of playback
+            if (startTime + TimeSpan.FromMilliseconds(500) < DateTime.Now)  // エフェクトは再生開始から一定時間発生待ちにする / Wait for the effect to occur for a certain period of time from the start of playback
                 effect.update();
         }
 
@@ -271,7 +275,7 @@ namespace Yukar.Battle
         public override void setFriendDirection(int inIdx, float inDirection)
         {
             if (friends.Count > 0 && inIdx < friends.Count)
-               friends[inIdx].mapChr.setDirectionFromRadian(inDirection / 180 * (float)Math.PI);
+                friends[inIdx].mapChr.setDirectionFromRadian(inDirection / 180 * (float)Math.PI);
         }
 
         public override void setEffect(Common.Catalog catalog, Guid guid, bool enemyEffect)
