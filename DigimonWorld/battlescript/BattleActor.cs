@@ -118,17 +118,17 @@ namespace Yukar.Battle
                 party = null;
             }
             mapChr.ChangeGraphic(res, null);
-            if (mapChr.isBillboard())
-            {
-                mapChr.setBlend(SharpKmyGfx.BLENDTYPE.kPREMULTIPLIED);
-                mapChr.getMapBillboard().setVisibility(false);
-                mapChr.getMapBillboard().setDisplayID(Common.Util.BATTLE3DDISPLAYID);
-            }
-            else if (mapChr.getModelInstance() != null)
-            {
-                mapChr.getModelInstance().setVisibility(false);
-                mapChr.getModelInstance().setDisplayID(Common.Util.BATTLE3DDISPLAYID);
-            }
+			if (mapChr.isBillboard())
+			{
+				mapChr.setBlend(SharpKmyGfx.BLENDTYPE.kPREMULTIPLIED);
+				mapChr.getMapBillboard().setVisibility(false);
+				mapChr.getMapBillboard().setDisplayID(Common.Util.BATTLE3DDISPLAYID);
+			}
+            else if(mapChr.getModelInstance() != null)
+			{
+				mapChr.getModelInstance().setVisibility(false);
+				mapChr.getModelInstance().setDisplayID(Common.Util.BATTLE3DDISPLAYID);
+			}
             //mapChr.setHeroSymbol(true);
             mapChr.useOverrideColor = true;
             mapChr.ChangeColor(255, 255, 255, 255);
@@ -140,15 +140,15 @@ namespace Yukar.Battle
             return result;
         }
 
-        internal static BattleActor GenerateFriend(Common.Catalog catalog, Common.GameData.Party party, Common.Rom.Cast chrRom, int count, int max)
+        internal static BattleActor GenerateFriend(Common.Catalog catalog, Common.Rom.Cast chrRom, int count, int max)
         {
-            var chr = Common.GameData.Party.createHeroFromRom(catalog, party, chrRom);
+            var chr = Common.GameData.Party.createHeroFromRom(catalog, chrRom);
             return GenerateFriend(catalog, chr, count, max);
         }
 
         public static void createWeaponModel(ref BattleActor result, Common.Catalog catalog, Common.GameData.Hero chr = null)
         {
-            if (chr == null)
+            if(chr == null)
                 chr = ((BattlePlayerData)result.source).player;
 
             var weapon = chr.equipments[0]; // 武器 / weapon
@@ -234,7 +234,7 @@ namespace Yukar.Battle
         {
             if (chr != null)
                 mdl = chr.getModelInstance();
-
+            
             if (mdl != null)   // 3Dモデルがある時 / When you have a 3D model
             {
                 // 見つかったら普通に再生する
@@ -262,7 +262,7 @@ namespace Yukar.Battle
                     }
                 }
             }
-            else if (chr != null && (chr.isBillboard() || chr.isSprite())) // 2Dの時 / 2D time
+            else if (chr != null && chr.isBillboard()) // 2Dの時 / 2D time
             {
                 // 見つかったら普通に再生する
                 // If found, play normally
@@ -298,8 +298,8 @@ namespace Yukar.Battle
             var moveX = mapChr.pos.X - x;
             var moveZ = mapChr.pos.Z - z;
 
-            if ((moveX != 0) || (moveZ != 0))
-            {
+			if ((moveX != 0) || (moveZ != 0))
+			{
                 if (useDir)
                 {
                     MapCharacterMoveMacro.addXZTweener(mapChr,
@@ -339,7 +339,7 @@ namespace Yukar.Battle
                 return;
 
             //if (isShadowScene && mapChr.isBillboard())
-            //   return;
+             //   return;
 
             if (!mapChr.draw(scn))
                 return;
@@ -351,7 +351,7 @@ namespace Yukar.Battle
 
             // 物理実装以降、自動で高さを合わせてくれなくなったので、自前で生成してやる
             // After the physical implementation, the height is no longer adjusted automatically, so I will generate it myself
-            if (!mapChr.fixHeight)
+            if(!mapChr.fixHeight)
                 mapChr.pos.Y = drawer.getAdjustedHeight(mapChr.pos.X, mapChr.pos.Z);
 
             if (stateQueue.Count > 0 && isReady())
@@ -373,15 +373,30 @@ namespace Yukar.Battle
             // run when you run away
             if (state.type == ActorStateType.ESCAPE)
             {
-                if (!source.IsActionDisabled())
+                if(!source.IsActionDisabled())
                     mapChr.Move(0f, MOVE_SPEED * frontDir * GameMain.getRelativeParam60FPS(), true);
                 var stepCount = Math.Min(ESCAPE_MAX_COUNT, stateCount) / ESCAPE_MAX_COUNT;
                 var alpha = 1.0f - stepCount;
                 if (source != null)
                     source.imageAlpha = alpha;
                 mapChr.setOpacityMultiplier(alpha);
-                if (stepCount == 1.0)
+				if (stepCount == 1.0)
                     mapChr.hide |= MapCharacter.HideCauses.BY_BATTLE;
+            }
+
+            // コマンド選択中
+            // command selected
+            if(state.type == ActorStateType.COMMAND_SELECT)
+            {
+                switch (((BattleSequenceManager)BattleSequenceManagerBase.Get()).battleCommandState)
+                {
+                    case SelectBattleCommandState.CommandSelect:
+                        playMotion("command_wait");
+                        break;
+                    default:
+                        playMotion("attack_wait");
+                        break;
+                }
             }
 
             // ハケる
@@ -490,9 +505,7 @@ namespace Yukar.Battle
                         break;
                     }
 
-                    if (!playMotion("command_wait"))
-                        playWaitMotion();
-
+                    playWaitMotion();
                     break;
 
                 case ActorStateType.BACK_TO_WAIT:// コマンド選択し終わった時 / After selecting a command
@@ -596,7 +609,7 @@ namespace Yukar.Battle
 
                         // 自分に睡眠・即死スキルなどを使って倒れている場合がある
                         // You may fall down using sleep or instant death skills on yourself.
-                        if (nowState != ActorStateType.KO)
+                        if(nowState != ActorStateType.KO)
                             playMotion("battle_walk");
                     }
                     else
@@ -816,7 +829,7 @@ namespace Yukar.Battle
             foreach (var e in source.conditionInfoDic)
             {
                 var condition = e.Value.rom;
-                if ((condition != null) && !string.IsNullOrEmpty(condition.motion) && highestPriority < condition.Priority && condition.actionDisabled == false)
+                if ((condition != null) && !string.IsNullOrEmpty(condition.motion) && highestPriority < condition.Priority && condition.actionDisabled==false )
                 {
                     motion = condition.motion;
                     highestPriority = condition.Priority;
@@ -854,10 +867,10 @@ namespace Yukar.Battle
                 mapChr.ChangeColor(color.R, color.G, color.B, color.A);
         }
 
-        internal void setOpacityMultiplier(float v)
-        {
-            mapChr.setOpacityMultiplier(v);
-        }
+		internal void setOpacityMultiplier( float v)
+		{
+			mapChr.setOpacityMultiplier(v);
+		}
 
         internal Microsoft.Xna.Framework.Vector2 getScreenPos(SharpKmyMath.Matrix4 pp, SharpKmyMath.Matrix4 vv, MapScene.EffectPosType posType = MapScene.EffectPosType.Body)
         {
