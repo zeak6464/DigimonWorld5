@@ -161,7 +161,7 @@ namespace Bakin
                 var Map = catalog.getItemFromName<Map>(digievoMap).guId;
                 _lastMap = mapScene.map.guId;
                 _lastPosition = mapScene.hero.pos;
-                Microsoft.Xna.Framework.Vector3 position = new Microsoft.Xna.Framework.Vector3(12.5f, 0.5f, 12.5f);
+                Microsoft.Xna.Framework.Vector3 position = new Microsoft.Xna.Framework.Vector3(12.5f, 1f, 12.5f);
                 ChangeMap?.Invoke(GameMain.instance.mapScene, new object[] { Map, position });
 
 
@@ -222,7 +222,7 @@ namespace Bakin
                     {
                         wait += GameMain.getElapsedTime();
                         var vector3 = _effect.getRotation();
-                        vector3.Y += (GameMain.getElapsedTime() * 280 * wait * 1.2f);
+                        vector3.Y += (GameMain.getElapsedTime() * 420 * wait * 1.2f);
                         _effect.setRotation(vector3);
                         return true;
                     }
