@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Yukar.Common.GameData;
+using Yukar.Common.Resource;
 using Yukar.Common.Rom;
 using Yukar.Engine;
 using static Yukar.Engine.MapData;
@@ -161,9 +162,10 @@ namespace Bakin
                 var Map = catalog.getItemFromName<Map>(digievoMap).guId;
                 _lastMap = mapScene.map.guId;
                 _lastPosition = mapScene.hero.pos;
-                Microsoft.Xna.Framework.Vector3 position = new Microsoft.Xna.Framework.Vector3(12.5f, 1f, 12.5f);
+  
+                    
+                Microsoft.Xna.Framework.Vector3 position = new Microsoft.Xna.Framework.Vector3(12.5f, 0.5f, 12.5f);
                 ChangeMap?.Invoke(GameMain.instance.mapScene, new object[] { Map, position });
-
 
                 _effect = mapScene.mapCharList.FirstOrDefault(x => x?.rom?.name == "EvoEffect");
 
@@ -174,6 +176,7 @@ namespace Bakin
 
                 bool Func()
                 {
+               
                     if (!_generatorRunner.isFinished() || !_fadeInRunner.isFinished()) return true;
                     if (wait <= 0.2)
                     {
@@ -196,9 +199,10 @@ namespace Bakin
                                 wait = 0f;
                                 return true;
                             }
-                              
 
+                            GameMain.instance.mapScene.hero.setPosition(position);
                             Tools.PushLog(mapScene.ChangeGraphic(_effect, DigiToEvo.rom.graphic).ToString());
+                
                             _effect.setVisibility(false);
                         }
 
