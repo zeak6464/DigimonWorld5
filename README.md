@@ -5,7 +5,7 @@ Welcome to the Digimon World 5 Fan Game Project repository! This project is dedi
 - The project is primarily written in **C#**.
 
 ## Game Engine
-- The project is done the ##RPG DEVELOPER BAKIN## , you can find it on STEAM.
+- The project is done the **RPG DEVELOPER BAKIN** , you can find it on STEAM.
 
 ## Latest Updates
 - **Rework UI - Started**: We've begun a major overhaul of the user interface to enhance your gameplay experience.
