@@ -69,13 +69,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="bakinengine">
-      <HintPath>..\..\..\Steam\steamapps\common\BAKIN\lib\bakinengine.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Steam\steamapps\common\BAKIN\lib\bakinengine.dll</HintPath>
     </Reference>
     <Reference Include="common">
-      <HintPath>..\..\..\Steam\steamapps\common\BAKIN\lib\common.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Steam\steamapps\common\BAKIN\lib\common.dll</HintPath>
     </Reference>
     <Reference Include="SharpKmyCore">
-      <HintPath>..\..\..\Steam\steamapps\common\BAKIN\lib\SharpKmyCore.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Steam\steamapps\common\BAKIN\lib\SharpKmyCore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

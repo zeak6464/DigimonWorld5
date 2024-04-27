@@ -1,4 +1,5 @@
-﻿using System;
+﻿#define ENABLE_TEST
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Yukar.Common;
@@ -38,6 +39,9 @@ namespace Yukar.Battle
 
         private BattleResultState reservedResult = BattleResultState.NonFinish;
         internal Vector3[] playerLayouts;
+        private bool isBattleEndEventStarted;
+        private bool isBattleForciblyTerminate;
+        private int currentProcessingTrigger = -1;
 
         public override CameraManager CameraManager { get => (battle.battleViewer as BattleViewer3D)?.camManager; }
 
@@ -74,21 +78,35 @@ namespace Yukar.Battle
             foreach (var guid in catalog.getGameSettings().battleEvents)
             {
                 var ev = catalog.getItemFromGuid<Event>(guid);
-                if (ev == null)
+                if (ev == null || !ev.IsValid())
                     continue;
 
-                var newEventRef = new Map.EventRef();
-                newEventRef.guId = guid;
-                newEventRef.pos.X =
-                newEventRef.pos.Z = -1;
-                var dummyChr = new MapCharacter(ev, newEventRef, this);
-                dummyChr.isCommonEvent = true;
-                checkAllSheet(dummyChr, true, true, false);
-                dummyChrs.Add(dummyChr);
+                AddEvent(ev);
             }
 
             memberChangeQueue.Clear();
             extras = null;
+            cameraControlMode = Map.CameraControlMode.NORMAL;
+        }
+
+        internal void AddEvent(Event inEvent, RomItem parentRom = null)
+        {
+            var newEventRef = new Map.EventRef();
+            newEventRef.guId = inEvent.guId;
+            newEventRef.pos.X =
+            newEventRef.pos.Z = -1;
+
+            if ((parentRom is NItem item) && item.useEnhance)
+            {
+                newEventRef.guIdCast = item.guId;
+            }
+
+            var dummyChr = new MapCharacter(inEvent, newEventRef, this);
+
+            dummyChr.isCommonEvent = true;
+
+            checkAllSheet(dummyChr, true, true, false, parentRom);
+            dummyChrs.Add(dummyChr);
         }
 
         private void initBattleFieldPlacedEvents()
@@ -111,7 +129,7 @@ namespace Yukar.Battle
 
             // バトルフィールドと移動マップが一致している場合、グラフィック変更や削除などの状態もチェックする
             // If the battlefield and movement map match, also check the state of graphic changes, deletions, etc.
-            if(v3d.mapDrawer.mapRom.guId == owner.mapScene.map.guId)
+            if (v3d.mapDrawer.mapRom.guId == owner.mapScene.map.guId)
             {
                 foreach (var chr in extras.ToArray())
                 {
@@ -134,7 +152,7 @@ namespace Yukar.Battle
                         // グラフィックが変化していれば反映
                         // Reflect if graphics change
                         var res = original.getGraphic() as Common.Resource.GfxResourceBase;
-                        if(chr.getGraphic() != res)
+                        if (chr.getGraphic() != res)
                             chr.ChangeGraphic(res, v3d.mapDrawer);
 
                         // スケール、透明状態、モーションをコピー
@@ -153,6 +171,8 @@ namespace Yukar.Battle
 
         internal void term()
         {
+            owner.HideALLFreeLayout(true);
+
             foreach (var runner in runnerDic.getList())
             {
                 runner.finalize();
@@ -178,6 +198,8 @@ namespace Yukar.Battle
             mapCharList.Clear();
 
             releaseMenu();
+            spManager.Clear();
+            spManager = null;
             owner = null;
         }
 
@@ -210,12 +232,12 @@ namespace Yukar.Battle
                 camManager.convQuaternionToRotation(qt, out rot);
 
                 hero.pos = new Vector3(camManager.m_intp_target.x, camManager.m_intp_target.y, camManager.m_intp_target.z);
-                xAngle = camManager.m_view_angle.x;
-                yAngle = camManager.m_view_angle.y;
-                dist = camManager.m_distance;
-                camOffset = camManager.m_last_offset;
-                fovy = camManager.m_fovy;
-                nearClip = camManager.m_nearClip;
+                //xAngle = camManager.m_view_angle.x;
+                //yAngle = camManager.m_view_angle.y;
+                //dist = camManager.m_distance;
+                //camOffset = camManager.m_last_offset;
+                //fovy = camManager.m_fovy;
+                //nearClip = camManager.m_nearClip;
 #endif
 
                 mapDrawer = viewer.mapDrawer;
@@ -265,7 +287,7 @@ namespace Yukar.Battle
             {
                 mapChr.update();
             }
-            UpdateFace();
+            owner.mapScene.UpdateFace();
         }
 
         private bool procScript()
@@ -319,16 +341,6 @@ namespace Yukar.Battle
             }
         }
 
-        public override void ShowFace(Guid inLeftId, string inLeftMotion, bool inIsLeftFlip, Guid inRightId, string inRightMotion, bool inIsRightFlip, bool inIsLeftActive, bool inUsedLighting)
-        {
-            owner.mapScene.ShowFace(inLeftId, inLeftMotion, inIsLeftFlip, inRightId, inRightMotion, inIsRightFlip, inIsLeftActive, inUsedLighting);
-        }
-
-        public override void HideFace()
-        {
-            owner.mapScene.HideFace();
-        }
-
         internal new void Draw()
         {
             if (owner == null)
@@ -354,6 +366,11 @@ namespace Yukar.Battle
             // スプライト描画
             // sprite drawing
             spManager.Draw(SpriteManager.SYSTEM_SPRITE_INDEX, SpriteManager.MAX_SPRITE);
+
+            // フリーレイアウト描画
+            // free layout drawing
+            if (battle.battleState < BattleState.FinishFadeIn)
+                owner.DrawFreeLayouts(true);
 
             // ウィンドウ描画
             // window drawing
@@ -400,6 +417,44 @@ namespace Yukar.Battle
 
         public void start(Script.Trigger trigger)
         {
+            switch (trigger)
+            {
+                case Script.Trigger.BATTLE_END:
+                    // BTL_STOP 命令で再突入する可能性があるので処理しないようにする
+                    // Do not process the BTL_STOP instruction as it may re-enter
+                    if (isBattleEndEventStarted)
+                        return;
+
+                    isBattleEndEventStarted = true;
+                    break;
+
+                case Script.Trigger.BATTLE_BEFORE_ACTION:
+                    currentProcessingTrigger = 3;
+                    break;
+                case Script.Trigger.BATTLE_AFTER_ACTION:
+                    currentProcessingTrigger = 4;
+                    break;
+                case Script.Trigger.BATTLE_BEFORE_COMMAND_SELECT:
+                    currentProcessingTrigger = 5;
+                    break;
+                case Script.Trigger.BATTLE_AFTER_COMMAND_SELECT:
+                    currentProcessingTrigger = 6;
+                    break;
+                case Script.Trigger.BATTLE_CANCEL_COMMAND_SELECT:
+                    currentProcessingTrigger = 7;
+                    break;
+            }
+
+            if (currentProcessingTrigger >= 0)
+            {
+                // アクティブキャラクターによる条件パネル判定のために今一度CheckAllSheetする
+                // CheckAllSheet again to check the condition panel based on the active character
+                foreach (var mapChr in dummyChrs)
+                {
+                    checkAllSheet(mapChr, false, true, false);
+                }
+            }
+
             foreach (var runner in runnerDic.getList().ToArray())
             {
                 if (runner.state == ScriptRunner.ScriptState.Running)
@@ -410,7 +465,7 @@ namespace Yukar.Battle
             }
         }
 
-        internal bool isBusy()
+        internal bool isBusy(bool gaugeUpdate = true)
         {
             if (battle == null)
                 return false;
@@ -418,17 +473,20 @@ namespace Yukar.Battle
             // ステータス変動によるゲージアニメをここでやってしまう
             // I will do a gauge animation by status change here
             bool isUpdated = false;
-            foreach (var player in battle.playerData)
+            if (gaugeUpdate)
             {
-                isUpdated |= battle.UpdateBattleStatusData(player);
-            }
-            foreach (var enemy in battle.enemyData)
-            {
-                isUpdated |= battle.UpdateBattleStatusData(enemy);
-            }
-            if (isUpdated)
-            {
-                battle.statusUpdateTweener.Update();
+                foreach (var player in battle.playerData)
+                {
+                    isUpdated |= battle.UpdateBattleStatusData(player);
+                }
+                foreach (var enemy in battle.enemyData)
+                {
+                    isUpdated |= battle.UpdateBattleStatusData(enemy);
+                }
+                if (isUpdated)
+                {
+                    battle.statusUpdateTweener.Update();
+                }
             }
 
             // メンバーチェンジを処理する
@@ -438,7 +496,7 @@ namespace Yukar.Battle
 
             // コマンド指定を処理する
             // process command specification
-            if (battle.battleState == BattleState.Wait)
+            if (battle.battleState == BattleState.Wait || battle.battleState == BattleState.PlayerTurnStart)// バトルプラグインではWaitを通らずPlayerTurnStartになる / In the battle plugin, it is PlayerTurnStart without passing Wait.
             {
                 foreach (var action in actionQueue)
                 {
@@ -450,9 +508,11 @@ namespace Yukar.Battle
                 actionQueue.Clear();
             }
 
+            var isResultInit = battle.battleState == BattleState.ResultInit;
+
             foreach (var runner in runnerDic.getList())
             {
-                if (!runner.isParallelTriggers() &&
+                if ((!runner.isParallelTriggers() || (isResultInit && runner.isEffectTriggers())) &&
                     runner.state == ScriptRunner.ScriptState.Running)
                 {
                     return true;
@@ -487,6 +547,7 @@ namespace Yukar.Battle
             {
                 case 0:
                     {
+                        cur++;// オプション用引数の数を合わせるために予約してある 今は意味のない0が入っているのでスキップ / Reserved to match the number of option arguments.Currently, there are meaningless 0s, so skip it.
                         cmd.type = BattleCommand.CommandType.ATTACK;
                         cmd.power = 100;
                         tgt.selectedBattleCommandType = BattleCommandType.Attack;
@@ -518,7 +579,7 @@ namespace Yukar.Battle
                     bool skipMessage = false;
                     if (curCommand.attrList.Count > cur)
                         skipMessage = curCommand.attrList[cur++].GetBool();
-                    if(skipMessage)
+                    if (skipMessage)
                         tgt.selectedBattleCommandType = BattleCommandType.Cancel;
                     else
                         tgt.selectedBattleCommandType = BattleCommandType.Nothing;
@@ -555,6 +616,16 @@ namespace Yukar.Battle
 
         public override void applyCameraToBattle()
         {
+            var viewer = battle.battleViewer as BattleViewer3D;
+
+            // 待機カメラ再生中であればすぐに反映する
+            // If the standby camera is playing, it will be reflected immediately.
+            if(viewer?.camManager.ntpCamera?.name == Camera.NAME_BATTLE_WAIT &&
+                viewer.camManager.ntpCamera.category != owner.data.system.currentBattleCameraSet)
+            {
+                viewer.PlayCameraAnimation(Camera.NAME_BATTLE_WAIT);
+            }
+
 #if false
             // カメラ情報を更新する
             // Update camera information
@@ -627,7 +698,10 @@ namespace Yukar.Battle
                 battle.removeVisibleEnemy(tgt);
             }
 
-            var data = battle.addEnemyData((Guid)entry.id, entry.layout, entry.idx);
+            if (catalog.getItemFromGuid((Guid)entry.id) == null)
+                return true;
+
+            var data = battle.addEnemyData((Guid)entry.id, entry.layout, entry.idx, entry.level);
             battle.enemyData.Add(data);
             battle.addVisibleEnemy(data);
             battle.stockEnemyData.Remove(data);
@@ -663,7 +737,7 @@ namespace Yukar.Battle
                 if (tgt != null)   // 既に加入していたら何もしない / If already subscribed, do nothing
                     return true;
 
-                if(!(entry.id is Guid))
+                if (!(entry.id is Guid))
                     return true;
 
                 var hero = owner.data.party.GetHero((Guid)entry.id);
@@ -771,46 +845,23 @@ namespace Yukar.Battle
 
                 // GameDataに状態を反映する
                 // Reflect state in GameData
-                battle.ApplyPlayerDataToGameData(data);
+                battle.ApplyPlayerDataToGameData(data, !owner.debugSettings.battleHpAndMpMax);
                 doRefreshLayout = true;
             }
 
+            // 追加・削除結果に従って整列させる
+            // Arrange according to addition/deletion results
             if (doRefreshLayout)
             {
-                int index = 0;
-                foreach (var chr in battle.playerData)
-                {
-                    // 3Dバトル用整列処理
-                    // Alignment processing for 3D battle
-                    if (viewer != null)
-                    {
-                        // 人が増減した場合に対応して正しい位置に移動してやる
-                        // Move to the correct position in response to the increase or decrease in the number of people
-                        var neutralPos = BattleCharacterPosition.getPosition(BattleSequenceManagerBase.battleFieldCenter,
-                            BattleCharacterPosition.PosType.FRIEND, index, battle.playerData.Count);
-                        neutralPos.X = (int)neutralPos.X;
-                        neutralPos.Z = (int)neutralPos.Z;
-                        neutralPos.Y = viewer.mapDrawer?.getAdjustedHeight(neutralPos.X, neutralPos.Z) ?? 0;
-                        var actor = viewer.searchFromActors(chr);
-                        actor.walk(neutralPos.X, neutralPos.Z);
-                    }
-                    else
-                    {
-                        chr.calcHeroLayout(index);
-                    }
-
-                    index++;
-                }
-
-                // 2Dバトル用整列処理
-                // Alignment processing for 2D battle
+                battle.battlePlayerMax = Math.Max(battle.battlePlayerMax, battle.playerData.Count);
+                battle.MovePlayerPosition();
                 battle.battleViewer.refreshLayout(battle.playerData, null);
             }
 
             return true;
         }
 
-        internal void checkAllSheet(MapCharacter mapChr, bool inInitialize, bool applyScript, bool applyGraphic)
+        internal void checkAllSheet(MapCharacter mapChr, bool inInitialize, bool applyScript, bool applyGraphic, RomItem parentRom = null)
         {
             var data = owner.data;
             var rom = mapChr.rom;
@@ -855,13 +906,38 @@ namespace Yukar.Battle
                             ok = MapEngine.checkCondition(data.party.GetMoney(), cond.option, cond.cond);
                             break;
                         case Common.Rom.Event.Condition.Type.COND_TYPE_ITEM:
-                            ok = MapEngine.checkCondition(data.party.GetItemNum(cond.refGuid), cond.option, cond.cond);
+                            ok = MapEngine.checkCondition(data.party.GetItemNum(cond.refGuid, false, true), cond.option, cond.cond);
                             break;
                         case Common.Rom.Event.Condition.Type.COND_TYPE_ITEM_WITH_EQUIPMENT:
-                            ok = MapEngine.checkCondition(data.party.GetItemNum(cond.refGuid, true), cond.option, cond.cond);
+                            ok = MapEngine.checkCondition(data.party.GetItemNum(cond.refGuid, true, true), cond.option, cond.cond);
                             break;
                         case Common.Rom.Event.Condition.Type.COND_TYPE_BATTLE:
-                            ok = getBattlePhaseForCondition() == cond.option;
+                            ok = isMatchBattlePhase(cond.option);
+
+                            // 誰がを指定してある場合に対応
+                            // Corresponds to cases where you specify who
+                            if (ok && cond.option > 2 && cond.attrList.Count > 0)
+                            {
+                                switch (cond.attrList[0].GetInt())
+                                {
+                                    case -1:   // 指定なし / unspecified
+                                        break;
+                                    case 0:    // GUID指定 / GUID specification
+                                        ok = battle.activeCharacter?.GetSource()?.guId == cond.attrList[1].GetGuid();
+                                        break;
+                                    case 1:    // パーティ番号 / party number
+                                        var active = battle.commandSelectPlayer as BattleCharacterBase;
+                                        if (active == null)
+                                            active = battle.activeCharacter;
+                                        ok = battle.playerData.IndexOf(active as BattlePlayerData)
+                                            == ScriptRunner.GetNumOrVariable(GameMain.instance, mapChr.guId, cond.attrList[1], false) - 1;
+                                        break;
+                                    case 2:    // 敵番号 / enemy number
+                                        ok = battle.enemyData.IndexOf(battle.activeCharacter as BattleEnemyData)
+                                            == ScriptRunner.GetNumOrVariable(GameMain.instance, mapChr.guId, cond.attrList[1], false) - 1;
+                                        break;
+                                }
+                            }
                             break;
                         case Common.Rom.Event.Condition.Type.COND_TYPE_HERO:
                             ok = data.party.ExistMember(cond.refGuid);
@@ -914,7 +990,8 @@ namespace Yukar.Battle
                                 }
                                 else
                                 {
-                                    if (runnerDic[scriptId].Trigger == Common.Rom.Script.Trigger.PARALLEL)
+                                    if (runnerDic[scriptId].Trigger == Common.Rom.Script.Trigger.PARALLEL ||
+                                        runnerDic[scriptId].Trigger == Common.Rom.Script.Trigger.AUTO_PARALLEL)
                                         runnerDic[scriptId].removeTrigger = ScriptRunner.RemoveTrigger.ON_COMPLETE_CURRENT_LINE;
                                     else
                                         runnerDic[scriptId].removeTrigger = ScriptRunner.RemoveTrigger.ON_EXIT;
@@ -933,7 +1010,7 @@ namespace Yukar.Battle
                             mapChr.expand = script.expandArea;
                             if (script.commands.Count > 0)
                             {
-                                var runner = new ScriptRunner(this, mapChr, script, scriptId);
+                                var runner = new ScriptRunner(this, mapChr, script, scriptId, parentRom);
 
                                 // 自動的に開始(並列)が removeOnExit状態で残っている可能性があるので、関係ないGUIDに差し替える
                                 // Automatically start (parallel) may remain in the removeOnExit state, so replace it with an unrelated GUID
@@ -956,7 +1033,8 @@ namespace Yukar.Battle
                                     script.trigger == Common.Rom.Script.Trigger.PARALLEL ||
                                     script.trigger == Common.Rom.Script.Trigger.PARALLEL_MV ||
                                     script.trigger == Common.Rom.Script.Trigger.AUTO_PARALLEL ||
-                                    script.trigger == Common.Rom.Script.Trigger.BATTLE_PARALLEL)
+                                    script.trigger == Common.Rom.Script.Trigger.BATTLE_PARALLEL ||
+                                    script.trigger == Common.Rom.Script.Trigger.GETITEM)
                                     runner.Run();
                             }
                         }
@@ -989,6 +1067,7 @@ namespace Yukar.Battle
                                 else
                                 {
                                     if (runnerDic[scriptId].Trigger == Common.Rom.Script.Trigger.PARALLEL ||
+                                        runnerDic[scriptId].Trigger == Common.Rom.Script.Trigger.AUTO_PARALLEL ||
                                         runnerDic[scriptId].Trigger == Common.Rom.Script.Trigger.PARALLEL_MV)
                                         runnerDic[scriptId].removeTrigger = ScriptRunner.RemoveTrigger.ON_COMPLETE_CURRENT_LINE;
                                     else
@@ -1025,14 +1104,30 @@ namespace Yukar.Battle
             }
         }
 
-        private int getBattlePhaseForCondition()
+        private bool isMatchBattlePhase(int phaseCode)
         {
-            if (battle.battleState <= BattleState.BattleStart)
-                return 0;
-            if (battle.battleState >= BattleState.StartBattleFinishEvent)
-                return 2;
+            switch (phaseCode)
+            {
+                // バトル開始？
+                // Battle starting?
+                case 0:
+                    return battle.battleState <= BattleState.BattleStart;
 
-            return 1;
+                // バトル中？
+                // In battle?
+                case 1:
+                    return !(battle.battleState <= BattleState.BattleStart || battle.battleState >= BattleState.StartBattleFinishEvent);
+
+                // バトル終了？
+                // Is the battle over?
+                case 2:
+                    return battle.battleState >= BattleState.StartBattleFinishEvent;
+
+                // 新バトルトリガー
+                // New battle trigger
+                default:
+                    return currentProcessingTrigger == phaseCode;
+            }
         }
 
         public override void showBattleUi(bool v)
@@ -1045,15 +1140,50 @@ namespace Yukar.Battle
             int cur = 0;
             var guid = curCommand.attrList[cur].GetGuid();
             var idx = (int)ScriptRunner.GetNumOrVariable(owner, evGuid, curCommand.attrList[cur++], false);
-            var tgtIsMp = curCommand.attrList[cur++].GetBool();
+            Guid statusId;
+            var gs = catalog.getGameSettings();
+
+            if (curCommand.attrList[cur] is Script.GuidAttr idAttr)
+            {
+                var info = gs.GetCastStatusParamInfo(idAttr.GetGuid());
+
+                if (info == null)
+                {
+                    return;
+                }
+
+                statusId = info.guId;
+            }
+            else if (curCommand.attrList[cur].GetBool())
+            {
+                var info = gs.GetCastStatusParamInfo(gs.maxMPStatusID, true);
+
+				if (info == null)
+				{
+                    return;
+				}
+
+                statusId = info.guId;
+            }
+            else
+            {
+                statusId = gs.maxHPStatusID;
+            }
+
+            cur++;
+
             var valueAttr = curCommand.attrList[cur++];
             var value = (int)ScriptRunner.GetNumOrVariable(owner, evGuid, valueAttr, false);
             var varIdx = value;
             var invert = curCommand.attrList[cur++].GetInt();
             if (invert != 0)
                 value *= -1;
-            BattleCharacterBase chr = null;
-            bool showDamage = false;
+            BattleCharacterBase target = null;
+            var showDamage = false;
+            var useFormula = false;
+            var add = true;
+            var percent = false;
+
             if (curCommand.attrList.Count > cur)
             {
                 // タイプ？
@@ -1061,94 +1191,145 @@ namespace Yukar.Battle
                 switch (curCommand.attrList[cur++].GetInt())
                 {
                     case 0:
-                        chr = searchPartyFromId(guid);
+                        target = searchPartyFromId(guid);
                         break;
                     case 1:
                         var ptIdx = idx - 1;
-                        if (battle.playerData.Count > ptIdx && battle.playerData[ptIdx] != null)
-                            chr = battle.playerData[ptIdx];
+                        if (ptIdx >= 0 && battle.playerData.Count > ptIdx && battle.playerData[ptIdx] != null)
+                            target = battle.playerData[ptIdx];
                         break;
                     case 2:
                         var mobIdx = idx;
-                        chr = battle.enemyData.FirstOrDefault(x => x.UniqueID == mobIdx);
+                        target = battle.enemyData.FirstOrDefault(x => x.UniqueID == mobIdx);
                         break;
                 }
 
                 // 変数？
                 // variable?
-                if (curCommand.attrList[cur++].GetBool())
+                switch (curCommand.attrList[cur++].GetInt())
                 {
-                    value = (int)ScriptRunner.GetVariable(owner, evGuid, valueAttr, false);
-                    if (invert >= 2)
-                        value *= -1;
+                    case 0:// 直値・変数指定 / Direct value/variable specification
+                        break;
+                    case 1:// 旧変数指定 / Old variable specification
+                        value = (int)ScriptRunner.GetVariable(owner, evGuid, valueAttr, false);
+                        if (invert >= 2)
+                            value *= -1;
+                        break;
+                    case 2:// 計算式 / a formula
+                        useFormula = true;
+                        break;
+                    case 3:// 直値・加算・パーセント / Direct value/addition/percentage
+                        percent = true;
+                        break;
+                    case 4:// 直値・上書き / Direct value/overwrite
+                        add = false;
+                        break;
+                    case 5:// 直値・上書き パーセント / Direct value/overwrite percentage
+                        add = false;
+                        percent = true;
+                        break;
                 }
 
                 showDamage = curCommand.attrList[cur++].GetBool();
+
+                // 計算式ダメージ
+                // Calculated damage
+                if (useFormula)
+                {
+                    var source = battle.activeCharacter;
+                    switch (curCommand.attrList[cur++].GetInt())
+                    {
+                        case -1:
+                            break;
+                        case 0:
+                            source = searchPartyFromId(guid);
+                            break;
+                        case 1:
+                            var ptIdx = curCommand.attrList[cur++].GetInt() - 1;
+                            if (battle.playerData.Count > ptIdx && battle.playerData[ptIdx] != null)
+                                source = battle.playerData[ptIdx];
+                            break;
+                        case 2:
+                            var mobIdx = curCommand.attrList[cur++].GetInt();
+                            source = battle.enemyData.FirstOrDefault(x => x.UniqueID == mobIdx);
+                            break;
+                    }
+
+                    value = (int)battle.EvalFormula(valueAttr.GetString(), source, target, Guid.Empty, battle);
+                    if (invert >= 2)
+                        value *= -1;
+                }
             }
             else
             {
-                chr = battle.enemyData.FirstOrDefault(x => x.UniqueID == idx);
+                target = battle.enemyData.FirstOrDefault(x => x.UniqueID == idx);
             }
 
             BattleDamageTextInfo.TextType textType = BattleDamageTextInfo.TextType.Miss;
 
-            if (chr != null)
+            if (target != null)
             {
-                if (tgtIsMp)
-                {
-                    chr.MagicPoint += value;
-                    if (chr.MagicPoint > chr.MaxMagicPoint)
-                        chr.MagicPoint = chr.MaxMagicPoint;
-                    else if (chr.MagicPoint < 0)
-                        chr.MagicPoint = 0;
+                var now = target.consumptionStatusValue.GetStatus(statusId);
 
-                    textType = value > 0 ? BattleDamageTextInfo.TextType.MagicPointHeal : BattleDamageTextInfo.TextType.MagicPointDamage;
+                if (percent)
+				{
+                    value = value * now / 100;
                 }
-                else
+
+                if (!add)
                 {
-                    chr.HitPoint += value;
-                    if (chr.HitPoint > chr.MaxHitPoint)
-                        chr.HitPoint = chr.MaxHitPoint;
-                    else if (chr.HitPoint < 0)
-                        chr.HitPoint = 0;
+                    value -= now;
+                }
 
-                    textType = value > 0 ? BattleDamageTextInfo.TextType.HitPointHeal : BattleDamageTextInfo.TextType.HitPointDamage;
+                target.consumptionStatusValue.AddStatus(statusId, value);
+                target.consumptionStatusValue.Min(statusId, target.GetSystemStatus(gs, statusId));
+                target.consumptionStatusValue.Max(statusId, 0);
 
-                    if (chr.HitPoint > 0)
+                textType = (value >= 0) ? BattleDamageTextInfo.TextType.Heal : BattleDamageTextInfo.TextType.Damage;
+
+                if (statusId == gs.maxHPStatusID)
+                {
+                    target.HitPoint = target.consumptionStatusValue.GetStatus(statusId);
+
+                    if (target.HitPoint > 0)
                     {
-                        if (chr.IsDeadCondition())
+                        if (target.IsDeadCondition())
                         {
-                            if (chr is BattleEnemyData)
+                            if (target is BattleEnemyData)
                             {
-                                battle.battleViewer.AddFadeInCharacter(chr);
+                                battle.battleViewer.AddFadeInCharacter(target);
                             }
-                            chr.Resurrection();
-                            chr.ConsistancyHPPercentConditions(catalog, this);
+                            target.Resurrection();
+                            target.ConsistancyHPPercentConditions(catalog, this);
                         }
                     }
-                    else if (chr.HitPoint == 0)
+                    else if (target.HitPoint == 0)
                     {
-                        if (!chr.IsDeadCondition(true))
+                        if (!target.IsDeadCondition(true))
                         {
-                            if (chr is BattleEnemyData)
+                            if (target is BattleEnemyData)
                             {
-                                battle.battleViewer.AddFadeOutCharacter(chr);
+                                battle.battleViewer.AddFadeOutCharacter(target);
                                 Audio.PlaySound(owner.se.defeat);
                             }
-                            chr.Down(catalog, this);
+                            target.Down(catalog, this);
                         }
                     }
                 }
-
-                if (chr is BattlePlayerData)
+				else if (statusId == gs.GetNewSystemStatusId(gs.maxMPStatusID))
                 {
-                    ((BattlePlayerData)chr).battleStatusData.MagicPoint = chr.MagicPoint;
+                    target.MagicPoint = target.consumptionStatusValue.GetStatus(statusId);
+                }
+
+                if (target is BattlePlayerData)
+                {
+                    ((BattlePlayerData)target).battleStatusData.MagicPoint = target.MagicPoint;
                 }
                 battle.statusUpdateTweener.Begin(0, 1.0f, 30);
-                battle.SetNextBattleStatus(chr);
+                battle.SetNextBattleStatus(target);
             }
 
-            if (chr != null && showDamage)
+            if (target != null && showDamage)
             {
                 string text = value.ToString();
                 if (value < 0)
@@ -1156,7 +1337,7 @@ namespace Yukar.Battle
                     text = (-value).ToString();
                 }
 
-                battle.battleViewer.AddDamageTextInfo(new BattleDamageTextInfo(textType, chr, text));
+                battle.battleViewer.AddDamageTextInfo(new BattleDamageTextInfo(textType, target, text, statusId, gs.GetStatusColor(statusId, (textType == BattleDamageTextInfo.TextType.Damage))));
             }
         }
 
@@ -1164,8 +1345,9 @@ namespace Yukar.Battle
         {
             int cur = 0;
             var tgts = new List<BattleCharacterBase>();
-            getTargetDataForMapArgs(tgts, curCommand, ref cur);
+            getTargetDataForMapArgs(tgts, curCommand, ref cur, evGuid);
 
+            var gs = catalog.getGameSettings();
             var tgtIsMp = curCommand.attrList[cur++].GetBool();
             var value = (int)ScriptRunner.GetNumOrVariable(owner, evGuid, curCommand.attrList[cur++], false);
             var invert = curCommand.attrList[cur++].GetBool();
@@ -1181,6 +1363,7 @@ namespace Yukar.Battle
                         chr.MagicPoint = chr.MaxMagicPoint;
                     else if (chr.MagicPoint < 0)
                         chr.MagicPoint = 0;
+                    chr.consumptionStatusValue.SetStatus(gs.maxMPStatusID, chr.MagicPoint);
                 }
                 else
                 {
@@ -1189,6 +1372,7 @@ namespace Yukar.Battle
                         chr.HitPoint = chr.MaxHitPoint;
                     else if (chr.HitPoint < 0)
                         chr.HitPoint = 0;
+                    chr.consumptionStatusValue.SetStatus(gs.maxHPStatusID, chr.HitPoint);
 
                     if ((chr.HitPoint > 0) && chr.IsDeadCondition())
                         chr.Resurrection();
@@ -1203,7 +1387,7 @@ namespace Yukar.Battle
             }
         }
 
-        public override MapCharacter getBattleActorMapChr(Script.Command curCommand, Guid evGuid )
+        public override MapCharacter getBattleActorMapChr(Script.Command curCommand, Guid evGuid)
         {
             int cur = 0;
             var tgt = getTargetData(curCommand, ref cur, evGuid);
@@ -1221,6 +1405,11 @@ namespace Yukar.Battle
 
         private BattleCharacterBase getTargetData(Script.Command rom, ref int cur, Guid evGuid)
         {
+            // ターゲット指定がない場合がある
+            // Sometimes there is no target designation
+            if (rom.attrList.Count <= cur)
+                return null;
+
             BattleCharacterBase result = null;
             switch (rom.attrList[cur++].GetInt())
             {
@@ -1230,7 +1419,7 @@ namespace Yukar.Battle
                     break;
                 case 1:
                     var ptIdx = (int)ScriptRunner.GetNumOrVariable(owner, evGuid, rom.attrList[cur++], false) - 1;
-                    if (battle.playerData.Count > ptIdx && battle.playerData[ptIdx] != null)
+                    if (ptIdx >= 0 && battle.playerData.Count > ptIdx && battle.playerData[ptIdx] != null)
                         result = battle.playerData[ptIdx];
                     break;
                 case 2:
@@ -1241,7 +1430,7 @@ namespace Yukar.Battle
             return result;
         }
 
-        private BattleCharacterBase searchPartyFromId(object heroId)
+        public override BattleCharacterBase searchPartyFromId(object heroId)
         {
             if (heroId is Guid)
             {
@@ -1255,15 +1444,35 @@ namespace Yukar.Battle
                     return chr;
                 }
             }
-            else if(heroId is int)
+            else if (heroId is int)
             {
                 var idx = (int)heroId;
 
-                if((0 <= idx) && (idx < battle.playerData.Count))
+                if ((0 <= idx) && (idx < battle.playerData.Count))
                 {
                     return battle.playerData[idx];
                 }
             }
+
+            return null;
+        }
+
+        public override BattleCharacterBase searchEnemyFromMapCharacter(MapCharacter mapCharacter)
+		{
+            var viewer = battle.battleViewer as BattleViewer3D;
+
+            if (viewer == null)
+            {
+                return null;
+            }
+
+			foreach (var actor in viewer.enemies)
+			{
+				if (actor.mapChr == mapCharacter)
+				{
+                    return actor.source;
+				}
+			}
 
             return null;
         }
@@ -1291,9 +1500,11 @@ namespace Yukar.Battle
         {
             int cur = 0;
             List<BattleCharacterBase> tgts = new List<BattleCharacterBase>();
+            var gs = catalog.getGameSettings();
+
             if (typeReduced)
             {
-                getTargetDataForMapArgs(tgts, curCommand, ref cur);
+                getTargetDataForMapArgs(tgts, curCommand, ref cur, evGuid);
             }
             else
             {
@@ -1325,6 +1536,7 @@ namespace Yukar.Battle
                     if (condition.deadCondition && condition.deadConditionPercent == 0)
                     {
                         tgt.HitPoint = 0;
+                        tgt.conditionStatusValue.SetStatus(gs.maxHPStatusID, 0);
                         tgt.SetCondition(catalog, condition.guId, this);
                         battle.SetNextBattleStatus(tgt);
                     }
@@ -1340,6 +1552,7 @@ namespace Yukar.Battle
                         if (tgt.IsDeadCondition())
                         {
                             tgt.HitPoint = 1;
+                            tgt.conditionStatusValue.SetStatus(gs.maxHPStatusID, 1);
                             tgt.Resurrection();
                             battle.SetNextBattleStatus(tgt);
                         }
@@ -1355,11 +1568,10 @@ namespace Yukar.Battle
             battle.statusUpdateTweener.Begin(0, 1.0f, 30);
         }
 
-        private void getTargetDataForMapArgs(List<BattleCharacterBase> tgts, Script.Command curCommand, ref int cur)
+        private void getTargetDataForMapArgs(List<BattleCharacterBase> tgts, Script.Command curCommand, ref int cur, Guid evGuid)
         {
             var type = (Common.Rom.Script.Command.ChangePartyMemberType)curCommand.attrList[cur++].GetInt();
             var id = curCommand.attrList[cur++].GetGuid();
-            var idx = curCommand.attrList[cur++].GetInt();
 
             switch (type)
             {
@@ -1379,6 +1591,10 @@ namespace Yukar.Battle
                     break;
                 case Script.Command.ChangePartyMemberType.Index:
                     {
+                        var attr = curCommand.attrList[cur++];
+                        int idx = attr.GetInt();
+                        if(!(attr is Common.Rom.Script.IntAttr))
+                            idx = (int)ScriptRunner.GetNumOrVariable(owner, evGuid, attr, false) - 1;
                         var tgt = searchPartyFromId(idx);
 
                         if (tgt == null)
@@ -1400,24 +1616,41 @@ namespace Yukar.Battle
             var idx = (int)ScriptRunner.GetNumOrVariable(owner, evGuid, curCommand.attrList[curAttr++], false);
             var guid = curCommand.attrList[curAttr++].GetGuid();
 
-            if (catalog.getItemFromGuid(guid) == null)
-                return new MemberChangeData() { finished = true };
+            // #5953 「なし」は消去する効果とする
+            // #5953 “None” is the effect of erasing
+            //if (catalog.getItemFromGuid(guid) == null)
+            //    return new MemberChangeData() { finished = true };
 
             var useLayout = curCommand.attrList[curAttr++].GetBool();
             Vector3? layout = null;
-            if(useLayout)
+            if (useLayout)
             {
                 layout = new Vector3((int)curCommand.attrList[curAttr++].GetFloat(), 0, (int)curCommand.attrList[curAttr++].GetFloat());
             }
 
             Console.WriteLine("appear : " + idx);
-            var result = new MemberChangeData() { mob = true, cmd = MemberChangeData.Command.ADD, idx = idx, id = guid, layout = layout };
+            MemberChangeData result;
+
+            if (curCommand.attrList.Count > curAttr && curCommand.attrList[curAttr++].GetBool())
+            {
+                var level = ScriptRunner.GetNumOrVariable(owner, evGuid, curCommand.attrList[curAttr++], false);
+                result = new MemberChangeData() { mob = true, cmd = MemberChangeData.Command.ADD, idx = idx, id = guid, layout = layout, level = (int)level };
+            }
+            else
+            {
+                result = new MemberChangeData() { mob = true, cmd = MemberChangeData.Command.ADD, idx = idx, id = guid, layout = layout };
+            }
+
             memberChangeQueue.Enqueue(result);
             return result;
         }
 
         public override void battleStop()
         {
+            if (isBattleForciblyTerminate)
+                return;
+
+            isBattleForciblyTerminate = true;
             battle.battleState = BattleState.StopByEvent;
             ((BattleViewer3D)battle.battleViewer).camManager.setWaitFunc(null);
         }
@@ -1470,9 +1703,23 @@ namespace Yukar.Battle
                     return tgt.Speed;
                 case Script.Command.IfHeroSourceType.EQUIPMENT_WEIGHT:
                     return 0;
+                case Script.Command.IfHeroSourceType.STATUS_CUSTOM:
+                    return tgt.GetStatus(catalog.getGameSettings(), option);
             }
 
             return 0;
+        }
+
+        public override int getStatus(Guid statusId, Common.GameData.Hero hero)
+        {
+            var tgt = searchPartyFromId(hero.rom.guId) as BattlePlayerData;
+
+            if (tgt == null)
+            {
+                return 0;
+            }
+
+            return ScriptRunner.getBattleStatus(tgt, statusId);
         }
 
         public override void addStatus(Common.GameData.Hero hero, ScriptRunner.HeroStatusType type, int num)
@@ -1508,10 +1755,21 @@ namespace Yukar.Battle
             battle.statusUpdateTweener.Begin(0, 1.0f, 30);
         }
 
+        public override void SetNextBattleStatus(List<BattleCharacterBase> battlePlayerDataList)
+        {
+			foreach (var tgt in battlePlayerDataList)
+			{
+                battle.SetNextBattleStatus(tgt);
+                battle.statusUpdateTweener.Begin(0, 1.0f, 30);
+            }
+        }
+
         // パラメータの整合性を取るメソッド
         // Method for parameter consistency
         public void consistency(BattlePlayerData p)
         {
+            var gs = catalog.getGameSettings();
+
             // ほかのパラメータも0未満にはならない
             // No other parameter can be less than 0
             if (p.MagicPoint < 0)
@@ -1543,6 +1801,7 @@ namespace Yukar.Battle
             if (p.HitPoint <= 0)
             {
                 p.HitPoint = 0;
+                p.conditionStatusValue.SetStatus(gs.maxHPStatusID, 0);
                 p.Down(catalog, this);
             }
             else if (p.IsDeadCondition())
@@ -1551,12 +1810,15 @@ namespace Yukar.Battle
             }
         }
 
-        public override MemberChangeData addRemoveMember(Script.Command curCommand)
+        public override MemberChangeData addRemoveMember(Script.Command curCommand, Guid evGuid)
         {
             int curAttr = 0;
             var type = (Common.Rom.Script.Command.ChangePartyMemberType)curCommand.attrList[curAttr++].GetInt();
             var id = curCommand.attrList[curAttr++].GetGuid();
-            var idx = curCommand.attrList[curAttr++].GetInt();
+            var idxAttr = curCommand.attrList[curAttr++];
+            var idx = (int)ScriptRunner.GetNumOrVariable(owner, evGuid, idxAttr, false);
+            if (!(idxAttr is Common.Rom.Script.IntAttr))
+                idx--;
             MemberChangeData lastItem = new MemberChangeData() { finished = true };
 
             var add = !curCommand.attrList[curAttr++].GetBool();
@@ -1725,11 +1987,19 @@ namespace Yukar.Battle
 
         public override int getPartyStatus(Script.Command.VarHeroSourceType srcTypePlus, Guid option, int index)
         {
-            if (battle.playerData.Count <= index)
+            if (index < 0 || battle.playerData.Count <= index)
                 return 0;
 
             var battleStatus = battle.playerData[index];
             return ScriptRunner.getBattleStatus(battleStatus, srcTypePlus, option, battle.playerData);
+        }
+
+        public override int getPartyStatus(Guid statusId, int index)
+        {
+            if (index < 0 || battle.playerData.Count <= index)
+                return 0;
+
+            return ScriptRunner.getBattleStatus(battle.playerData[index], statusId);
         }
 
         public override int getPartyNumber()
@@ -1746,6 +2016,14 @@ namespace Yukar.Battle
             return ScriptRunner.getBattleStatus(battleStatus, srcTypePlus, option, battle.playerData);
         }
 
+        public override int getEnemyStatus(Guid statusId, int index)
+        {
+            if (index < 0 || battle.enemyData.Count <= index)
+                return 0;
+
+            return ScriptRunner.getBattleStatus(battle.enemyData[index], statusId);
+        }
+
         public override Guid getEnemyGuid(int index)
         {
             var battleStatus = battle.enemyData.FirstOrDefault(x => x.UniqueID == index);
@@ -1753,6 +2031,39 @@ namespace Yukar.Battle
                 return Guid.Empty;
 
             return battleStatus.monster.guId;
+        }
+
+        internal void setLastSkillUserIndex(BattleCharacterBase user)
+        {
+            var index = 0;
+
+            foreach (var pl in battle.playerData)
+            {
+                if (pl == user)
+                {
+                    lastSkillUseCampType = CampType.Party;
+                    lastSkillUserIndex = index;
+
+                    return;
+                }
+
+                index++;
+            }
+
+            index = 0;
+
+            foreach (var pl in battle.enemyData)
+            {
+                if (pl == user)
+                {
+                    lastSkillUseCampType = CampType.Enemy;
+                    lastSkillUserIndex = index;
+
+                    return;
+                }
+
+                index++;
+            }
         }
 
         internal void setLastSkillTargetIndex(BattleCharacterBase[] friendEffectTargets, BattleCharacterBase[] enemyEffectTargets)
@@ -1845,7 +2156,7 @@ namespace Yukar.Battle
             if (data == null)
                 return;
 
-            battle.ApplyPlayerDataToGameData(data);
+            battle.ApplyPlayerDataToGameData(data, !owner.debugSettings.battleHpAndMpMax);
             data.SetParameters(hero, owner.debugSettings.battleHpAndMpMax, owner.debugSettings.battleStatusMax, owner.data.party);
 
             var viewer = battle.battleViewer as BattleViewer3D;
@@ -1876,6 +2187,127 @@ namespace Yukar.Battle
                     lastBattleResult = 3;
                     break;
             }
+        }
+
+        public override void StopCameraAnimation()
+        {
+            var viewer = battle.battleViewer as BattleViewer3D;
+            if (viewer == null)
+                return;
+
+            viewer.StopCameraAnimation();
+        }
+
+        private BattleCharacterBase getActiveCharacter()
+        {
+            var active = battle.commandSelectPlayer as BattleCharacterBase;
+            if (active == null)
+                active = battle.activeCharacter;
+            return active;
+        }
+
+        public override int getActiveCharacterCampType()
+        {
+            var active = getActiveCharacter();
+            if (active is BattlePlayerData)
+                return 0;
+            else if (active is BattleEnemyData)
+                return 1;
+            return -1;
+        }
+
+        public override int getActiveCharacterIndex()
+        {
+            var active = getActiveCharacter();
+            if (active is BattlePlayerData)
+            {
+                return battle.playerData.IndexOf(active as BattlePlayerData);
+            }
+            else
+            {
+                return battle.enemyData.IndexOf(active as BattleEnemyData);
+            }
+        }
+
+        public override int getActiveCharacterActionType()
+        {
+            var active = getActiveCharacter();
+            switch (active?.selectedBattleCommandType)
+            {
+                case BattleCommandType.Attack:
+                    return 0;
+                case BattleCommandType.Guard:
+                    return 1;
+                case BattleCommandType.Charge:
+                    return 2;
+                case BattleCommandType.Nothing:
+                case BattleCommandType.Nothing_Down:
+                case BattleCommandType.Skip:
+                    return 3;
+                case BattleCommandType.Skill:
+                case BattleCommandType.SameSkillEffect:
+                    return 4;
+                case BattleCommandType.Item:
+                    return 5;
+                case BattleCommandType.MonsterEscape:
+                case BattleCommandType.PlayerEscape:
+                case BattleCommandType.Leave:
+                    return 6;
+                case BattleCommandType.Position:
+                    return 7;
+                case BattleCommandType.Critical:
+                case BattleCommandType.ForceCritical:
+                    return 8;
+                default:
+                    return -1;
+            }
+        }
+
+        public override int getActiveCharacterTargetCamp()
+        {
+            var active = getActiveCharacter();
+            if ((active?.targetCharacter?.Length ?? 0) == 0)
+                return -1;
+            return (active.targetCharacter[0] is BattlePlayerData) ? 0 : 1;
+        }
+
+        public override int getActiveCharacterTargetIndex()
+        {
+            var active = getActiveCharacter();
+            if ((active?.targetCharacter?.Length ?? 0) == 0)
+                return -1;
+            var target = active.targetCharacter[0];
+            if (target is BattlePlayerData)
+            {
+                return battle.playerData.IndexOf(target as BattlePlayerData);
+            }
+            else
+            {
+                return battle.enemyData.IndexOf(target as BattleEnemyData);
+            }
+        }
+
+        internal bool isBusy(Guid eventGuid)
+        {
+            if(runnerDic.ContainsKey(eventGuid))
+                return runnerDic[eventGuid].state == ScriptRunner.ScriptState.Running;
+
+            var runner = mapRunnerBorrowed.FirstOrDefault(x => x.mapChr.rom?.guId == eventGuid);
+            if (runner != null)
+                return runner.state == ScriptRunner.ScriptState.Running;
+
+            return false;
+        }
+
+        internal void SetCurrentCameraMatrix(SharpKmyMath.Matrix4 p, SharpKmyMath.Matrix4 v)
+        {
+            pp = p;
+            vv = v;
+        }
+
+        internal void clearCurrentProcessingTrigger()
+        {
+            currentProcessingTrigger = -1;
         }
     }
 }

@@ -58,4 +58,4 @@ Please note that this sample battle plug-in may not work with updates to Bakin i
 
 ---------------------------------------------
 RPG Developer Bakin
-© 2023 SmileBoom Co.Ltd. All Rights Reserved.
+© 2024 SmileBoom Co.Ltd. All Rights Reserved.

@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SmileBoom Co.Ltd.")]
 [assembly: AssemblyProduct("RPG Developer Bakin")]
-[assembly: AssemblyCopyright("Copyright ©2022-2023 SmileBoom Co.Ltd. All Rights Reserved.")]
+[assembly: AssemblyCopyright("Copyright ©2022-2024 SmileBoom Co.Ltd. All Rights Reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -46,5 +46,5 @@ using System.Runtime.InteropServices;
 // 既定値にすることができます:
 // Can be default:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.2.2.4")]
-[assembly: AssemblyFileVersion("1.2.2.4")]
+[assembly: AssemblyVersion("1.9.0.1")]
+[assembly: AssemblyFileVersion("1.9.0.1")]

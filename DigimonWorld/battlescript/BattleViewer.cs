@@ -859,9 +859,7 @@ namespace Yukar.Battle
 
                 foreach (var info in damageTextList.Where(info => info.textInfo != null).GroupBy(info => info.targetCharacter).Select(group => group.FirstOrDefault()).Where(info => info != null))
                 {
-                    Color color = Color.White;
-                    if (info.type < BattleDamageTextInfo.TextType.Miss)
-                        color = catalog.getGameSettings().damageNumColors[(int)info.type];
+                    Color color = info.textColor;
 
                     //switch (info.type)
                     //{
@@ -1217,6 +1215,11 @@ namespace Yukar.Battle
         }
         internal void AddDamageTextInfo(BattleDamageTextInfo info)
         {
+			if (info.textColor.A == 0x00)
+			{
+                return;
+			}
+
             var addList = new List<BattleDamageTextInfo> { info };
             if (damageTextList == null)
                 damageTextList = addList;
@@ -1234,6 +1237,11 @@ namespace Yukar.Battle
         }
         private void SetupDamageTextAnimationImpl(BattleDamageTextInfo damageText)
         {
+            // セットアップ済みの要素に対しては何もしない
+            // Do nothing to elements that have been set up
+            if (damageText.textInfo != null)
+                return;
+
             var characterData = new List<BattleDamageTextInfo.CharacterInfo>();
 
             for (int i = 0; i < damageText.text.Length; i++)
@@ -1249,6 +1257,8 @@ namespace Yukar.Battle
                     case BattleDamageTextInfo.TextType.CriticalDamage:
                     case BattleDamageTextInfo.TextType.HitPointHeal:
                     case BattleDamageTextInfo.TextType.MagicPointHeal:
+                    case BattleDamageTextInfo.TextType.Damage:
+                    case BattleDamageTextInfo.TextType.Heal:
                         characterInfo.timer = (i * -3 - 5);
                         break;
                     case BattleDamageTextInfo.TextType.Miss:
@@ -1498,6 +1508,11 @@ namespace Yukar.Battle
         internal bool ContainsFadeOutCharacter(BattleEnemyData enemyMonster)
         {
             return fadeoutEnemyList.Contains(enemyMonster);
+        }
+
+        internal virtual bool HasNoMessageWindow()
+        {
+            return false;
         }
     }
 }

@@ -321,6 +321,7 @@ namespace Yukar.Battle
 
                 data.castLevelUpData.levelUpExpList = player.player.rom.levelUpExpList;
                 data.castLevelUpData.startLevel = player.player.level;
+                data.castLevelUpData.maxLevel = player.player.maxLevel;
                 data.castLevelUpData.addExp = addExp;
                 data.castLevelUpData.baseExp =
                 data.castLevelUpData.totalExp = player.player.exp;
@@ -336,6 +337,7 @@ namespace Yukar.Battle
                 {
                     data.jobLevelUpData.levelUpExpList = jobCast.rom.levelUpExpList;
                     data.jobLevelUpData.startLevel = jobCast.level;
+                    data.jobLevelUpData.maxLevel = jobCast.maxLevel;
                     data.jobLevelUpData.upLevel = 0;
                     data.jobLevelUpData.addExp = Common.Rom.GameSettings.CalcExp(addExp, gameSettings.JobExpFormulaWords);
                     data.jobLevelUpData.baseExp =
@@ -352,6 +354,7 @@ namespace Yukar.Battle
                 {
                     data.sideJobLevelUpData.levelUpExpList = jobCast.rom.levelUpExpList;
                     data.sideJobLevelUpData.startLevel = jobCast.level;
+                    data.sideJobLevelUpData.maxLevel = jobCast.maxLevel;
                     data.sideJobLevelUpData.upLevel = 0;
                     data.sideJobLevelUpData.addExp = Common.Rom.GameSettings.CalcExp(addExp, gameSettings.SideJobExpFormulaWords);
                     data.sideJobLevelUpData.baseExp =
@@ -501,7 +504,8 @@ namespace Yukar.Battle
                     break;
 
                 case ResultState.Item:
-                    if ((resultFrameCount >= 10) || Input.KeyTest(Input.StateType.TRIGGER, Input.KeyStates.DECIDE, Input.GameState.MENU) || isResultEffectSkip)
+                    if ((resultFrameCount >= 10) || Input.KeyTest(Input.StateType.TRIGGER, Input.KeyStates.DECIDE, Input.GameState.MENU) ||
+                        Input.KeyTest(Input.StateType.TRIGGER, Input.KeyStates.TOUCH, Input.GameState.SYSTEM) || isResultEffectSkip)
                     {
                         resultWindowInfo |= ResultWindowInfo.Item;
 
@@ -563,7 +567,8 @@ namespace Yukar.Battle
                         isItemNewIconVisible = !isItemNewIconVisible;
                     }
 
-                    if (Input.KeyTest(Input.StateType.TRIGGER, Input.KeyStates.DECIDE, Input.GameState.MENU))
+                    if (Input.KeyTest(Input.StateType.TRIGGER, Input.KeyStates.DECIDE, Input.GameState.MENU) ||
+                        Input.KeyTest(Input.StateType.TRIGGER, Input.KeyStates.TOUCH, Input.GameState.SYSTEM))
                     {
                         itemPageCount++;
 
@@ -729,7 +734,8 @@ namespace Yukar.Battle
                         characterLevelUpData[index].easingProgress = frameCount / 120;
                     }
 
-                    if ((resultFrameCount >= 120 && autoProceedResult) || Input.KeyTest(Input.StateType.TRIGGER, Input.KeyStates.DECIDE, Input.GameState.MENU))
+                    if ((resultFrameCount >= 120 && autoProceedResult) || Input.KeyTest(Input.StateType.TRIGGER, Input.KeyStates.DECIDE, Input.GameState.MENU) ||
+                        Input.KeyTest(Input.StateType.TRIGGER, Input.KeyStates.TOUCH, Input.GameState.SYSTEM))
                     {
                         frameCount = 120f;
                         for (int index = 0; index < characterLevelUpData.Length; index++)

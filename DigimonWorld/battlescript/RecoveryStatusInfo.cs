@@ -8,8 +8,8 @@ namespace Yukar.Battle
     /// </summary>
     class RecoveryStatusInfo
     {
-        private readonly BattleCharacterBase character;
-        private readonly Common.Rom.Condition condition;
+        public readonly BattleCharacterBase character;
+        public readonly Common.Rom.Condition condition;
 
         public RecoveryStatusInfo(BattleCharacterBase inCharacter, Common.Rom.Condition condition)
         {

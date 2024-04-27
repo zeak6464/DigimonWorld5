@@ -31,6 +31,8 @@ namespace Yukar.Battle
             HitPointHeal,
             MagicPointHeal,
             Miss,
+            Damage,
+            Heal,
         }
 
         public BattleDamageTextInfo(TextType textType, BattleCharacterBase target)
@@ -51,18 +53,28 @@ namespace Yukar.Battle
                     break;
             }
         }
-        public BattleDamageTextInfo(TextType textType, BattleCharacterBase target, string text)
+        public BattleDamageTextInfo(TextType textType, BattleCharacterBase target, string text, System.Guid statusId, Microsoft.Xna.Framework.Color textColor)
         {
             this.type = textType;
             this.text = text;
             this.IsNumberOnlyText = (text.Count(c => char.IsNumber(c)) == text.Length);
             this.targetCharacter = target;
+            this.statusId = statusId;
+            this.textColor = textColor;
+        }
+
+        public BattleDamageTextInfo(TextType textType, BattleCharacterBase target, string text)
+            : this(textType, target, text, System.Guid.Empty, Microsoft.Xna.Framework.Color.White)
+        {
         }
 
         public readonly TextType type;
+        public System.Guid statusId;
+        public Microsoft.Xna.Framework.Color textColor;
         public CharacterInfo[] textInfo;
         public readonly string text;
         public bool IsNumberOnlyText;
         public readonly BattleCharacterBase targetCharacter;
+        public int id = -1;// 重なっているときにずらすための目安 / Guidelines for shifting when they overlap
     }
 }

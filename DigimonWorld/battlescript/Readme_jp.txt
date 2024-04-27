@@ -53,4 +53,4 @@ RPG Developer Bakin Wiki : https://rpgbakin.com/pukiwiki/
 	
 ---------------------------------------------
 RPG Developer Bakin
-© 2023 SmileBoom Co.Ltd. All Rights Reserved.
+© 2024 SmileBoom Co.Ltd. All Rights Reserved.

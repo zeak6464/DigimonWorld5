@@ -14,205 +14,61 @@ namespace Yukar.Battle
     {
         public GameMain owner;
         public BattleViewer battleViewer;
+        Common.Rom.GameSettings gameSettings;
 
-        private BattleCharacterBase[,] Table;
-        private int horizontalIndex;
-        private int verticalIndex;
+        private List<BattleCharacterBase> targetList = new List<BattleCharacterBase>();
+        private int targetIndex { get; set; }
 
-        public BattleCharacterBase[] All { get { return Table.Cast<BattleCharacterBase>().Where(character => character != null).ToArray(); } }
-        public int Count { get { return All.Count(); } }
-        public BattleCharacterBase CurrentSelectCharacter { get { return GetCharacter(horizontalIndex, verticalIndex); } }
+        public int Count { get => targetList.Count; }
+        public BattleCharacterBase CurrentSelectCharacter { get { return targetList.Count > targetIndex ? targetList[targetIndex] : null; } }
 
         public static Dictionary<BattleCharacterBase, BattleCharacterBase> recentSelectedTarget =
             new Dictionary<BattleCharacterBase, BattleCharacterBase>();
         private BattleCharacterBase lastChr;
 
-        private BattleCharacterBase GetCharacter(int horizontal, int vertical)
+        private bool GetTargetIndex(BattleCharacterBase inCh, ref int outTargetIndex)
         {
-            return Table[vertical, horizontal];
-        }
-
-        private bool GetTableIndex(BattleCharacterBase inCh, ref int outX, ref int outY)
-        {
-            var size0 = Table.GetLength(0);
-            for (int y = 0; y < size0; y++)
-            {
-                var size1 = Table.GetLength(1);
-                for (int x = 0; x < size1; ++x)
+			for (int i = 0; i < targetList.Count; i++)
+			{
+                if (targetList[i] == inCh)
                 {
-                    if (Table[x, y] == inCh)
-                    {
-                        outX = x;
-                        outY = y;
-                        return true;
-                    }
+                    outTargetIndex = i;
 
+                    return true;
                 }
             }
+
             return false;
         }
 
         public CommandTargetSelecter()
         {
-            Table = new BattleCharacterBase[9, 9];
-        }
-
-        void AddPlayer(BattlePlayerData player, int index)
-        {
-			if (index < Table.GetLength(1))
-			{
-                Table[0, index] = player;
-            }
+            gameSettings = Common.Catalog.sInstance.getGameSettings();
         }
 
         public void AddBattleCharacters(List<BattleCharacterBase> inBattleCharacters)
         {
-            if (inBattleCharacters.Count == 0 || inBattleCharacters[0] is BattlePlayerData)
-            {
-                int idx = 0;
-                foreach (var item in inBattleCharacters)
-                {
-                    AddPlayer(item as BattlePlayerData, idx++);
-                }
-            }
-            else
-            {
-                var monsters = new List<BattleCharacterBase>(inBattleCharacters.Count);
-
-                monsters.AddRange(inBattleCharacters);
-
-                monsters.Sort(
-                    delegate (BattleCharacterBase a, BattleCharacterBase b)
-                    {
-                        if (a.pos.X > b.pos.X)
-                        {
-                            return 1;
-                        }
-                        else if (a.pos.X < b.pos.X)
-                        {
-                            return -1;
-                        }
-                        else
-                        {
-                            return 0;
-                        }
-                    }
-                );
-
-                var leftX = monsters[0].pos.X;
-                var rightX = monsters[0].pos.X;
-                var frontZ = monsters[0].pos.Z;
-                var backZ = monsters[0].pos.Z;
-
-                foreach (var item in monsters)
-                {
-                    if (item.pos.X < leftX)
-                    {
-                        leftX = item.pos.X;
-                    }
-                    if (item.pos.X > rightX)
-                    {
-                        rightX = item.pos.X;
-                    }
-                    if (item.pos.Z > frontZ)
-                    {
-                        frontZ = item.pos.Z;
-                    }
-                    if (item.pos.Z < backZ)
-                    {
-                        frontZ = item.pos.Z;
-                    }
-                }
-
-                var divX = (rightX - leftX) / (Table.GetLength(0) - 1);
-                var divZ = (frontZ - backZ) / (Table.GetLength(1) - 1);
-
-                leftX -= divX / 2;
-                frontZ += divZ / 2;
-
-                foreach (var item in monsters)
-                {
-                    var x = (divX == 0) ? 0 : (int)Math.Floor((item.pos.X - leftX) / divX);
-                    var z = (divZ == 0) ? 0 : (int)Math.Floor((frontZ - item.pos.Z) / divZ);
-
-                    if (x < 0)
-                        x = 0;
-                    if (z < 0)
-                        z = 0;
-                    if (x > Table.GetLength(1))
-                        x = Table.GetLength(1) - 1;
-                    if (z > Table.GetLength(0))
-                        z = Table.GetLength(0) - 1;
-
-                    while (Table[z, x] != null)
-                    {
-                        x++;
-                        if (Table.GetLength(1) <= x)
-                        {
-                            x = 0;
-                            z++;
-                        }
-
-                        if (Table.GetLength(0) <= z)
-                        {
-                            z = 0;
-                            break;
-                        }
-                    }
-
-                    Table[z, x] = item;
-                }
-            }
-        }
-
-        void AddMonster(BattleEnemyData monster)
-        {
-            switch (monster.arrangmentType)
-            {
-                case BattleEnemyData.MonsterArrangementType.BackLeft: Table[0, 0] = monster; break;
-                case BattleEnemyData.MonsterArrangementType.MiddleLeft: Table[1, 0] = monster; break;
-                case BattleEnemyData.MonsterArrangementType.ForwardLeft: Table[2, 0] = monster; break;
-
-                case BattleEnemyData.MonsterArrangementType.BackCenter: Table[0, 1] = monster; break;
-                case BattleEnemyData.MonsterArrangementType.MiddleCenter: Table[1, 1] = monster; break;
-                case BattleEnemyData.MonsterArrangementType.ForwardCenter: Table[2, 1] = monster; break;
-
-                case BattleEnemyData.MonsterArrangementType.BackRight: Table[0, 2] = monster; break;
-                case BattleEnemyData.MonsterArrangementType.MiddleRight: Table[1, 2] = monster; break;
-                case BattleEnemyData.MonsterArrangementType.ForwardRight: Table[2, 2] = monster; break;
-
-                case BattleEnemyData.MonsterArrangementType.Manual: 
-                    Table[(int)(monster.pos.Z - BattleSequenceManagerBase.battleFieldCenter.Z) + 4,
-                        (int)(monster.pos.X - BattleSequenceManagerBase.battleFieldCenter.X) + 4] = monster; break;
-            }
+            targetList.AddRange(inBattleCharacters);
         }
 
         public void Clear()
         {
-            for (int i = 0; i < Table.GetLength(0); i++)
-            {
-                for (int j = 0; j < Table.GetLength(1); j++)
-                {
-                    Table[i, j] = null;
-                }
-            }
+            targetList.Clear();
+
+            targetIndex = 0;
         }
 
         public bool SetSelect(BattleCharacterBase character)
         {
-            for (int h = 0; h < Table.GetLength(0); h++)
-            {
-                for (int v = Table.GetLength(1) - 1; v >= 0; v--)
-                {
-                    if (GetCharacter(h, v) == character)
-                    {
-                        horizontalIndex = h;
-                        verticalIndex = v;
+			for (int i = 0; i < targetList.Count; i++)
+			{
+				if (targetList[i] == character)
+				{
+                    targetIndex = i;
 
-                        return true;
-                    }
-                }
-            }
+                    return true;
+				}
+			}
 
             return false;
         }
@@ -227,186 +83,91 @@ namespace Yukar.Battle
                     return;
             }
 
-            horizontalIndex = 0;
-            verticalIndex = 0;
-
-            for (int h = 0; h < Table.GetLength(0); h++)
-            {
-                for (int v = Table.GetLength(1) - 1; v >= 0; v--)
-                {
-                    if (GetCharacter(h, v) != null)
-                    {
-                        horizontalIndex = h;
-                        verticalIndex = v;
-
-                        return;
-                    }
-                }
-            }
+            SetSelect(chr);
         }
 
         public bool InputUpdate()
         {
             bool isDecide = false;
-            int nextHorizontalIndex = horizontalIndex, nextVerticalIndex = verticalIndex;
+            int nextTargetIndex = targetIndex;
             bool cursorMoved = false;
 
             void MoveToMinusImpl()
             {
-                if (horizontalIndex > 0)
+                if (nextTargetIndex > 0)
                 {
-                    for (int h = nextHorizontalIndex - 1; h >= 0; h--)
-                    {
-                        if (GetCharacter(h, nextVerticalIndex) != null)
-                        {
-                            nextHorizontalIndex = h;
-                            cursorMoved = true;
-                            break;
-                        }
-                    }
-
-                    for (int h = nextHorizontalIndex - 1; h >= 0 && !cursorMoved; h--)
-                    {
-                        for (int v = 0; v < Table.GetLength(1); v++)
-                        {
-                            if (GetCharacter(h, v) != null)
-                            {
-                                nextHorizontalIndex = h;
-                                nextVerticalIndex = v;
-                                cursorMoved = true;
-                                break;
-                            }
-                        }
-                    }
+                    nextTargetIndex--;
                 }
+                else
+                {
+                    nextTargetIndex = targetList.Count - 1;
+                }
+
+                cursorMoved = nextTargetIndex != targetIndex;
             }
 
             void MoveToPlusImpl()
             {
-                if (horizontalIndex < Table.GetLength(1))
+                if (nextTargetIndex < targetList.Count - 1)
                 {
-                    for (int h = nextHorizontalIndex + 1; h < Table.GetLength(1); h++)
-                    {
-                        if (GetCharacter(h, nextVerticalIndex) != null)
-                        {
-                            nextHorizontalIndex = h;
-                            cursorMoved = true;
-                            break;
-                        }
-                    }
-
-                    for (int h = nextHorizontalIndex + 1; h < Table.GetLength(1) && !cursorMoved; h++)
-                    {
-                        for (int v = 0; v < Table.GetLength(1); v++)
-                        {
-                            if (GetCharacter(h, v) != null)
-                            {
-                                nextHorizontalIndex = h;
-                                nextVerticalIndex = v;
-                                cursorMoved = true;
-                                break;
-                            }
-                        }
-                    }
+                    nextTargetIndex++;
                 }
+                else
+                {
+                    nextTargetIndex = 0;
+                }
+
+                cursorMoved = nextTargetIndex != targetIndex;
             }
 
             if (Input.KeyTest(Input.StateType.REPEAT, Input.KeyStates.LEFT, Input.GameState.MENU))
             {
-                if(GetCharacter(horizontalIndex, verticalIndex) is BattleEnemyData)
-                    MoveToMinusImpl();
-                else
+                if (gameSettings.commandTargetSelecterReverseLR)
+                {
                     MoveToPlusImpl();
+                }
+                else
+                {
+                    MoveToMinusImpl();
+                }
             }
 
             if (Input.KeyTest(Input.StateType.REPEAT, Input.KeyStates.RIGHT, Input.GameState.MENU))
             {
-                if (GetCharacter(horizontalIndex, verticalIndex) is BattleEnemyData)
-                    MoveToPlusImpl();
-                else
+                if (gameSettings.commandTargetSelecterReverseLR)
+                {
                     MoveToMinusImpl();
+                }
+                else
+                {
+                    MoveToPlusImpl();
+                }
             }
 
             if (Input.KeyTest(Input.StateType.REPEAT, Input.KeyStates.UP, Input.GameState.MENU))
             {
-                if (verticalIndex > 0)
+                if (gameSettings.commandTargetSelecterReverseUD)
                 {
-                    for (int v = nextVerticalIndex - 1; v >= 0; v--)
-                    {
-                        if (GetCharacter(nextHorizontalIndex, v) != null)
-                        {
-                            nextVerticalIndex = v;
-                            cursorMoved = true;
-                            break;
-                        }
-                    }
-
-                    for (int v = nextVerticalIndex - 1; v >= 0 && !cursorMoved; v--)
-                    {
-                        for (int h = 0; h < Table.GetLength(1); h++)
-                        {
-                            if (GetCharacter(h, v) != null)
-                            {
-                                nextHorizontalIndex = h;
-                                nextVerticalIndex = v;
-                                cursorMoved = true;
-                                break;
-                            }
-                        }
-                    }
+                    MoveToPlusImpl();
                 }
-
-                // 動かなかったら左右に動くかも試してみる
-                // If it doesn't move, try moving left and right
-                if (!cursorMoved)
+                else
                 {
-                    if (GetCharacter(horizontalIndex, verticalIndex) is BattleEnemyData)
-                        MoveToPlusImpl();
-                    else
-                        MoveToMinusImpl();
+                    MoveToMinusImpl();
                 }
             }
 
             if (Input.KeyTest(Input.StateType.REPEAT, Input.KeyStates.DOWN, Input.GameState.MENU))
             {
-                if (verticalIndex < Table.GetLength(1))
+                if (gameSettings.commandTargetSelecterReverseUD)
                 {
-                    for (int v = nextVerticalIndex + 1; v < Table.GetLength(1); v++)
-                    {
-                        if (GetCharacter(nextHorizontalIndex, v) != null)
-                        {
-                            nextVerticalIndex = v;
-                            cursorMoved = true;
-                            break;
-                        }
-                    }
-
-                    for (int v = nextVerticalIndex + 1; v < Table.GetLength(1) && !cursorMoved; v++)
-                    {
-                        for (int h = 0; h < Table.GetLength(1); h++)
-                        {
-                            if (GetCharacter(h, v) != null)
-                            {
-                                nextHorizontalIndex = h;
-                                nextVerticalIndex = v;
-                                cursorMoved = true;
-                                break;
-                            }
-                        }
-                    }
+                    MoveToMinusImpl();
                 }
-
-                // 動かなかったら左右に動くかも試してみる
-                // If it doesn't move, try moving left and right
-                if (!cursorMoved)
+                else
                 {
-                    if (GetCharacter(horizontalIndex, verticalIndex) is BattleEnemyData)
-                        MoveToMinusImpl();
-                    else
-                        MoveToPlusImpl();
+                    MoveToPlusImpl();
                 }
             }
-			
+
 #if WINDOWS
             //タッチ判定
             if (Touch.IsDown())
@@ -420,7 +181,7 @@ namespace Yukar.Battle
                     var direction = SharpKmyMath.Vector3.normalize(far - near);
                     var ray = new Microsoft.Xna.Framework.Ray(new Microsoft.Xna.Framework.Vector3(near.x, near.y, near.z), new Microsoft.Xna.Framework.Vector3(direction.x, direction.y, direction.z));
                     //コライダの追加
-                    foreach (var ch in Table)
+                    foreach (var ch in targetList)
                     {
                         if (ch == null) continue;
                         var actors = bv3d.searchFromActors(ch);
@@ -450,7 +211,7 @@ namespace Yukar.Battle
                     }
 
                     //判定
-                    foreach (var ch in Table)
+                    foreach (var ch in targetList)
                     {
                         if (ch == null) continue;
                         var actors = bv3d.searchFromActors(ch);
@@ -465,8 +226,8 @@ namespace Yukar.Battle
                         // // image judgment
                         //    if (bill.isHit(new SharpKmyMath.Vector3(mousPos.x, mousPos.y, 0), actorPos, new SharpKmyMath.Vector3(2, 2, 0)))
                         //    {
-                        //        this.GetTableIndex(ch, ref nextVerticalIndex, ref nextHorizontalIndex);
-                        //        if (horizontalIndex == nextHorizontalIndex && verticalIndex == nextVerticalIndex)
+                        //        this.GetTargetIndex(ch, ref nextTargetIndex);
+                        //        if (horizontalIndex == nextTargetIndex)
                         //        {
                         //            isDecide = true;
                         //        }
@@ -525,8 +286,8 @@ namespace Yukar.Battle
                             }
 							if (bb.Intersects(ray) != null)
                             {
-                                this.GetTableIndex(ch, ref nextVerticalIndex, ref nextHorizontalIndex);
-                                if (horizontalIndex == nextHorizontalIndex && verticalIndex == nextVerticalIndex)
+                                this.GetTargetIndex(ch, ref nextTargetIndex);
+                                if (targetIndex == nextTargetIndex)
                                 {
                                     isDecide = true;
                                 }
@@ -581,8 +342,8 @@ namespace Yukar.Battle
                             if (rect.X <= touchPos.x && touchPos.x <= rect.X + rect.Width
                             && rect.Y <= touchPos.y && touchPos.y <= rect.Y + rect.Height)
                             {
-                                this.GetTableIndex(ch, ref nextVerticalIndex, ref nextHorizontalIndex);
-                                if (horizontalIndex == nextHorizontalIndex && verticalIndex == nextVerticalIndex)
+                                this.GetTargetIndex(ch, ref nextTargetIndex);
+                                if (horizontalIndex == nextTargetIndex)
                                 {
                                     isDecide = true;
                                 }
@@ -636,8 +397,8 @@ namespace Yukar.Battle
                             var bill = actors.mapChr.getMapBillboard();
                             if (bill.isHit(new SharpKmyMath.Vector3(mousPos.x, mousPos.y, mousPos.z), new SharpKmyMath.Vector3(2, 2, 0)))
                             {
-                                this.GetTableIndex(ch, ref nextVerticalIndex, ref nextHorizontalIndex);
-                                if (horizontalIndex == nextHorizontalIndex && verticalIndex == nextVerticalIndex)
+                                this.GetTargetIndex(ch, ref nextTargetIndex);
+                                if (horizontalIndex == nextTargetIndex)
                                 {
                                     isDecide = true;
                                 }
@@ -654,8 +415,8 @@ namespace Yukar.Battle
                                 var objectHit = hit.transform;
                                 if (obj.transform == objectHit)
                                 {
-                                    this.GetTableIndex(ch, ref nextVerticalIndex, ref nextHorizontalIndex);
-                                    if (horizontalIndex == nextHorizontalIndex && verticalIndex == nextVerticalIndex)
+                                    this.GetTargetIndex(ch, ref nextTargetIndex);
+                                    if (target == nextTargetIndex)
                                     {
                                         isDecide = true;
                                     }
@@ -671,13 +432,9 @@ namespace Yukar.Battle
 
             // 動いたかどうか、再判定する
             // re-evaluate whether it has moved
-            if (horizontalIndex != nextHorizontalIndex || verticalIndex != nextVerticalIndex)
-                cursorMoved = true;
-
-            if (cursorMoved)
+            if (cursorMoved || (targetIndex != nextTargetIndex))
             {
-                horizontalIndex = nextHorizontalIndex;
-                verticalIndex = nextVerticalIndex;
+                targetIndex = nextTargetIndex;
                 Audio.PlaySound(owner.se.select);
             }
 

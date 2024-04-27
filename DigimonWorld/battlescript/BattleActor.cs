@@ -104,12 +104,16 @@ namespace Yukar.Battle
         internal const float ESCAPE_MAX_COUNT = 20;
         public static Common.GameData.Party party;
         internal Microsoft.Xna.Framework.Color? overRidedColor;
+        private Vector3? rangePos = null;
+        private MapCharacterMoveMacro clearOnCompleteRangePosTweener;
+        public string lastMotion;
         private const float MOVE_SPEED = 0.1f;
 
         public static BattleActor GenerateFriend(Common.Catalog catalog, Common.GameData.Hero chr, int count, int max)
         {
             var result = new BattleActor();
             var mapChr = new MapCharacter(null);
+            mapChr.guId = Guid.NewGuid();
             mapChr.setDisplayID(Common.Util.BATTLE3DDISPLAYID);
             var res = catalog.getItemFromGuid(chr.rom.graphic) as Common.Resource.GfxResourceBase;
             if (party != null)
@@ -118,17 +122,17 @@ namespace Yukar.Battle
                 party = null;
             }
             mapChr.ChangeGraphic(res, null);
-			if (mapChr.isBillboard())
-			{
-				mapChr.setBlend(SharpKmyGfx.BLENDTYPE.kPREMULTIPLIED);
-				mapChr.getMapBillboard().setVisibility(false);
-				mapChr.getMapBillboard().setDisplayID(Common.Util.BATTLE3DDISPLAYID);
-			}
-            else if(mapChr.getModelInstance() != null)
-			{
-				mapChr.getModelInstance().setVisibility(false);
-				mapChr.getModelInstance().setDisplayID(Common.Util.BATTLE3DDISPLAYID);
-			}
+            if (mapChr.isBillboard())
+            {
+                mapChr.setBlend(SharpKmyGfx.BLENDTYPE.kPREMULTIPLIED);
+                mapChr.getMapBillboard().setVisibility(false);
+                mapChr.getMapBillboard().setDisplayID(Common.Util.BATTLE3DDISPLAYID);
+            }
+            else if (mapChr.getModelInstance() != null)
+            {
+                mapChr.getModelInstance().setVisibility(false);
+                mapChr.getModelInstance().setDisplayID(Common.Util.BATTLE3DDISPLAYID);
+            }
             //mapChr.setHeroSymbol(true);
             mapChr.useOverrideColor = true;
             mapChr.ChangeColor(255, 255, 255, 255);
@@ -140,15 +144,15 @@ namespace Yukar.Battle
             return result;
         }
 
-        internal static BattleActor GenerateFriend(Common.Catalog catalog, Common.Rom.Cast chrRom, int count, int max)
+        internal static BattleActor GenerateFriend(Common.Catalog catalog, Common.GameData.Party party, Common.Rom.Cast chrRom, int count, int max)
         {
-            var chr = Common.GameData.Party.createHeroFromRom(catalog, chrRom);
+            var chr = Common.GameData.Party.createHeroFromRom(catalog, party, chrRom);
             return GenerateFriend(catalog, chr, count, max);
         }
 
         public static void createWeaponModel(ref BattleActor result, Common.Catalog catalog, Common.GameData.Hero chr = null)
         {
-            if(chr == null)
+            if (chr == null)
                 chr = ((BattlePlayerData)result.source).player;
 
             var weapon = chr.equipments[0]; // 武器 / weapon
@@ -166,6 +170,7 @@ namespace Yukar.Battle
         {
             var result = new BattleActor();
             var mapChr = new MapCharacter(null);
+            mapChr.guId = Guid.NewGuid();
             mapChr.ChangeGraphic(chr, null);
             //mapChr.setHeroSymbol(true);
             mapChr.useOverrideColor = true;
@@ -227,6 +232,7 @@ namespace Yukar.Battle
 
         private bool playMotion(string motion)
         {
+            lastMotion = motion;
             return playMotion(motion, mapChr, null);
         }
 
@@ -234,7 +240,7 @@ namespace Yukar.Battle
         {
             if (chr != null)
                 mdl = chr.getModelInstance();
-            
+
             if (mdl != null)   // 3Dモデルがある時 / When you have a 3D model
             {
                 // 見つかったら普通に再生する
@@ -262,7 +268,7 @@ namespace Yukar.Battle
                     }
                 }
             }
-            else if (chr != null && chr.isBillboard()) // 2Dの時 / 2D time
+            else if (chr != null && (chr.isBillboard() || chr.isSprite())) // 2Dの時 / 2D time
             {
                 // 見つかったら普通に再生する
                 // If found, play normally
@@ -293,22 +299,21 @@ namespace Yukar.Battle
             return false;
         }
 
-        internal void walk(float x, float z, bool useDir = true)
+        internal void walk(float x, float z, bool setRangePos = false)
         {
             var moveX = mapChr.pos.X - x;
             var moveZ = mapChr.pos.Z - z;
 
-			if ((moveX != 0) || (moveZ != 0))
-			{
-                if (useDir)
-                {
-                    MapCharacterMoveMacro.addXZTweener(mapChr,
-                        ScriptRunner.calcDirImpl(moveX, moveZ), true, true, map);
-                }
-                else
-                {
-                    MapCharacterMoveMacro.addXZTweener(mapChr, x, z, map);
-                }
+            MapCharacterMoveMacro macro = null;
+            if ((moveX != 0) || (moveZ != 0))
+            {
+                macro = MapCharacterMoveMacro.addXZTweener(mapChr, x, z, map, () => { mapChr.pos.X = x; mapChr.pos.Z = z; });
+            }
+
+            if (setRangePos)
+            {
+                rangePos = new Vector3(x, mapChr.pos.Y, z);
+                clearOnCompleteRangePosTweener = macro;
             }
         }
 
@@ -339,7 +344,7 @@ namespace Yukar.Battle
                 return;
 
             //if (isShadowScene && mapChr.isBillboard())
-             //   return;
+            //   return;
 
             if (!mapChr.draw(scn))
                 return;
@@ -351,7 +356,7 @@ namespace Yukar.Battle
 
             // 物理実装以降、自動で高さを合わせてくれなくなったので、自前で生成してやる
             // After the physical implementation, the height is no longer adjusted automatically, so I will generate it myself
-            if(!mapChr.fixHeight)
+            if (!mapChr.fixHeight)
                 mapChr.pos.Y = drawer.getAdjustedHeight(mapChr.pos.X, mapChr.pos.Z);
 
             if (stateQueue.Count > 0 && isReady())
@@ -373,30 +378,15 @@ namespace Yukar.Battle
             // run when you run away
             if (state.type == ActorStateType.ESCAPE)
             {
-                if(!source.IsActionDisabled())
+                if (!source.IsActionDisabled())
                     mapChr.Move(0f, MOVE_SPEED * frontDir * GameMain.getRelativeParam60FPS(), true);
                 var stepCount = Math.Min(ESCAPE_MAX_COUNT, stateCount) / ESCAPE_MAX_COUNT;
                 var alpha = 1.0f - stepCount;
                 if (source != null)
                     source.imageAlpha = alpha;
                 mapChr.setOpacityMultiplier(alpha);
-				if (stepCount == 1.0)
+                if (stepCount == 1.0)
                     mapChr.hide |= MapCharacter.HideCauses.BY_BATTLE;
-            }
-
-            // コマンド選択中
-            // command selected
-            if(state.type == ActorStateType.COMMAND_SELECT)
-            {
-                switch (((BattleSequenceManager)BattleSequenceManagerBase.Get()).battleCommandState)
-                {
-                    case SelectBattleCommandState.CommandSelect:
-                        playMotion("command_wait");
-                        break;
-                    default:
-                        playMotion("attack_wait");
-                        break;
-                }
             }
 
             // ハケる
@@ -428,6 +418,14 @@ namespace Yukar.Battle
                 (mapChr.getModelInstance()?.containsMotion("battle_wait") ?? false)))   // 2Dキャラは元の挙動のままのほうが都合が良いので、mdlだけチェックする / It is convenient for 2D characters to keep their original behavior, so check only mdl
             {
                 playWaitMotion();
+            }
+
+            // 移動完了時にrangePosをクリアする
+            // Clear rangePos when movement completes
+            if (clearOnCompleteRangePosTweener != null && !mapChr.moveMacros.Contains(clearOnCompleteRangePosTweener))
+            {
+                rangePos = null;
+                clearOnCompleteRangePosTweener = null;
             }
 
             stateCount += GameMain.getRelativeParam60FPS();
@@ -490,6 +488,7 @@ namespace Yukar.Battle
 
                     //if (source.isMovableToForward())
                     //{
+                    //    rangePos = mapChr.pos;
                     //    MapCharacterMoveMacro.addSimpleXZTweener(mapChr, ScriptRunner.calcDirImpl(0, frontDir), MOVE_SPEED);
                     //    playMotion("battle_walk");
                     //}
@@ -505,7 +504,9 @@ namespace Yukar.Battle
                         break;
                     }
 
-                    playWaitMotion();
+                    if (!playMotion("command_wait"))
+                        playWaitMotion();
+
                     break;
 
                 case ActorStateType.BACK_TO_WAIT:// コマンド選択し終わった時 / After selecting a command
@@ -520,6 +521,7 @@ namespace Yukar.Battle
 
                     //if (source.isMovableToForward())
                     //{
+                    //    rangePos = null;
                     //    MapCharacterMoveMacro.addSimpleXZTweener(mapChr, ScriptRunner.calcDirImpl(0, -frontDir), MOVE_SPEED);
                     //    playMotion("battle_walk");
                     //}
@@ -609,7 +611,7 @@ namespace Yukar.Battle
 
                         // 自分に睡眠・即死スキルなどを使って倒れている場合がある
                         // You may fall down using sleep or instant death skills on yourself.
-                        if(nowState != ActorStateType.KO)
+                        if (nowState != ActorStateType.KO)
                             playMotion("battle_walk");
                     }
                     else
@@ -808,7 +810,7 @@ namespace Yukar.Battle
                 state.handler();
         }
 
-        private void playWaitMotion()
+        public void playWaitMotion()
         {
             // 状態異常のモーションがあればそれを再生する
             // If there is a status ailment motion, play it
@@ -829,7 +831,7 @@ namespace Yukar.Battle
             foreach (var e in source.conditionInfoDic)
             {
                 var condition = e.Value.rom;
-                if ((condition != null) && !string.IsNullOrEmpty(condition.motion) && highestPriority < condition.Priority && condition.actionDisabled==false )
+                if ((condition != null) && !string.IsNullOrEmpty(condition.motion) && highestPriority < condition.Priority && condition.actionDisabled == false)
                 {
                     motion = condition.motion;
                     highestPriority = condition.Priority;
@@ -867,10 +869,10 @@ namespace Yukar.Battle
                 mapChr.ChangeColor(color.R, color.G, color.B, color.A);
         }
 
-		internal void setOpacityMultiplier( float v)
-		{
-			mapChr.setOpacityMultiplier(v);
-		}
+        internal void setOpacityMultiplier(float v)
+        {
+            mapChr.setOpacityMultiplier(v);
+        }
 
         internal Microsoft.Xna.Framework.Vector2 getScreenPos(SharpKmyMath.Matrix4 pp, SharpKmyMath.Matrix4 vv, MapScene.EffectPosType posType = MapScene.EffectPosType.Body)
         {
@@ -905,6 +907,11 @@ namespace Yukar.Battle
         internal bool isReady()
         {
             return stateCount >= state.wait && mapChr.moveMacros.Count == 0;
+        }
+
+        internal Vector3 getRangePos()
+        {
+            return rangePos.HasValue ? rangePos.Value : mapChr.pos;
         }
     }
 }
