@@ -4,12 +4,15 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Yukar.Common;
 using Yukar.Common.GameData;
 using Yukar.Common.Resource;
 using Yukar.Common.Rom;
 using Yukar.Engine;
+using static Yukar.Battle.BattleActor;
 using static Yukar.Engine.BattleEnum;
+using static Yukar.Engine.EffectDrawer;
 using AttackAttributeType = System.Guid;
 using BattleCommand = Yukar.Common.Rom.BattleCommand;
 using Hero = Yukar.Common.GameData.Hero;
@@ -8405,7 +8408,7 @@ namespace Yukar.Battle
         private int currentIndexSelected;
         private bool selectingEvoDone;
         private string[] currentEvolutionList;
-        private int prevDirection = -1;
+        private float prevDirection = -1;
         private bool PrepareEvolution()
         {
             if (catalog.getItemFromGuid(activeCharacter.Hero.rom.guId) is Rom.Cast activeRom)
@@ -8461,7 +8464,7 @@ namespace Yukar.Battle
                     var currentTarget = (int)BattleEventControllerBase.lastSkillTargetIndex;
                     var playerToEvolve = playerData[currentTarget];
 
-                    if (prevDirection == -1) prevDirection = playerToEvolve.mapChr.getDirectionDigital();
+                    if (prevDirection == -1) prevDirection = playerToEvolve.mapChr.getDirectionRadian();
 
                     if (playerToEvolve.MagicPoint <= 1)
                     {
@@ -8532,6 +8535,8 @@ namespace Yukar.Battle
                     var battleviewer3d = battleViewer as BattleViewer3D;
                     var positionPreEvo = battleviewer3d.friends[currentTarget].mapChr.pos;
                     var positionCache = new Vector3(positionPreEvo.X, positionPreEvo.Y, positionPreEvo.Z);
+
+                    var isMovableBack = playerToEvolve.isMovableToForward(false);
                     var graphic = catalog.getItemFromGuid(hero.rom.Graphic, false) as GfxResourceBase;
                     hero.SetLevel(party.Players[currentTarget].level, catalog, party);
                     playerData[currentTarget].MagicPoint /= 2;
@@ -8542,20 +8547,28 @@ namespace Yukar.Battle
                     playerToEvolve.MagicPoint -= (int)((percentageToReduce / 100) * playerToEvolve.MagicPoint);
 
 
-                    playerToEvolve.mapChr.setDirection(prevDirection, true, true);
+                   // playerToEvolve.mapChr.setDirection(prevDirection, true, true);
+                    playerToEvolve.mapChr.setDirectionFromRadian(prevDirection, true, true);
                     prevDirection = -1;
                     
-                    battleviewer3d.prepareFriends(playerData);
+                    // battleviewer3d.prepareFriends(playerData);
                     battleviewer3d.friends[currentTarget].mapChr.pos = positionCache;
                     SetNextBattleStatus(playerToEvolve);
 
                     bool waitToAnim()
                     {
-
+                        var actor = Viewer.searchFromActors(playerToEvolve);
                         playerToEvolve.mapChr.playMotion("attack", 0.2f, false, true);
 
                         if (!playerToEvolve.mapChr.isChangeMotionAvailable()) return true;
                         playerToEvolve.mapChr.playMotion("wait", 0.2f, false, false);
+
+                        if (isMovableBack)
+                        {
+                            MapCharacterMoveMacro.addSimpleXZTweener(actor.mapChr, ScriptRunner.calcDirImpl(0, -1), 0.1f,
+                            () => { if (actor.getActorState() != ActorStateType.KO) actor.playWaitMotion(); });
+                        }
+                           
 
                         return false;
                     }
